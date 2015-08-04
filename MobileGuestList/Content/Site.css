@@ -1,0 +1,80 @@
+﻿/* Styles for validation helpers
+-----------------------------------------------------------*/
+/*.field-validation-error {
+    color: #f00;
+    display: block;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}*/
+
+
+/* jQuery mobile styles
+-----------------------------------------------------------*/
+
+/* Make listview buttons fill the whole horizontal width of the screen */
+/*.ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li {
+    padding-right: 15px;
+}
+
+.ui-bar-a, .ui-body-a, .ui-btn-up-a, .ui-btn-hover-a, .ui-btn-down-a,
+.ui-bar-b, .ui-body-b, .ui-btn-up-b, .ui-btn-hover-b, .ui-btn-down-b,
+.ui-bar-c, .ui-body-c, .ui-btn-up-c, .ui-btn-hover-c, .ui-btn-down-c,
+.ui-bar-d, .ui-body-d, .ui-btn-up-d, .ui-btn-hover-d, .ui-btn-down-d,
+.ui-bar-e, .ui-body-e, .ui-btn-up-e, .ui-btn-hover-e, .ui-btn-down-e,
+.ui-btn-active  {
+    text-shadow: none;
+}*/
+
+
+
+
+
+/*=== Global ========================================================*/
+
+body { height:100%; background-color: #FFF; margin:0px; padding:0px; position:relative; }
+
+a:link { color: #00306E; }
+a:hover { color: #00306E; }
+a:active { color: #00306E; }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	select:focus, textarea:focus, input:focus {
+		font-size: 16px;
+		background: #eee;
+	}
+}
+
+.nbsp { font-size:0; line-height:0; clear:both; display:block; height:0; }
+
+/*--- LoginHeader --------------------------------------------------------*/
+#login-header { width:100%; height: 100px; background-color: #014687; overflow: hidden; }
+#login-header .page { margin:auto; width:300px; text-align:left; }
+/*--- Header --------------------------------------------------------*/
+#header { width:100%; height:85px; background-color:#014687; overflow:hidden; }
+#header .page { margin:auto; width:300px; position:relative }
+#header .page .back-button { top:0px; left:0px; text-align:left; position:absolute; }
+#header .page .back-button a { color:#FFF; text-decoration:none }
+#header .page .logo { margin:auto; text-align:center; }
+#header .page .menu-button { top:0px; right:0px; text-align:right; position:absolute; }
+.location { margin:auto; width:300px; text-align:right; }
+
+/*--- Footer --------------------------------------------------------*/
+#footer {	width:100%; height:100px; color:#FFF; background-color:#014687; text-align:center; }

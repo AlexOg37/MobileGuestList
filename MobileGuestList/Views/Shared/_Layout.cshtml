@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>@ViewBag.Title</title>
+	<meta name="viewport" content="width=device-width" />
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body>
+    @if (IsSectionDefined("Header"))
+    {
+      @RenderSection("Header")
+    }
+    else
+    {
+      @Html.Partial("_HeaderPartial")
+    }
+
+  <div>
+    @RenderBody()
+  </div>
+
+  <div id="footer">
+    @if (IsSectionDefined("Footer"))
+    {
+      @RenderSection("Footer")
+    }
+    else
+    {
+      @Html.Partial("_FooterPartial")
+    }
+  </div>
+</body>
+</html>
