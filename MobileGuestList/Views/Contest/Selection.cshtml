@@ -1,0 +1,97 @@
+﻿<div class="container">
+    <form method="post" class="form-group">
+    <div class="form-group" style="margin-top:10px; text-align:center;">       
+        <select name="Id" class="form-control">
+            <option value=0>Pick Your Contest</option>
+            @{
+                foreach (var contest in ViewBag.Contests)
+                {
+                        <option selected="" value=@contest.Id>@contest.Name</option>   
+                        
+                }
+            }
+        </select>
+    </div>
+        <div class="form-group" >
+            <label style="font-size:90%;"for="SortByContestName">Sort By Contest Name</label>
+            <div class="onoffswitch pull-right">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                <label class="onoffswitch-label" for="myonoffswitch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                </label>
+            </div>
+
+
+        </div>
+        <div class="form-group" style="text-align:center; margin-top:50px">
+            <input class="btn btn-default" type="submit" value="Generate Guest List!" style="background-color:#014687 !important; color:#ffffff !important; height:70px">
+        </div>
+ </form>
+</div>
+@*<div>
+  <form method="post">
+    <div class="selectbox" style="height: 291px;">
+      <table width="300" align="center" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td height="5">
+              &nbsp;
+            </td>
+          </tr>
+          @{
+            if (ViewBag.Contests != null)
+            {
+              <tr>
+                <td>
+                  @{
+                    int iSelectedId = 0;
+                    if (ViewBag.SelectedId != null)
+                    {
+                      iSelectedId = ViewBag.SelectedId;
+                    }
+                  }
+                  <select name="Id" tabindex="1" style="width: 260px;">
+                    <option value=0>Pick Your Contest</option>
+                    @{
+                      foreach (var contest in ViewBag.Contests)
+                      {
+                        if (contest.Id == iSelectedId)
+                        {
+                          <option selected="" value=@contest.Id>@contest.Name</option>
+                        }
+                        else
+                        {
+                          <option value=@contest.Id>@contest.Name</option>
+                        }
+                      }
+                    }
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td width="197" height="51" valign="top">
+                  <label for="SortByContestName">Sort By Contest Name</label>
+                  <input name="SortByContestName" tabindex="2" id="SortByContestName" type="checkbox">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input tabindex="3" class="button" type="submit" value="Generate Guest List!">
+                </td>
+              </tr>
+            }
+            else
+            {
+              <tr>
+                <td>
+                  <p>You do not have any guest lists currently.<br>You must create a contest to generate a guest list.</p>
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>*@
