@@ -1,0 +1,6 @@
+*.dll
+*/obj
+*/bin
+/packages
+/.nuget
+*.suo
