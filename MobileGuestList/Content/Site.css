@@ -48,7 +48,9 @@
 
 
 /*=== Global ========================================================*/
-
+html {
+    height:100%;
+}
 body { height:100%; background-color: #FFF; margin:0px; padding:0px; position:relative; }
 
 a:link { color: #00306E; }
@@ -65,10 +67,10 @@ a:active { color: #00306E; }
 .nbsp { font-size:0; line-height:0; clear:both; display:block; height:0; }
 
 /*--- LoginHeader --------------------------------------------------------*/
-#login-header { width:100%; height: 100px; background-color: #014687; overflow: hidden; }
+#login-header { width:100%; height: 100px; background-color: #014687; overflow: hidden; margin-bottom:20px;}
 #login-header .page { margin:auto; width:300px; text-align:left; }
 /*--- Header --------------------------------------------------------*/
-#header { width:100%; height:85px; background-color:#014687; overflow:hidden; }
+#header { width:100%; height:85px; background-color:#014687; overflow:hidden; margin-bottom:20px; }
 #header .page { margin:auto; width:300px; position:relative }
 #header .page .back-button { top:0px; left:0px; text-align:left; position:absolute; }
 #header .page .back-button a { color:#FFF; text-decoration:none }
@@ -77,4 +79,81 @@ a:active { color: #00306E; }
 .location { margin:auto; width:300px; text-align:right; }
 
 /*--- Footer --------------------------------------------------------*/
-#footer {	width:100%; height:100px; color:#FFF; background-color:#014687; text-align:center; }
+#footer {	width:100%; height:100px; color:#FFF; background-color:#014687; text-align:center;}
+
+.container {
+    width:300px !important;
+ }
+.selectbox {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #7C7C7C #C3C3C3 #DDD;
+    background: #FFF url("../images/inputBg.gif") repeat-x scroll center bottom;
+    color: #444;
+    font-family: inherit;
+    font-size: 1em;
+    padding: 10px 23px;
+    margin-right: 0.25em;
+    border-radius: 3px;
+    outline: medium none;
+    border-collapse: collapse;
+}
+.btn {
+      color:grey !important;
+}
+
+#wrap {
+    min-height:100%;
+    margin-bottom:-100px;
+}
+.btn-primary {
+background-color: #cdae51;
+border-color: #3F2B22;
+color: #000000;
+}
+     .onoffswitch {
+        position: relative; width: 90px;
+        -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    }
+    .onoffswitch-checkbox {
+        display: none;
+    }
+    .onoffswitch-label {
+        display: block; overflow: hidden; cursor: pointer;
+        border: 2px solid #999999; border-radius: 20px;
+        margin-bottom: 0 !important;
+    }
+    .onoffswitch-inner {
+        display: block; width: 200%; margin-left: -100%;
+        transition: margin 0.3s ease-in 0s;
+    }
+    .onoffswitch-inner:before, .onoffswitch-inner:after {
+        display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+        font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+        box-sizing: border-box;
+    }
+    .onoffswitch-inner:before {
+        content: "ON";
+        padding-left: 10px;
+        background-color: #014687; color: #FFFFFF;
+    }
+    .onoffswitch-inner:after {
+        content: "OFF";
+        padding-right: 10px;
+        background-color: #EEEEEE; color: #999999;
+        text-align: right;
+    }
+    .onoffswitch-switch {
+        display: block; width: 18px; margin: 6px;
+        background: #FFFFFF;
+        position: absolute; top: 0; bottom: 0;
+        right: 56px;
+        border: 2px solid #999999; border-radius: 20px;
+        transition: all 0.3s ease-in 0s; 
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+        margin-left: 0;
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+        right: 0px; 
+    }

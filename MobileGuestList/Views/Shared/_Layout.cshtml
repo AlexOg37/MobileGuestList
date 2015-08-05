@@ -6,24 +6,27 @@
 	<title>@ViewBag.Title</title>
 	<meta name="viewport" content="width=device-width" />
 	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>*@
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/bootstrap.js")
 </head>
 
 <body>
-    @if (IsSectionDefined("Header"))
-    {
-      @RenderSection("Header")
-    }
-    else
-    {
-      @Html.Partial("_HeaderPartial")
-    }
+    <div id="wrap">
+        @if (IsSectionDefined("Header"))
+        {
+          @RenderSection("Header")
+        }
+        else
+        {
+          @Html.Partial("_HeaderPartial")
+        }
 
-  <div>
-    @RenderBody()
-  </div>
-
+      <div>
+        @RenderBody()
+      </div>
+    </div>
   <div id="footer">
     @if (IsSectionDefined("Footer"))
     {
