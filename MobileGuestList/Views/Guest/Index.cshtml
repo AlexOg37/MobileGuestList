@@ -8,11 +8,11 @@
 
     <div style="clear:both"></div>
 
-    <p style="float:left; display: inline; margin-top:10px;">Total Attended</p><p style="float: right; display: inline; margin-top: 10px;">0/0</p>
+    <p id="total">Total Attended</p><p id="nums">0/0</p>
 
     <div style="clear:both"></div>
 
-    <p style="float:left; display: inline;">Hide Attendees</p>
+    <p id="hide_attend">Hide Attendees</p>
 
     <div class="onoffswitch pull-right">
         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
@@ -21,15 +21,17 @@
             <span class="onoffswitch-switch"></span>
         </label>
     </div>
-    <div class="selectbox" style="margin-top:70px">
+    <div class="selectbox guests">
         @foreach (var guest in ViewBag.Guests)
         {
             <p style="display:none">@guest.Id.ToString()</p>
-            <span class="niceCheck pull-left" style="margin-right:10px; background-color:#ffffff"><input id="CheckBox1" name="Attend" type="checkbox"></span>
-
-            <strong>@guest.Name</strong>
-            {
+    <div class="checkbox_row">      
+        <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.Id.ToString())" class="css-checkbox" /><label for="checkboxG@(guest.Id.ToString())" id="guestmargin"class="css-label radGroup1 pull-left"></label>
+           
+              <strong>@guest.LastName, @guest.Name</strong>
+            @{
                 String strInfo = "";
+                
                 if (guest.HomeCity.Length != 0)
                 {
                     strInfo = guest.HomeCity;
@@ -74,11 +76,42 @@
                 strInfo = strInfo + strInfo1;
                 <p>@strInfo</p>
             }
-
+        
+    </div>   
         }
+        
     </div>
 
 </div>
+<script>
+    $('.guests input').change(function () {
+        
+        if ($(this).prop("checked")) {
+            
+            $(this).closest(".checkbox_row").addClass("highlight");
+        }
+        else {
+            
+            $(this).closest(".checkbox_row").removeClass("highlight");
+        }
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @*<div>
       <div class="selectbox" style="height: 291px;">
         <table width="300" align="center" border="0" cellspacing="0" cellpadding="0">

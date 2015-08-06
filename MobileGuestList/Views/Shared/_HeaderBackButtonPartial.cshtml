@@ -8,9 +8,9 @@
 			<div class="logo">
 				<img width="125" height="55" alt="" src="~/Images/HeaderLogo.png">
 			</div>
-			<div class="menu-button">
-				<a href=""><img src="~/Images/MenuButton.png" alt="" /></a>
-			</div>
+            <div class="menu-button sb-open-right">
+                <a href=""><img src="~/Images/MenuButton.png" alt="" /></a>
+            </div>
 		</div>
 	</div>
 	@*<div class="location pull-right" style="font-size:90%">
@@ -21,4 +21,28 @@
 			}
 		}
 	</div>*@
+    <div class="sb-slidebar sb-right">
+        <div>
+        <div class="logo pull-left">
+            <img width="125" height="55" alt="" src="~/Images/HeaderLogo.png">
+        </div>
+        <div class="bb pull-right" >
+            <p>Station</p>
+            </div>
+        </div>
+
+        <ul style="color:white">
+            <li><a href="/Contest/Selection">GuestsLists</a></li>
+            <li><a href="http://promosuite.com">Full Site</a></li>
+            <li><a href="/Home/Help">Help</a></li>
+            <li><a href="/Account/LogOff">Sign Out</a></li>
+        </ul>
+    </div>
 </div>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            $.slidebars();
+        });
+    })(jQuery);
+</script>

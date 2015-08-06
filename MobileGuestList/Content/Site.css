@@ -65,7 +65,9 @@ a:active { color: #00306E; }
 }
 
 .nbsp { font-size:0; line-height:0; clear:both; display:block; height:0; }
-
+#fb_inocs {
+    display:inline;
+}
 /*--- LoginHeader --------------------------------------------------------*/
 #login-header { width:100%; height: 100px; background-color: #014687; overflow: hidden; margin-bottom:20px;}
 #login-header .page { margin:auto; width:300px; text-align:left; }
@@ -84,7 +86,7 @@ a:active { color: #00306E; }
 }
 /*--- Footer --------------------------------------------------------*/
 #footer {	width:100%; height:100px; color:#FFF; background-color:#014687; text-align:center;}
-
+hr { width:90%; margin:1em auto; border:none; height:1px; background:#ccc; }
 .container {
     width:300px !important;
  }
@@ -98,15 +100,19 @@ a:active { color: #00306E; }
     border-style: solid;
     border-width: 1px;
     border-color: #7C7C7C #C3C3C3 #DDD;
-    background: #FFF url("../images/inputBg.gif") repeat-x scroll center bottom;
     color: #444;
     font-family: inherit;
     font-size: 1em;
-    padding: 10px 23px;
+    margin-top:50px;
     margin-right: 0.25em;
     border-radius: 3px;
     outline: medium none;
     border-collapse: collapse;
+}
+.checkbox_row {
+padding: 5px 23px;
+height:50px;
+border:solid 1px;
 }
 .btn {
       color:grey !important;
@@ -168,26 +174,246 @@ color: #000000;
         right: 0px; 
     }
 
-   label .lab_check {
- width: 29px;
- height: 27px; 
- display: block; 
- position: relative; 
+input[type=checkbox].css-checkbox {
+							position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+						}
+
+						input[type=checkbox].css-checkbox + label.css-label, input[type=checkbox].css-checkbox + label.css-label.clr {
+							padding-left:29px;
+							height:28px; 
+							display:inline-block;
+							line-height:28px;
+							background-repeat:no-repeat;
+							background-position: 0 0;
+							font-size:28px;
+							vertical-align:middle;
+							cursor:pointer;
+
+						}
+
+						input[type=checkbox].css-checkbox:checked + label.css-label, input[type=checkbox].css-checkbox + label.css-label.chk {
+							background-position: 0 -28px;
+						}
+						label.css-label {
+				background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_9ad0a9f32098f8c224653bcfeb22dfb7.png);
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+
+#generatelist {
+background-color:#014687 !important; color:#ffffff !important; height:70px;
 }
- 
-input[type="checkbox"] + span {
- position: absolute; /* Абсолютное позиционирование */
- left: 203px; top: 370px;
- width: 100%; height: 100%;
- background: url(image/check.png) no-repeat; /* Фоновый рисунок */
- cursor: pointer; /* Курсор в виде руки */
+
+#sortcontest {
+    font-size:90%;
 }
- 
-.check{
-margin-left:40px;
+#btngenerate {
+text-align:center; margin-top:70px;
 }
+
+.checkbox_row.highlight {
+    background-color:#CDFFCC;
+}
+.logincontainer {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #7C7C7C #C3C3C3 #DDD;
+    color: #444;
+    font-family: inherit;
+    font-size: 1em;
+    padding:10px 23px;
+    margin-right: 0.25em;
+    border-radius: 3px;
+    outline: medium none;
+    border-collapse: collapse;
+
+}
+#guestmargin {
+margin-right:10px;
+margin-top:5px;
+}
+#total {
+float:left; display: inline; margin-top:10px;
+}
+#nums {
+float: right; display: inline; margin-top: 10px;
+}
+#hide_attend {
+float:left; display: inline;
+}
+#btn_margin {
+margin-top:20px;
+}
+#btn_yes {
+background-color:#014687 !important; color:#ffffff !important; padding-right:5px;
+}
+#btn_no {
+background-color:#014687 !important; color:#ffffff !important; padding-right:5px;
+}
+#btn_cancel {
+background-color:#014687 !important; color:#ffffff !important; 
+}
+
+.sb-slidebar {
+	height: 100%;
+	overflow-y: auto; /* Enable vertical scrolling on Slidebars when needed. */
+	position: fixed;
+	top: 0;
+	z-index: 0; /* Slidebars sit behind sb-site. */
+	display: none; /* Initially hide the Slidebars. Changed from visibility to display to allow -webkit-overflow-scrolling. */
+	background-color: #014687; /* Default Slidebars background colour, overwrite this with your own css. */
+}
+
+.sb-slidebar, .sb-slidebar * {
+	-webkit-transform: translateZ( 0px ); /* Fixes issues with translated and z-indexed elements on iOS 7. */
+}
+
+.sb-left {
+	left: 0; /* Set Slidebar to the left. */
+}
+
+.sb-right {
+	right: 0; /* Set Slidebar to the right. */
+}
+
+html.sb-static .sb-slidebar,
+.sb-slidebar.sb-static {
+	position: absolute; /* Makes Slidebars scroll naturally with the site, and unfixes them for Android Browser < 3 and iOS < 5. */
+}
+
+.sb-slidebar.sb-active {
+	display: block; /* Makes Slidebars visibile when open. Changed from visibility to display to allow -webkit-overflow-scrolling. */
+}
+
+.sb-style-overlay {
+	z-index: 9999; /* Set z-index high to ensure it overlays any other site elements. */
+}
+
+.sb-momentum-scrolling {
+	-webkit-overflow-scrolling: touch; /* Adds native momentum scrolling for iOS & Android devices. */
+}
+
+/* Slidebar widths for browsers/devices that don't support media queries. */
+	.sb-slidebar {
+		width: 30%;
+	}
+	
+	.sb-width-thin {
+		width: 15%;
+	}
+	
+	.sb-width-wide {
+		width: 45%;
+	}
+
+@media (max-width: 480px) { /* Slidebar widths on extra small screens. */
+	.sb-slidebar {
+		width: 70%;
+	}
+	
+	.sb-width-thin {
+		width: 55%;
+	}
+	
+	.sb-width-wide {
+		width: 85%;
+	}
+}
+
+@media (min-width: 481px) { /* Slidebar widths on small screens. */
+	.sb-slidebar {
+		width: 55%;
+	}
+	
+	.sb-width-thin {
+		width: 40%;
+	}
+	
+	.sb-width-wide {
+		width: 70%;
+	}
+}
+
+@media (min-width: 768px) { /* Slidebar widths on medium screens. */
+	.sb-slidebar {
+		width: 40%;
+	}
+	
+	.sb-width-thin {
+		width: 25%;
+	}
+	
+	.sb-width-wide {
+		width: 55%;
+	}
+}
+
+@media (min-width: 992px) { /* Slidebar widths on large screens. */
+	.sb-slidebar {
+		width: 30%;
+	}
+	
+	.sb-width-thin {
+		width: 15%;
+	}
+	
+	.sb-width-wide {
+		width: 45%;
+	}
+}
+
+@media (min-width: 1200px) { /* Slidebar widths on extra large screens. */
+	.sb-slidebar {
+		width: 20%;
+	}
+	
+	.sb-width-thin {
+		width: 5%;
+	}
+	
+	.sb-width-wide {
+		width: 35%;
+	}
+}
+
+/* ---------------
+ * 004 - Animation
+ */
+
+.sb-slide, #sb-site, .sb-site-container, .sb-slidebar {
+	-webkit-transform: translate( 0px );
+	   -moz-transform: translate( 0px );
+	     -o-transform: translate( 0px );
+	        transform: translate( 0px );
+	
+	-webkit-transition: -webkit-transform 400ms ease;
+	   -moz-transition:    -moz-transform 400ms ease;
+	     -o-transition:      -o-transform 400ms ease;
+	        transition:         transform 400ms ease;
+	
+	-webkit-transition-property: -webkit-transform, left, right; /* Add left/right for Android < 4.4. */
+	-webkit-backface-visibility: hidden; /* Prevents flickering. This is non essential, and you may remove it if your having problems with fixed background images in Chrome. */
+}
+
+/* --------------------
+ * 005 - Helper Classes
+ */
  
-input[type="checkbox"]:checked + span   {
- background:url(/Images/tick.png) no-repeat;
- background-position:-1px -2px;
+.sb-hide { 
+	display: none; /* Optionally applied to control classes when Slidebars is disabled over a certain width. */
+}
+
+.sb-left .sb-menu li a {
+    border-left: 3px solid transparent;
+}
+.sb-menu li a {
+    color: #f2f2f2;
+    display: inline-block;
+    padding: 1em;
+    width: 100%;
 }

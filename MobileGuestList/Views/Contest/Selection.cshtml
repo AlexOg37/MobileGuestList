@@ -1,6 +1,6 @@
 ﻿<div class="container">
     <form method="post" class="form-group">
-    <div class="form-group" style="margin-top:10px; text-align:center;">       
+    <div class="form-group">       
         <select name="Id" class="form-control">
             <option value=0>Pick Your Contest</option>
             @{
@@ -13,7 +13,7 @@
         </select>
     </div>
         <div class="form-group" >
-            <label style="font-size:90%;"for="SortByContestName">Sort By Contest Name</label>
+            <label id="sortcontest" for="SortByContestName">Sort By Contest Name</label>
             <div class="onoffswitch pull-right">
                 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
                 <label class="onoffswitch-label" for="myonoffswitch">
@@ -24,8 +24,8 @@
 
 
         </div>
-        <div class="form-group" style="text-align:center; margin-top:50px">
-            <input class="btn btn-default" type="submit" value="Generate Guest List!" style="background-color:#014687 !important; color:#ffffff !important; height:70px">
+        <div class="form-group" id="btngenerate">
+            <input class="btn btn-default" id="generatelist" type="submit" value="Generate Guest List!"/>
         </div>
  </form>
 </div>

@@ -42,11 +42,10 @@ namespace MobileGuestList.App_Data
 		{
 			List<Guest> list = new List<Guest>();
 
-			list.Add(new Guest { Id = 1, Name = "Oleg", Birthdate = new DateTime(1970, 7, 7), HomeCity="Kharkov", BusinessCity="Budva", HomePhone="717-34-75", MobilePhone="050-345-75-91", BusinessPhone="717-59-34", FulfillmentDate = DateTime.Now });
-			list.Add(new Guest { Id = 2, Name = "Alex", Birthdate = new DateTime(1980, 8, 8), HomeCity = "Kharkov", BusinessCity = "Budva", HomePhone = "717-75-83", MobilePhone = "095-572-97-77", BusinessPhone = "717-56-21" });
-			list.Add(new Guest { Id = 3, Name = "Vlad", Birthdate = new DateTime(1990, 9, 9), HomeCity = "Kharkov", BusinessCity = "Budva", HomePhone = "717-67-34", MobilePhone = "095-789-34-21", BusinessPhone = "717-45-90" });
-            list.Add(new Guest { Id = 4, Name = "Vlad", Birthdate = new DateTime(1994, 9, 9), HomeCity = "Kharkov", BusinessCity = "Budva", HomePhone = "717-67-34", MobilePhone = "095-789-34-21", BusinessPhone = "717-45-90" });
-
+			list.Add(new Guest { Id = 1, Name = "Oleg", LastName= "Andriichuk", Birthdate = new DateTime(1970, 7, 7), HomeCity="Kharkov", BusinessCity="Budva", HomePhone="717-34-75", MobilePhone="050-345-75-91", BusinessPhone="717-59-34", FulfillmentDate = DateTime.Now });
+			list.Add(new Guest { Id = 2, Name = "Alex", LastName= "Ledok", Birthdate = new DateTime(1980, 8, 8), HomeCity = "Kharkov", BusinessCity = "Budva", HomePhone = "717-75-83", MobilePhone = "095-572-97-77", BusinessPhone = "717-56-21" });
+			list.Add(new Guest { Id = 3, Name = "Alex", LastName= "Ogorodnyk", Birthdate = new DateTime(1990, 9, 9), HomeCity = "Kharkov", BusinessCity = "Budva", HomePhone = "717-67-34", MobilePhone = "095-789-34-21", BusinessPhone = "717-45-90" });
+         
 			return list;
 		}
 		public void MarkDistributed(Contest contest, DateTime date)
