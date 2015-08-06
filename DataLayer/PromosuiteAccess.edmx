@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PromosuiteAccessModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MobileLoggedInUsers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VerificationCode" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Expires" Type="datetime" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="SQLDB" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CultureFormat" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="TimeZone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StationID" Type="int" Nullable="false" />
+          <Property Name="StationCall" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AccessToGuestList" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StationLink">
+          <Key>
+            <PropertyRef Name="StationLinkID" />
+          </Key>
+          <Property Name="StationLinkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StationCall" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="StationDB" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ClientKey" Type="varchar" MaxLength="10" />
+          <Property Name="OfflineStudioBackupTime" Type="varchar" MaxLength="10" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="DeletedBy" Type="varchar" MaxLength="20" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="TimeZoneId" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShutOffDate" Type="datetime" />
+        </EntityType>
+        <Function Name="MobileLoginDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VerificationCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="PromosuiteAccessModelStoreContainer">
+          <EntitySet Name="MobileLoggedInUsers" EntityType="Self.MobileLoggedInUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StationLink" EntityType="Self.StationLink" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PromosuiteAccessModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MobileLoggedInUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VerificationCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Expires" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="SQLDB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CultureFormat" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TimeZone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StationID" Type="Int32" Nullable="false" />
+          <Property Name="StationCall" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccessToGuestList" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StationLink">
+          <Key>
+            <PropertyRef Name="StationLinkID" />
+          </Key>
+          <Property Name="StationLinkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StationCall" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StationDB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClientKey" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OfflineStudioBackupTime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="TimeZoneId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShutOffDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="PromosuiteDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MobileLoggedInUsers" EntityType="Self.MobileLoggedInUser" />
+          <EntitySet Name="StationLinks" EntityType="Self.StationLink" />
+          <FunctionImport Name="MobileLoginDetails" ReturnType="Collection(PromosuiteAccessModel.MobileLoginDetails_Result)">
+            <Parameter Name="VerificationCode" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="MobileLoginDetails_Result">
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="SQLDB" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="CultureFormat" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="TimeZone" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="StationID" Nullable="false" />
+          <Property Type="String" Name="StationCall" Nullable="false" MaxLength="20" />
+          <Property Type="Boolean" Name="AccessToGuestList" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PromosuiteAccessModelStoreContainer" CdmEntityContainer="PromosuiteDbContext">
+          <EntitySetMapping Name="MobileLoggedInUsers">
+            <EntityTypeMapping TypeName="PromosuiteAccessModel.MobileLoggedInUser">
+              <MappingFragment StoreEntitySet="MobileLoggedInUsers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="VerificationCode" ColumnName="VerificationCode" />
+                <ScalarProperty Name="Expires" ColumnName="Expires" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SQLDB" ColumnName="SQLDB" />
+                <ScalarProperty Name="CultureFormat" ColumnName="CultureFormat" />
+                <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+                <ScalarProperty Name="StationID" ColumnName="StationID" />
+                <ScalarProperty Name="StationCall" ColumnName="StationCall" />
+                <ScalarProperty Name="AccessToGuestList" ColumnName="AccessToGuestList" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StationLinks">
+            <EntityTypeMapping TypeName="PromosuiteAccessModel.StationLink">
+              <MappingFragment StoreEntitySet="StationLink">
+                <ScalarProperty Name="StationLinkID" ColumnName="StationLinkID" />
+                <ScalarProperty Name="StationCall" ColumnName="StationCall" />
+                <ScalarProperty Name="StationDB" ColumnName="StationDB" />
+                <ScalarProperty Name="ClientKey" ColumnName="ClientKey" />
+                <ScalarProperty Name="OfflineStudioBackupTime" ColumnName="OfflineStudioBackupTime" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+                <ScalarProperty Name="ShutOffDate" ColumnName="ShutOffDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="MobileLoginDetails" FunctionName="PromosuiteAccessModel.Store.MobileLoginDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PromosuiteAccessModel.MobileLoginDetails_Result">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SQLDB" ColumnName="SQLDB" />
+                <ScalarProperty Name="CultureFormat" ColumnName="CultureFormat" />
+                <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+                <ScalarProperty Name="StationID" ColumnName="StationID" />
+                <ScalarProperty Name="StationCall" ColumnName="StationCall" />
+                <ScalarProperty Name="AccessToGuestList" ColumnName="AccessToGuestList" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ps2021Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="MobileChangeStation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="StationID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="MobileGuestAttended" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ContWinID" Type="int" Mode="In" />
+          <Parameter Name="Now" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="MobileGuestListContests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StationID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="MobileGuestListMarkDistributed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ContestID" Type="int" Mode="In" />
+          <Parameter Name="Now" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="MobileGuestListPeople" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ContestID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="MobileGuestRemoveAttended" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ContWinID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="MobileStationList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ps2021ModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ps2021Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DataEntitiesConnection" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="MobileChangeStation" ReturnType="Collection(ps2021Model.MobileChangeStation_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="StationID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="MobileGuestAttended">
+            <Parameter Name="ContWinID" Mode="In" Type="Int32" />
+            <Parameter Name="Now" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="MobileGuestListContests" ReturnType="Collection(ps2021Model.MobileGuestListContests_Result)">
+            <Parameter Name="StationID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="MobileGuestListMarkDistributed">
+            <Parameter Name="ContestID" Mode="In" Type="Int32" />
+            <Parameter Name="Now" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="MobileGuestListPeople" ReturnType="Collection(ps2021Model.MobileGuestListPeople_Result)">
+            <Parameter Name="ContestID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="MobileGuestRemoveAttended">
+            <Parameter Name="ContWinID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="MobileStationList" ReturnType="Collection(ps2021Model.MobileStationList_Result)">
+            <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="MobileChangeStation_Result">
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="SQLDB" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="CultureFormat" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="TimeZone" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="StationID" Nullable="false" />
+          <Property Type="String" Name="StationCall" Nullable="false" MaxLength="20" />
+          <Property Type="Boolean" Name="AccessToGuestList" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="MobileGuestListContests_Result">
+          <Property Type="Int32" Name="ContestID" Nullable="false" />
+          <Property Type="Int16" Name="StationID" Nullable="false" />
+          <Property Type="String" Name="ContestName" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="Int16" Name="DistributionMethodOpt" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="MobileGuestListPeople_Result">
+          <Property Type="Int32" Name="ContWinID" Nullable="false" />
+          <Property Type="String" Name="contestname" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="ListenerID" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="fname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="lname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="HCity" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BCity" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+          <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="WorkPhone" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FulfillmentDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="MobileStationList_Result">
+          <Property Type="Int32" Name="stationid" Nullable="false" />
+          <Property Type="String" Name="stationcall" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ps2021ModelStoreContainer" CdmEntityContainer="DataEntitiesConnection" >
+          <FunctionImportMapping FunctionImportName="MobileChangeStation" FunctionName="ps2021Model.Store.MobileChangeStation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ps2021Model.MobileChangeStation_Result">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SQLDB" ColumnName="SQLDB" />
+                <ScalarProperty Name="CultureFormat" ColumnName="CultureFormat" />
+                <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+                <ScalarProperty Name="StationID" ColumnName="StationID" />
+                <ScalarProperty Name="StationCall" ColumnName="StationCall" />
+                <ScalarProperty Name="AccessToGuestList" ColumnName="AccessToGuestList" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MobileGuestAttended" FunctionName="ps2021Model.Store.MobileGuestAttended" />
+          <FunctionImportMapping FunctionImportName="MobileGuestListContests" FunctionName="ps2021Model.Store.MobileGuestListContests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ps2021Model.MobileGuestListContests_Result">
+                <ScalarProperty Name="ContestID" ColumnName="ContestID" />
+                <ScalarProperty Name="StationID" ColumnName="StationID" />
+                <ScalarProperty Name="ContestName" ColumnName="ContestName" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="DistributionMethodOpt" ColumnName="DistributionMethodOpt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MobileGuestListMarkDistributed" FunctionName="ps2021Model.Store.MobileGuestListMarkDistributed" />
+          <FunctionImportMapping FunctionImportName="MobileGuestListPeople" FunctionName="ps2021Model.Store.MobileGuestListPeople">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ps2021Model.MobileGuestListPeople_Result">
+                <ScalarProperty Name="ContWinID" ColumnName="ContWinID" />
+                <ScalarProperty Name="contestname" ColumnName="contestname" />
+                <ScalarProperty Name="ListenerID" ColumnName="ListenerID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="HCity" ColumnName="HCity" />
+                <ScalarProperty Name="BCity" ColumnName="BCity" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="FulfillmentDate" ColumnName="FulfillmentDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MobileGuestRemoveAttended" FunctionName="ps2021Model.Store.MobileGuestRemoveAttended" />
+          <FunctionImportMapping FunctionImportName="MobileStationList" FunctionName="ps2021Model.Store.MobileStationList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ps2021Model.MobileStationList_Result">
+                <ScalarProperty Name="stationid" ColumnName="stationid" />
+                <ScalarProperty Name="stationcall" ColumnName="stationcall" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
