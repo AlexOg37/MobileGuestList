@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MobileGuestList.App_Data;
-using MobileGuestList.Models;
+using Models;
 
 namespace MobileGuestList.Controllers
 {
-	public class GuestController : Controller
+	public class GuestController : BaseController
 	{
 		public ActionResult Index()
 		{

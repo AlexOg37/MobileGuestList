@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Globalization;
-using MobileGuestList.Models;
+using Models;
 
 namespace MobileGuestList.App_Data
 {
@@ -14,15 +14,15 @@ namespace MobileGuestList.App_Data
 		{
 			return "4323243jlkj4l32k4j324lk32j4lk243jlk32j4";
 		}
-		public ProfileModel GetProfile(string strQuerystring)
+        public MobileLoginDetails GetProfile(string strQuerystring)
 		{
-			ProfileModel profile = new ProfileModel();
+            MobileLoginDetails profile = new MobileLoginDetails();
 
-			profile.Username = "Unknown";
+			profile.UserName = "Unknown";
 			profile.UserID = int.MaxValue;
 			profile.SQLDB = "SQLDB";
-			profile.CultureFormat = DateTimeFormatInfo.CurrentInfo;
-			profile.TimeZone = TimeZone.CurrentTimeZone;
+			profile.CultureFormat = DateTimeFormatInfo.CurrentInfo.ToString();
+            profile.TimeZone = TimeZone.CurrentTimeZone.ToString();
 			profile.StationID = int.MaxValue;
 			profile.AccessToGuestList = true;
 

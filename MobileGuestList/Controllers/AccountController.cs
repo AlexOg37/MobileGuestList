@@ -6,16 +6,46 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.Profile;
+using System.Web.WebPages;
 using System.Globalization;
 using MobileGuestList.App_Data;
-using MobileGuestList.Models;
+using MobileGuestList.Providers;
+using Models;
+using DataLayer;
+using System.ComponentModel.DataAnnotations;
 
 namespace MobileGuestList.Controllers
 {
 
 	[Authorize]
-	public class AccountController : Controller
+	public class AccountController : BaseController
 	{
+        public class LoginModel
+        {
+            [Required]
+            [Display(Name = "Username")]
+            public string Username { get; set; }
+
+            [Required]
+            [DataType(DataType.Password)]
+            [Display(Name = "Password")]
+            public string Password { get; set; }
+
+            [Required]
+            [Display(Name = "Station")]
+            public string Station { get; set; }
+
+            [Display(Name = "Remember Station")]
+            public bool RememberStation { get; set; }
+        }
+        
+        private AuthenticationProvider _authenticationProvider;
+
+        public AccountController()
+        {
+            this._authenticationProvider = new AuthenticationProvider();
+        }
+
 		[AllowAnonymous]
 		public ActionResult Login()
 		{
@@ -27,34 +57,50 @@ namespace MobileGuestList.Controllers
 		[ValidateAntiForgeryToken]
 		public ActionResult Login(LoginModel model)
 		{
-			string returnUrl = "";
-			if (ModelState.IsValid)
+            //ToDo: get log in logic to normal state
+			//string returnUrl = "";
+            
+			if (!ModelState.IsValid)
 			{
-				if (Membership.ValidateUser(model.Username, model.Password))
-				{
-					FormsAuthentication.SetAuthCookie(model.Station, model.RememberStation);
+                return View(model);
+            }
 
-					string strLoginCode = "";
-					HttpSessionStateBase session = HttpContext.Session;
-					session["LoginCode"] = strLoginCode;
+            string loginCode = _authenticationProvider.GetLoginCodeByUser(model.Username, model.Password);
 
-					if (Url.IsLocalUrl(returnUrl))
-					{
-						return Redirect(returnUrl);
-					}
-					else
-					{
-						return RedirectToAction("Selection", "Contest");
-					}
-				}
-				else
-				{
-					ModelState.AddModelError("", "The user name or password provided is incorrect.");
-				}
-			}
+            if (loginCode.IsEmpty() || loginCode == AccessProvider.NoUserInDbState)
+            {
+                ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                return View(model);
+            }
 
-			// If we got this far, something failed, redisplay form
-			return View(model);
+            HttpContext.Session[Helper.LoginCodeConst] = loginCode;
+
+            MobileLoginDetails mobileLoginDetails = _authenticationProvider.GetProfile(loginCode);
+            HttpContext.Session[mobileLoginDetails.GetType().ToString()] = mobileLoginDetails;
+
+            return RedirectToAction("Selection", "Contest");
+
+            //if (Membership.ValidateUser(model.Username, model.Password))
+            //{
+            //    FormsAuthentication.SetAuthCookie(model.Station, model.RememberStation);
+
+            //    string strLoginCode = "";
+            //    HttpSessionStateBase session = HttpContext.Session;
+            //    session[Helper.LoginCodeConst] = strLoginCode;
+
+            //    if (Url.IsLocalUrl(returnUrl))
+            //    {
+            //        return Redirect(returnUrl);
+            //    }
+            //    else
+            //    {
+            //        return RedirectToAction("Selection", "Contest");
+            //    }
+            //}
+            //else
+            //{
+            //    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            //}
 		}
 
 		public ActionResult LogOff()
