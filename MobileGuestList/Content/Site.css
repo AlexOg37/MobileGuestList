@@ -206,7 +206,7 @@ input[type=checkbox].css-checkbox {
 
 
 #generatelist {
-background-color:#014687 !important; color:#ffffff !important; height:70px;
+        background-color:#014687 !important; color:#ffffff !important; height:70px;
 }
 
 #sortcontest {
@@ -258,6 +258,20 @@ background-color:#014687 !important; color:#ffffff !important; padding-right:5px
 #btn_cancel {
 background-color:#014687 !important; color:#ffffff !important; 
 }
+    button::-moz-focus-inner,
+
+	input[type="reset"]::-moz-focus-inner,
+
+	input[type="button"]::-moz-focus-inner,
+
+	input[type="submit"]::-moz-focus-inner,
+
+	input[type="submit"]::-moz-focus-inner,
+
+	input[type="file"] > input[type="button"]::-moz-focus-inner {/* */
+
+	border: none;
+	}
 
 .sb-slidebar {
 	height: 100%;

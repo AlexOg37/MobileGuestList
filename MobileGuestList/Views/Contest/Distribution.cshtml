@@ -33,14 +33,15 @@
               <td>
                   <div class="btn-group btn-group-justified" role="group" id="btn_margin">
                       <div class="btn-group">
-                          <input class="btn btn-default" id="btn_yes" value="Yes" onclick="location.href='@Url.Action("Distribute", new { Distribute = true })'" />
+                          <button class="btn btn-default" id="btn_yes" onclick="location.href='@Url.Action("Distribute", new { Distribute = true })'">Yes</button>
                       </div>
                       <div class="btn-group" >
-                          <input class=" btn btn-default" id="btn_no" value="No" onclick="location.href='@Url.Action("Distribute", new { Distribute = false })'" />
+                          <button class=" btn btn-default" id="btn_no" onclick="location.href='@Url.Action("Distribute", new { Distribute = false })'">No</button>
                           </div>
                       <div class="btn-group">
-                          <input class="btn btn-default" id="btn_cancel" value="Cancel" onclick="location.href='@Url.Action("Selection")'"  />
+                          <button class="btn btn-default" id="btn_cancel" onclick="location.href='@Url.Action("Selection")'">Cancel</button>
                       </div>
+                      @*<button type="submit" class="btn btn-default" id="generatelist">Generate Guest List!</button>*@
                       </div>
               </td>
             </tr>
