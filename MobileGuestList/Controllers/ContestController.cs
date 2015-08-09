@@ -26,18 +26,24 @@ namespace MobileGuestList.Controllers
             int stationId = Helper.GetCurrentUserDetails().StationID;
             ViewBag.Contests = this.Repo.GetContestsList(stationId);
 
+            Contest contest = Helper.GetCurrentContest();
+            if (contest != null)
+            {
+                ViewBag.SelectedContest = contest;
+            }
+            
             return View();
 		}
 
 		[HttpPost]
 		public ActionResult Selection(Contest contest)
 		{
-			HttpSessionStateBase session = HttpContext.Session;
-			session["Contest"] = contest;
-
             //HttpApplicationStateBase application = HttpContext.Application;
             //IMobileGuestListServer server = (IMobileGuestListServer)application["IMobileGuestListServer"];
             //IEnumerable<Guest> guests = server.GetGuests(contest);
+
+            contest = this.Repo.GetContestById(contest.Id);
+            HttpContext.Session[Helper.ContestConst] = contest;
 
             IEnumerable<Guest> guests = this.Repo.GetGuestList(contest.Id);
 
@@ -56,13 +62,20 @@ namespace MobileGuestList.Controllers
 			return RedirectToAction("Index", "Guest");
 		}
 
+        public ActionResult UpdateContestSelection(int contestId)
+        {
+            Contest contest = this.Repo.GetContestById(contestId);
+            HttpContext.Session[Helper.ContestConst] = contest;
+
+            return Json(new { }); 
+        }
 
 		public ActionResult Distribution()
 		{
 			ViewBag.Location = "Listener Database > Guest Lists";
 
 			HttpSessionStateBase session = HttpContext.Session;
-			Contest contest = (Contest)session["Contest"];
+			Contest contest = (Contest)session[Helper.ContestConst];
 			ViewBag.Contest = contest;
 
 			return View();
@@ -73,7 +86,7 @@ namespace MobileGuestList.Controllers
 			if (Distribute)
 			{
 				HttpSessionStateBase session = HttpContext.Session;
-				Contest contest = (Contest)session["Contest"];
+				Contest contest = (Contest)session[Helper.ContestConst];
 				ViewBag.Contest = contest;
 
                 //HttpApplicationStateBase application = HttpContext.Application;

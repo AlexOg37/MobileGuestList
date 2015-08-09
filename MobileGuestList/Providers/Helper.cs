@@ -9,6 +9,7 @@ namespace MobileGuestList.Providers
     public static class Helper
     {
         public const string LoginCodeConst = "LoginCode";
+        public const string ContestConst = "Contest";
         public static string GetUserDB(this HttpSessionStateBase session)
         {
             MobileLoginDetails mobileLoginDetails = GetCurrentUserDetails();
@@ -17,7 +18,24 @@ namespace MobileGuestList.Providers
 
         public static MobileLoginDetails GetCurrentUserDetails()
         {
-            return (MobileLoginDetails)HttpContext.Current.Session[typeof(MobileLoginDetails).ToString()];
+            MobileLoginDetails result = null;
+            if (HttpContext.Current.Session != null)
+            {
+                result = HttpContext.Current.Session[typeof(MobileLoginDetails).ToString()] as MobileLoginDetails;
+            }
+
+            return result; 
+        }
+
+        public static Contest GetCurrentContest()
+        {
+            Contest result = null;
+            if (HttpContext.Current.Session != null)
+            {
+                result = HttpContext.Current.Session[ContestConst] as Contest;
+            }
+
+            return result;
         }
     }
 }

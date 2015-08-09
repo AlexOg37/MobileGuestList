@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MobileGuestList.App_Data;
 using Models;
+using MobileGuestList.Providers;
 
 namespace MobileGuestList.Controllers
 {
@@ -15,7 +16,7 @@ namespace MobileGuestList.Controllers
 			ViewBag.Location = "Listener Database > Guest Lists";
 
 			HttpSessionStateBase session = HttpContext.Session;
-			Contest contest = (Contest)session["Contest"];
+			Contest contest = (Contest)session[Helper.ContestConst];
 			ViewBag.Contest = contest;
 
 			HttpApplicationStateBase application = HttpContext.Application;
