@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace MobileGuestList.Controllers
 {
-    [AutentificationValidation]
+    [AuthenticationValidation]
     public class BaseController : Controller
     {
         public InformationProvider Repo

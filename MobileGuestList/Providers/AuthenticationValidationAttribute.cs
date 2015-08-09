@@ -8,7 +8,7 @@ using System.Web.Mvc;
 namespace MobileGuestList.Providers
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
-    public class AutentificationValidationAttribute : ActionFilterAttribute
+    public class AuthenticationValidationAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
