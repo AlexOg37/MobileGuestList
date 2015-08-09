@@ -22,16 +22,16 @@ namespace MobileGuestList.Controllers
 	{
         public class LoginModel
         {
-            [Required]
+            [Required(ErrorMessage = "Username is required")]
             [Display(Name = "Username")]
             public string Username { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Password is required")]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Station is required")]
             [Display(Name = "Station")]
             public string Station { get; set; }
 
@@ -49,7 +49,8 @@ namespace MobileGuestList.Controllers
 		[AllowAnonymous]
 		public ActionResult Login()
 		{
-			return View();
+            var model = new LoginModel();
+			return View(model);
 		}
 
 		[AllowAnonymous]
