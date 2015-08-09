@@ -1,7 +1,7 @@
 ﻿<div class="container">
     <form method="post" class="form-group">
     <div class="form-group">       
-        <select name="Id" class="form-control">
+        <select id="contestSelect" name="Id" class="form-control" onchange="OnCurrentContestChanged()">
             <option selected="selected" value=0>Pick Your Contest</option>
            
             @{
@@ -31,6 +31,13 @@
         </div>
  </form>
 </div>
+
+@Scripts.Render("~/bundles/contestlist")
+<script type="text/javascript">
+    var contestList = new ContestList({
+    });
+</script>
+
 @*<div>
   <form method="post">
     <div class="selectbox" style="height: 291px;">

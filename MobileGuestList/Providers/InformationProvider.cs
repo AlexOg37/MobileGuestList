@@ -27,7 +27,7 @@ namespace MobileGuestList.Providers
 
         public Contest GetContestById(int contestId)
         {
-            return this._contestList.Where(el => el.Id == contestId).FirstOrDefault() as Contest;
+            return this._contestList.FirstOrDefault(el => el.Id == contestId) as Contest;
         }
 
         public IEnumerable<Guest> GetGuestList(int contestId)
@@ -67,7 +67,7 @@ namespace MobileGuestList.Providers
                 Id = el.ContestID,
                 Name = el.ContestName,
                 StartDate = el.StartDate
-            }).AsEnumerable();
+            }).ToList();
         }
 
         void UpdateGuestList(int newContestId, bool bForceUpdate = false)
@@ -90,7 +90,7 @@ namespace MobileGuestList.Providers
                 BusinessPhone = el.WorkPhone,
                 MobilePhone = el.MobilePhone,
                 FulfillmentDate = el.FulfillmentDate
-            }).AsEnumerable();
+            }).ToList();
         }
     }
 }
