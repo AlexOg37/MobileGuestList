@@ -267,6 +267,7 @@
     <Content Include="Images\tick1.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\calculateChekboxesNum.js" />
     <Content Include="Scripts\contestlist.js" />
     <Content Include="Scripts\guestlist.js" />
     <Content Include="Scripts\highlightbox.js" />

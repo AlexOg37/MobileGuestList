@@ -240,9 +240,11 @@ margin-top:5px;
 #total {
 float:left; display: inline; margin-top:10px;
 }
+#count_num {margin-top:8px;}
 #nums {
-float: right; display: inline; margin-top: 10px;
+float: none; display: inline; margin-top: 10px;
 }
+#checked_nums {float:left; }
 #hide_attend {
 float:left; display: inline;
 }
