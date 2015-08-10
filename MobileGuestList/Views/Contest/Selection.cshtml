@@ -2,14 +2,14 @@
     <form method="post" class="form-group">
     <div class="form-group">       
         <select id="contestSelect" name="Id" class="form-control" onchange="OnCurrentContestChanged()">
-            <option selected="selected" value=0>Pick Your Contest</option>
+            <option selected="selected" value="">Pick Your Contest</option>
            
             @{
-    foreach (var contest in ViewBag.Contests)
-    {
-        <option value=@contest.Id>@contest.Name</option>
+                foreach (var contest in ViewBag.Contests)
+                {
+                    <option value=@contest.Id>@contest.Name</option>
 
-    }
+                }
 }
         </select>
     </div>

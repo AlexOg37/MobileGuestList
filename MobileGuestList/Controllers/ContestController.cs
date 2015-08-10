@@ -12,6 +12,15 @@ namespace MobileGuestList.Controllers
 {
 	public class ContestController : BaseController
 	{
+        public class SelectionForm
+        {
+        
+            public int Id { get; set; }
+
+            public string SortByName { get; set; }
+
+
+        }
 		public ActionResult Selection()
 		{
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
