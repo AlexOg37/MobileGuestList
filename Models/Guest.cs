@@ -14,5 +14,6 @@ namespace Models
         public string MobilePhone { get; set; }
         public string BusinessPhone { get; set; }
         public DateTime? FulfillmentDate { get; set; }
+        public bool? Attended { get; set; }
     }
 }

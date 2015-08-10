@@ -22,3 +22,14 @@ function ChangeGuestState(id, doMark) {
         contentType: 'application/json'
     });
 }
+
+$('.checkbox_row').ready(function () {
+    var i,
+        rows = document.getElementsByClassName("checkbox_row"),
+        total = rows.length;
+    for (i = 0; i < total; i++) {
+        if (rows[i].getElementsByTagName("input")[0].checked) {
+            rows[i].className = rows[i].className + " highlight";
+        }
+    }
+})

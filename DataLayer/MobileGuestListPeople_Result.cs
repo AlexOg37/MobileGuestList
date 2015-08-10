@@ -26,5 +26,6 @@ namespace DataLayer
         public string WorkPhone { get; set; }
         public string MobilePhone { get; set; }
         public Nullable<System.DateTime> FulfillmentDate { get; set; }
+        public bool? attended { get; set; }
     }
 }

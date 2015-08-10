@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ps2021Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ps2021Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <Function Name="MobileChangeStation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserID" Type="int" Mode="In" />
           <Parameter Name="StationID" Type="int" Mode="In" />
@@ -30,8 +30,7 @@
           <Parameter Name="userid" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="ps2021ModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ps2021Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -45,20 +44,20 @@
             <Parameter Name="Now" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="MobileGuestListContests" ReturnType="Collection(ps2021Model.MobileGuestListContests_Result)">
-            <Parameter Name="StationID" Mode="In" Type="Int32" />
+          <Parameter Name="StationID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="MobileGuestListMarkDistributed">
             <Parameter Name="ContestID" Mode="In" Type="Int32" />
             <Parameter Name="Now" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="MobileGuestListPeople" ReturnType="Collection(ps2021Model.MobileGuestListPeople_Result)">
-            <Parameter Name="ContestID" Mode="In" Type="Int32" />
+          <Parameter Name="ContestID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="MobileGuestRemoveAttended">
-            <Parameter Name="ContWinID" Mode="In" Type="Int32" />
+          <Parameter Name="ContWinID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="MobileStationList" ReturnType="Collection(ps2021Model.MobileStationList_Result)">
-            <Parameter Name="userid" Mode="In" Type="Int32" />
+          <Parameter Name="userid" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="MobileChangeStation_Result">
@@ -92,6 +91,7 @@
           <Property Type="String" Name="WorkPhone" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="MobilePhone" Nullable="true" MaxLength="50" />
           <Property Type="DateTime" Name="FulfillmentDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="attended" Nullable="true" />
         </ComplexType>
         <ComplexType Name="MobileStationList_Result">
           <Property Type="Int32" Name="stationid" Nullable="false" />
@@ -146,6 +146,7 @@
                 <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
                 <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
                 <ScalarProperty Name="FulfillmentDate" ColumnName="FulfillmentDate" />
+                <ScalarProperty Name="attended" ColumnName="attended" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -27,7 +27,16 @@
             <p style="display:none">@guest.ContWinID.ToString()</p>
     <div class="checkbox_row">      
         <p class="contWinId" style="display:none">@guest.ContWinID.ToString()</p>
-        <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" class="css-checkbox"/><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin"class="css-label radGroup1 pull-left"></label>
+                @{
+            if (guest.Attended != null && guest.Attended != false)
+            {
+                <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" class="css-checkbox" checked /><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin"class="css-label radGroup1 pull-left"></label>
+            }
+            else
+            {
+                <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" class="css-checkbox"/><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin"class="css-label radGroup1 pull-left"></label>
+            }
+        }
            
               <strong>@guest.LastName, @guest.Name</strong>
             @{

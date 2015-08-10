@@ -30,9 +30,9 @@ namespace MobileGuestList.Providers
             return this._contestList.FirstOrDefault(el => el.Id == contestId) as Contest;
         }
 
-        public IEnumerable<Guest> GetGuestList(int contestId)
+        public IEnumerable<Guest> GetGuestList(int contestId, bool bForceUpdate = false)
         {
-            UpdateGuestList(contestId);
+            UpdateGuestList(contestId, bForceUpdate);
             return this._guestList;
         }
 
@@ -93,7 +93,8 @@ namespace MobileGuestList.Providers
                 HomePhone = el.HomePhone,
                 BusinessPhone = el.WorkPhone,
                 MobilePhone = el.MobilePhone,
-                FulfillmentDate = el.FulfillmentDate
+                FulfillmentDate = el.FulfillmentDate,
+                Attended = el.attended
             }).ToList();
         }
     }

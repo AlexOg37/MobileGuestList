@@ -19,7 +19,7 @@ namespace MobileGuestList.Controllers
 			Contest contest = (Contest)session[Helper.ContestConst];
 			ViewBag.Contest = contest;
 
-            ViewBag.Guests = this.Repo.GetGuestList(contest.Id);
+            ViewBag.Guests = this.Repo.GetGuestList(contest.Id, true);
 
 			return View();
 		}
