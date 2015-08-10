@@ -206,14 +206,15 @@ input[type=checkbox].css-checkbox {
 
 
 #generatelist {
-        background-color:#014687 !important; color:#ffffff !important; height:70px;
+       background-color:#014687 !important; color:#ffffff !important; border-radius:10px;width:160px;height:60px;
 }
 
 #sortcontest {
     font-size:90%;
 }
 #btngenerate {
-text-align:center; margin-top:70px;
+text-align:center; margin-top:70px; 
+
 }
 
 .checkbox_row.highlight {
@@ -252,15 +253,15 @@ float:left; display: inline;
 margin-top:20px;
 }
 
-#btn_yes {
-background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px; width:90%;
+#btn_distr {
+background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px; width:95%;
 }
-#btn_no {
-background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px;width:90%;
+/*#btn_no {
+background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px;
 }
 #btn_cancel {
-background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px;width:90%;
-}
+background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px;
+}*/
     button::-moz-focus-inner,
 
 	input[type="reset"]::-moz-focus-inner,
