@@ -7,11 +7,22 @@ using System.Web.Profile;
 using MobileGuestList.App_Data;
 using MobileGuestList.Providers;
 using Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace MobileGuestList.Controllers
 {
 	public class ContestController : BaseController
 	{
+        public class SelectionForm
+        {
+            [Required(ErrorMessage = "You must first select a contest")]
+            [Display(Name = "Id")]
+            public int Id { get; set; }
+
+            public string SortByName { get; set; }
+
+
+        }
 		public ActionResult Selection()
 		{
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
@@ -32,8 +43,15 @@ namespace MobileGuestList.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Selection(Contest contest)
+		public ActionResult Selection(Contest contest, SelectionForm model)
 		{
+            if (!ModelState.IsValid)
+            {
+                int stationId = Helper.GetCurrentUserDetails().StationID;
+                ViewBag.Contests = this.Repo.GetContestsList(stationId);
+
+                return View(model);
+            }
             contest = this.Repo.GetContestById(contest.Id);
             HttpContext.Session[Helper.ContestConst] = contest;
 
