@@ -49,6 +49,7 @@ namespace MobileGuestList.Controllers
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
                 ViewBag.Contests = this.Repo.GetContestsList(stationId);
+                ModelState.AddModelError("keyName", "*  You must first select a contest.");
 
                 return View(model);
             }
