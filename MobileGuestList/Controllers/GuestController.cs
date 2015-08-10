@@ -13,18 +13,22 @@ namespace MobileGuestList.Controllers
 	{
 		public ActionResult Index()
 		{
-			ViewBag.Location = "Listener Database > Guest Lists";
+            ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
 			HttpSessionStateBase session = HttpContext.Session;
 			Contest contest = (Contest)session[Helper.ContestConst];
 			ViewBag.Contest = contest;
 
-			HttpApplicationStateBase application = HttpContext.Application;
-			IMobileGuestListServer server = (IMobileGuestListServer)application["IMobileGuestListServer"];
-			ViewBag.Guests = server.GetGuests(contest);
+            ViewBag.Guests = this.Repo.GetGuestList(contest.Id);
 
 			return View();
 		}
 
+        [HttpPost]
+        public ActionResult UpdateGuestState(int contWinId, bool bMark)
+        {
+            this.Repo.UpdateGuestState(contWinId, bMark);
+            return Json(new {});
+        }
 	}
 }

@@ -36,19 +36,23 @@ namespace MobileGuestList.Providers
             return this._guestList;
         }
 
-        public int MarkDistributed(int contWinID)
+        public void MarkDistributed(int contestId)
         {
-            return _provider.Context.MobileGuestAttended(contWinID, DateTime.Now);
+            _provider.Context.MobileGuestListMarkDistributed(contestId, DateTime.Now);
         }
 
-        public void xx3()
+        public void UpdateGuestState(int contWinId, bool bMark)
         {
-            //Context.MobileGuestListMarkDistributed()
+            if (bMark)
+            {
+                _provider.Context.MobileGuestAttended(contWinId, DateTime.Now);
+            }
+            else
+            {
+                _provider.Context.MobileGuestRemoveAttended(contWinId);
+            }
         }
-        public void xx1()
-        {
-            //Context.MobileGuestListMarkDistributed()
-        }
+
         public void xx2()
         {
             //Context.MobileGuestListMarkDistributed()

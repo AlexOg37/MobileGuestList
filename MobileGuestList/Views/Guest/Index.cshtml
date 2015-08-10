@@ -24,9 +24,10 @@
     <div class="selectbox guests">
         @foreach (var guest in ViewBag.Guests)
         {
-            <p style="display:none">@guest.Id.ToString()</p>
+            <p style="display:none">@guest.ContWinID.ToString()</p>
     <div class="checkbox_row">      
-        <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.Id.ToString())" class="css-checkbox" /><label for="checkboxG@(guest.Id.ToString())" id="guestmargin"class="css-label radGroup1 pull-left"></label>
+        <p class="contWinId" style="display:none">@guest.ContWinID.ToString()</p>
+        <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" class="css-checkbox"/><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin"class="css-label radGroup1 pull-left"></label>
            
               <strong>@guest.LastName, @guest.Name</strong>
             @{
@@ -83,33 +84,7 @@
     </div>
 
 </div>
-<script>
-    $('.guests input').change(function () {
-        
-        if ($(this).prop("checked")) {
-            
-            $(this).closest(".checkbox_row").addClass("highlight");
-        }
-        else {
-            
-            $(this).closest(".checkbox_row").removeClass("highlight");
-        }
-    });
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
+@Scripts.Render("~/bundles/guestlist")
 
 
 @*<div>

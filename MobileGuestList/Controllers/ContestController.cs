@@ -14,11 +14,7 @@ namespace MobileGuestList.Controllers
 	{
 		public ActionResult Selection()
 		{
-            ViewBag.Location = "Listener Database > Guest Lists";
-
-            //HttpApplicationStateBase application = HttpContext.Application;
-            //IMobileGuestListServer server = (IMobileGuestListServer)application["IMobileGuestListServer"];
-            //ViewBag.Contests = server.GetContests();
+            ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
             if (Helper.GetCurrentUserDetails() == null)
                 RedirectToAction("Login", "Account");
@@ -38,10 +34,6 @@ namespace MobileGuestList.Controllers
 		[HttpPost]
 		public ActionResult Selection(Contest contest)
 		{
-            //HttpApplicationStateBase application = HttpContext.Application;
-            //IMobileGuestListServer server = (IMobileGuestListServer)application["IMobileGuestListServer"];
-            //IEnumerable<Guest> guests = server.GetGuests(contest);
-
             contest = this.Repo.GetContestById(contest.Id);
             HttpContext.Session[Helper.ContestConst] = contest;
 
@@ -62,6 +54,7 @@ namespace MobileGuestList.Controllers
 			return RedirectToAction("Index", "Guest");
 		}
 
+        [HttpPost]
         public ActionResult UpdateContestSelection(int contestId)
         {
             Contest contest = this.Repo.GetContestById(contestId);
@@ -72,7 +65,7 @@ namespace MobileGuestList.Controllers
 
 		public ActionResult Distribution()
 		{
-			ViewBag.Location = "Listener Database > Guest Lists";
+            ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
 			HttpSessionStateBase session = HttpContext.Session;
 			Contest contest = (Contest)session[Helper.ContestConst];
@@ -89,11 +82,7 @@ namespace MobileGuestList.Controllers
 				Contest contest = (Contest)session[Helper.ContestConst];
 				ViewBag.Contest = contest;
 
-                //HttpApplicationStateBase application = HttpContext.Application;
-                //IMobileGuestListServer server = (IMobileGuestListServer)application["IMobileGuestListServer"];
-                //server.MarkDistributed(contest, DateTime.Now);
-
-                int res = this.Repo.MarkDistributed(contest.Id);
+                this.Repo.MarkDistributed(contest.Id);
 			}
 
 			return RedirectToAction("Index", "Guest");
