@@ -249,14 +249,15 @@ float:left; display: inline;
 #btn_margin {
 margin-top:20px;
 }
+
 #btn_yes {
-background-color:#014687 !important; color:#ffffff !important; padding-right:5px;
+background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px; width:90%;
 }
 #btn_no {
-background-color:#014687 !important; color:#ffffff !important; padding-right:5px;
+background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px;width:90%;
 }
 #btn_cancel {
-background-color:#014687 !important; color:#ffffff !important; 
+background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px;width:90%;
 }
     button::-moz-focus-inner,
 

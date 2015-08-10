@@ -1,6 +1,7 @@
 ﻿<div class="container">
     <form method="post" class="form-group">
-    <div class="form-group">       
+    <div class="form-group">
+        @Html.ValidationSummary()       
         <select id="contestSelect" name="Id" class="form-control" onchange="OnCurrentContestChanged()">
             <option selected="selected" value="">Pick Your Contest</option>
            
