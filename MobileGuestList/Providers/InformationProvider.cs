@@ -16,7 +16,7 @@ namespace MobileGuestList.Providers
         int _currentContestId = 0;
         public InformationProvider(string db)
         {
-            _provider = new DataBaseEntityProvider(db);
+            this._provider = new DataBaseEntityProvider(db);
         }
 
         public IEnumerable<Contest> GetContestsList(int stationId)
@@ -38,24 +38,42 @@ namespace MobileGuestList.Providers
 
         public void MarkDistributed(int contestId)
         {
-            _provider.Context.MobileGuestListMarkDistributed(contestId, DateTime.Now);
+            this._provider.Context.MobileGuestListMarkDistributed(contestId, DateTime.Now);
         }
 
         public void UpdateGuestState(int contWinId, bool bMark)
         {
             if (bMark)
             {
-                _provider.Context.MobileGuestAttended(contWinId, DateTime.Now);
+                this._provider.Context.MobileGuestAttended(contWinId, DateTime.Now);
             }
             else
             {
-                _provider.Context.MobileGuestRemoveAttended(contWinId);
+                this._provider.Context.MobileGuestRemoveAttended(contWinId);
             }
         }
 
-        public void xx2()
+        public IEnumerable<Station> GetMobileStationList(int useerId)
         {
-            //Context.MobileGuestListMarkDistributed()
+            return this._provider.Context.MobileStationList(useerId).Select(el => new Station()
+            {
+                StationCall = el.stationcall,
+                StationId = el.stationid
+            }).ToList();
+        }
+
+        public MobileLoginDetails ChangeStation(int userId, int stationId)
+        {
+            return this._provider.Context.MobileChangeStation(userId, stationId).Select(el => new MobileLoginDetails
+            {
+                UserName = el.UserName,
+                UserID = el.UserID,
+                SQLDB = el.SQLDB,
+                CultureFormat = el.CultureFormat,
+                TimeZone = el.TimeZone,
+                StationID = el.StationID,
+                AccessToGuestList = el.AccessToGuestList,
+            }).FirstOrDefault();
         }
 
         void UpdateContestList(int newStationId, bool bForceUpdate = false)
@@ -66,7 +84,7 @@ namespace MobileGuestList.Providers
             }
 
             this._currentStationId = newStationId;
-            this._contestList = _provider.Context.MobileGuestListContests(this._currentStationId).Select(el => new Contest()
+            this._contestList = this._provider.Context.MobileGuestListContests(this._currentStationId).Select(el => new Contest()
             {
                 Id = el.ContestID,
                 Name = el.ContestName,
@@ -82,7 +100,7 @@ namespace MobileGuestList.Providers
             }
 
             this._currentContestId = newContestId;
-            this._guestList = _provider.Context.MobileGuestListPeople(this._currentContestId).Select(el => new Guest()
+            this._guestList = this._provider.Context.MobileGuestListPeople(this._currentContestId).Select(el => new Guest()
             {
                 ContWinID = el.ContWinID,
                 Name = el.fname,
