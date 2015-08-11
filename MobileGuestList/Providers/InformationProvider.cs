@@ -94,7 +94,7 @@ namespace MobileGuestList.Providers
 
         void UpdateGuestList(int newContestId, bool bForceUpdate = false)
         {
-            if (this._currentContestId == newContestId && bForceUpdate != true)
+            if (this._currentContestId == newContestId && bForceUpdate != true && this._guestList != null)
             {
                 return;
             }

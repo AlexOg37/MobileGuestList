@@ -1,4 +1,10 @@
-﻿<div class="container">
+﻿
+@section Menu
+{
+    @Html.Partial("_HeaderMenuPartial")
+}
+
+<div class="container">
     <form method="post" class="form-group">
     <div class="form-group">
      @Html.ValidationMessage("keyName") 

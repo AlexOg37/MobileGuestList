@@ -21,15 +21,64 @@
 
 <body>
     <div id="wrap">
-        @if (IsSectionDefined("Header"))
-        {
-          @RenderSection("Header")
-        }
-        else
-        {
-          @Html.Partial("_HeaderPartial")
-        }
+        <div>
+            <div class="header">
+                <div class="col">
+                    <div>
+                        @if (IsSectionDefined("BackButton"))
+                        {
+                            @RenderSection("BackButton")
+                        }
+                    </div>
+                </div>
+                <div class="col custom-width">
+                    <div>
+                        <img width="125" height="55" alt="" src="~/Images/HeaderLogo.png">
+                    </div>
+                </div>
+                <div class="col sb-open-right">
+                    <div>
+                        @if (IsSectionDefined("Menu"))
+                        {
+                            @RenderSection("Menu")
+                        }
+                    </div>
+                </div>
 
+            </div>
+            <div class="location pull-right">
+                @{
+                    if (ViewBag.Location != null)
+                    {
+                        <span>@ViewBag.Location</span>
+                    }
+                }
+            </div>
+        </div>
+        <div class="sb-slidebar sb-right">
+            <div>
+                <div class="logo pull-left">
+                    <img width="125" height="55" alt="" src="~/Images/HeaderLogo.png">
+                </div>
+                <div class="bb pull-right">
+                    <p>Station</p>
+                </div>
+            </div>
+
+            <ul style="color:white">
+                <li><a href="/Contest/Selection">GuestsLists</a></li>
+                <li><a href="http://promosuite.com">Full Site</a></li>
+                <li><a href="/Home/Help">Help</a></li>
+                <li><a href="/Account/LogOff">Sign Out</a></li>
+            </ul>
+        </div>
+        <script>
+            (function ($) {
+                $(document).ready(function () {
+                    $.slidebars();
+                });
+            })(jQuery);
+        </script>
       <div>
         @RenderBody()
       </div>

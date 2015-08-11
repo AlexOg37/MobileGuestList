@@ -290,9 +290,6 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\slidebars.js" />
-    <Content Include="Views\Shared\_HeaderPartial.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -315,7 +312,7 @@
     <Content Include="Views\Contest\Selection.cshtml" />
     <Content Include="Views\Contest\Distribution.cshtml" />
     <Content Include="Views\Guest\Index.cshtml" />
-    <Content Include="Views\Shared\_LoginHeaderPartial.cshtml" />
+    <Content Include="Views\Shared\_HeaderMenuPartial.cshtml" />
     <Content Include="Views\Shared\_HeaderBackButtonPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>

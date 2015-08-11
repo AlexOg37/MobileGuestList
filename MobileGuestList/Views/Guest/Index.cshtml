@@ -1,6 +1,11 @@
-﻿@section Header
+﻿
+@section BackButton
 {
     @Html.Partial("_HeaderBackButtonPartial")
+}
+@section Menu
+{
+    @Html.Partial("_HeaderMenuPartial")
 }
 @Scripts.Render("~/bundles/calculateChekboxesNum")
 
@@ -59,26 +64,26 @@
                     }
                     else
                     {
-                        if (guest.Birthdate.Length != 0)
+                        if (guest.Birthdate != null)
                         {
-                            strInfo = guest.Birthdate.ToString();
+                            strInfo = guest.Birthdate.ToShortDateString();
                         }
                     }
                 }
                 String strInfo1 = "";
-                if (guest.MobilePhone.Length != 0)
+                if (guest.MobilePhone != null && guest.MobilePhone.Length != 0)
                 {
                     strInfo1 = guest.MobilePhone;
                 }
                 else
                 {
-                    if (guest.HomePhone.Length != 0)
+                    if (guest.HomePhone != null && guest.HomePhone.Length != 0)
                     {
                         strInfo1 = guest.HomePhone;
                     }
                     else
                     {
-                        if (guest.BusinessPhone.Length != 0)
+                        if (guest.BusinessPhone != null && guest.BusinessPhone.Length != 0)
                         {
                             strInfo1 = guest.BusinessPhone;
                         }
