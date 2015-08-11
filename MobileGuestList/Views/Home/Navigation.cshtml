@@ -1,6 +1,17 @@
-﻿@section Header
+﻿@*@section Header
 {
     @Html.Partial("_MenuPartial")
-}
+}*@
 
+<div id="header">
+    <div class="page">
+        <div class="logo pull-left">
+            <img width="125" height="55" alt="" src="~/Images/HeaderLogo.png">
+        </div>
+        <div class="user pull-right">
+            <p style="color:white;font-size:90%">@ViewBag.UserName</p>
+            <p style="color:white"> @ViewBag.StationCall</p>
+        </div>
 
+    </div>
+</div>
