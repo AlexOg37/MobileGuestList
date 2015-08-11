@@ -279,7 +279,11 @@ float:left; display: inline;
 #btn_margin {
 margin-top:20px;
 }
-
+#user {color:white;font-size:90;
+}
+#station {
+color:white;
+}
 #btn_distr {
 background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px; width:95%;
 }

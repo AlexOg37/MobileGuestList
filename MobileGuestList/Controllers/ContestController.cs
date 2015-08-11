@@ -13,6 +13,7 @@ namespace MobileGuestList.Controllers
 {
 	public class ContestController : BaseController
 	{
+        public const string error = "*  You must first select a contest.";
         public class SelectionForm
         {
             [Display(Name = "Id")]
@@ -48,7 +49,7 @@ namespace MobileGuestList.Controllers
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
                 ViewBag.Contests = this.Repo.GetContestsList(stationId);
-                ModelState.AddModelError("keyName", "*  You must first select a contest.");
+                ModelState.AddModelError("keyName", error);
 
                 return View(model);
             }
