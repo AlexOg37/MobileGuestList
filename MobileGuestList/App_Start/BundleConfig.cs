@@ -52,6 +52,8 @@ namespace MobileGuestList
             bundles.Add(new ScriptBundle("~/bundles/guestlist").Include("~/Scripts/guestlist.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/calculateChekboxesNum").Include("~/Scripts/calculateChekboxesNum.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/hideatts").Include("~/Scripts/hide_attendes.js"));
         }
 	}
 }
