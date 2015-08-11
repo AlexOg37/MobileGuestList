@@ -291,6 +291,7 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\slidebars.js" />
+    <Content Include="Scripts\sort_dropdown.js" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml">
       <SubType>Code</SubType>
     </Content>
