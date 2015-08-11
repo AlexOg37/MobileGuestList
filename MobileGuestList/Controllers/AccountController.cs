@@ -80,28 +80,6 @@ namespace MobileGuestList.Controllers
             HttpContext.Session[mobileLoginDetails.GetType().ToString()] = mobileLoginDetails;
 
             return RedirectToAction("Selection", "Contest");
-
-            //if (Membership.ValidateUser(model.Username, model.Password))
-            //{
-            //    FormsAuthentication.SetAuthCookie(model.Station, model.RememberStation);
-
-            //    string strLoginCode = "";
-            //    HttpSessionStateBase session = HttpContext.Session;
-            //    session[Helper.LoginCodeConst] = strLoginCode;
-
-            //    if (Url.IsLocalUrl(returnUrl))
-            //    {
-            //        return Redirect(returnUrl);
-            //    }
-            //    else
-            //    {
-            //        return RedirectToAction("Selection", "Contest");
-            //    }
-            //}
-            //else
-            //{
-            //    ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            //}
 		}
 
 		public ActionResult LogOff()

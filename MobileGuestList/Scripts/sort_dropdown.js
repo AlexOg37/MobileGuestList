@@ -14,7 +14,6 @@ $(document).ready(function () {
             var noSortData = my_options.filter('[data-sort="no"]');
             $("#contestSelect").empty().append(noSortData).append(sortData);
 
-
         }
         else {
             $("#contestSelect").html(defaultList);

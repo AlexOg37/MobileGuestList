@@ -9,5 +9,6 @@
         public string TimeZone { get; set; }
         public int StationID { get; set; }
         public bool AccessToGuestList { get; set; }
+        public string StationCall { get; set; }
     }
 }
