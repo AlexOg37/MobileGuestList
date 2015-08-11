@@ -270,6 +270,7 @@
     <Content Include="Scripts\calculateChekboxesNum.js" />
     <Content Include="Scripts\contestlist.js" />
     <Content Include="Scripts\guestlist.js" />
+    <Content Include="Scripts\hide_attendes.js" />
     <Content Include="Scripts\highlightbox.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -290,6 +291,7 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\slidebars.js" />
+    <Content Include="Scripts\sort_dropdown.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -314,6 +316,8 @@
     <Content Include="Views\Guest\Index.cshtml" />
     <Content Include="Views\Shared\_HeaderMenuPartial.cshtml" />
     <Content Include="Views\Shared\_HeaderBackButtonPartial.cshtml" />
+    <Content Include="Views\Home\Navigation.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

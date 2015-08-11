@@ -40,6 +40,7 @@ namespace DataLayer
                 TimeZone = el.TimeZone,
                 StationID = el.StationID,
                 AccessToGuestList = el.AccessToGuestList,
+                StationCall = el.StationCall
             }).FirstOrDefault();
 
             return result;

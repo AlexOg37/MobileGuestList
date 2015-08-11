@@ -15,7 +15,6 @@ namespace MobileGuestList.Controllers
 	{
         public class SelectionForm
         {
-            [Required(ErrorMessage = "You must first select a contest")]
             [Display(Name = "Id")]
             public int Id { get; set; }
 

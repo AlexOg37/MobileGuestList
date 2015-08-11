@@ -8,10 +8,9 @@
     @Html.Partial("_HeaderMenuPartial")
 }
 @Scripts.Render("~/bundles/calculateChekboxesNum")
-
+@Scripts.Render("~/bundles/hideatts")
 
 <div class="container">
-    <b>@ViewBag.Contest.Name</b>
 
     <div>
         <p id="total" class="pull-left">Total Attended</p>
@@ -20,7 +19,7 @@
             <p id="checked_nums"></p>/<p id="nums"></p>
         </div>
     </div>
-    <div style="clear:both"></div>
+    <div id="clear"></div>
 
     <p id="hide_attend">Hide Attendees</p>
 
@@ -34,9 +33,9 @@
     <div class="selectbox guests">
         @foreach (var guest in ViewBag.Guests)
         {
-            <p style="display:none">@guest.ContWinID.ToString()</p>
+            <p id="g1">@guest.ContWinID.ToString()</p>
     <div class="checkbox_row">      
-        <p class="contWinId" style="display:none">@guest.ContWinID.ToString()</p>
+        <p class="contWinId" id="g1">@guest.ContWinID.ToString()</p>
                         @{
             if (guest.Attended != null && guest.Attended != false)
             {
