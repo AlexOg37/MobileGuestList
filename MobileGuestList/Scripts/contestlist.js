@@ -19,11 +19,12 @@ $(document).ready(function () {
     var defaultList = null;
     defaultList = $("#contestSelect").html();
     $('#myonoffswitch').change(function () {
+        var test = $("#contestSelect").val();
+
         if ($(this).prop("checked")) {
             var my_options = $("#contestSelect option");
             var sortData = my_options.filter('[data-sort="yes"]');
-            var test = $("#contestSelect").val();
-
+         
             sortData.sort(function (a, b) {
 
                 if (a.text > b.text) return 1;
@@ -38,6 +39,8 @@ $(document).ready(function () {
         }
         else {
             $("#contestSelect").html(defaultList);
+            $("#contestSelect").val(test);
+
         }
     });
 });
