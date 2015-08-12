@@ -53,6 +53,8 @@ namespace MobileGuestList
 
             bundles.Add(new ScriptBundle("~/bundles/calculateChekboxesNum").Include("~/Scripts/calculateChekboxesNum.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/changeStation").Include("~/Scripts/changeStation.js"));
+
        }
 	}
 }

@@ -22,6 +22,8 @@ $(document).ready(function () {
         if ($(this).prop("checked")) {
             var my_options = $("#contestSelect option");
             var sortData = my_options.filter('[data-sort="yes"]');
+            var test = $("#contestSelect").val();
+
             sortData.sort(function (a, b) {
 
                 if (a.text > b.text) return 1;
@@ -31,6 +33,8 @@ $(document).ready(function () {
             var noSortData = my_options.filter('[data-sort="no"]');
             $("#contestSelect").empty().append(noSortData).append(sortData);
 
+            //$("#contestSelect [value='" + test + "']").attr("selected", "selected");
+            $("#contestSelect").val(test);
         }
         else {
             $("#contestSelect").html(defaultList);

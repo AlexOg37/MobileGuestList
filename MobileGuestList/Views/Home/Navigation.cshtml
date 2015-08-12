@@ -6,8 +6,24 @@
 <div id="nav_menu">
     <div class="user pull-right">
         <p id="user">@ViewBag.UserName</p>
-        <p id="station"> @ViewBag.StationCall</p>
-    </div>
+               
+        <select id="stationSelect" name="Id" class="form-control" onchange="changeStation()">
+            
+            @{
+                foreach (var station in ViewBag.Stations)
+                {
+                    if (station.StationId == ViewBag.StationID) 
+                            {
+                                <option selected="selected" value=@station.StationId>@station.StationCall</option>
+                            }
+                            else
+                            {
+                               <option value=@station.StationId>@station.StationCall</option>
+                            }                     
+                }
+            }
+        </select>
+</div>
 
         <div class="logo pull-right" id="logo">
             <img width="125" height="55" alt="" src="~/Images/HeaderLogo.png">
@@ -18,11 +34,13 @@
     <hr>
     <div class="navigation pull-right" >
         <ul>
-            <li><a href="/Contest/Selection">Guest Lists</a></li>
-            <li><a href="http://www.promosuite.com/">Full Site</a></li>
+            <li><a href="/Guest/Index">Guest Lists</a></li>
+            <li><a href="https://next.promosuite.com/MyPromoSuite.aspx">Full Site</a></li>
             <li><a href="/Home/Help">Help</a></li>
             <li><a href="/Account/LogOff">Logout</a></li>
         </ul>
     </div>
     
 </div>
+
+@Scripts.Render("~/bundles/changeStation")
