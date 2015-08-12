@@ -49,82 +49,169 @@
 
 /*=== Global ========================================================*/
 html {
-    height:100%;
-    min-width:300px;
+    height: 100%;
+    min-width: 300px;
 }
-body { height:100%; background-color: #eaeaea; margin:0px; padding:0px; position:relative; }
 
-a:link { color: #00306E; }
-a:hover { color: #00306E; }
-a:active { color: #00306E; }
+li {
+    list-style-type: none;
+    margin-top: 10px;
+    text-align:right;
+}
+
+body {
+    height: 100%;
+    background-color: #eaeaea;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+a {
+    color:#FFF;
+}
+a:link {
+    color: #FFF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FFF; /*#00306E;*/
+}
+
+a:active {
+    color: #FFF;
+}
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-	select:focus, textarea:focus, input:focus {
-		font-size: 16px;
-		background: #eee;
-	}
+    select:focus, textarea:focus, input:focus {
+        font-size: 16px;
+        background: #eee;
+    }
 }
 
-.nbsp { font-size:0; line-height:0; clear:both; display:block; height:0; }
+.nbsp {
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    display: block;
+    height: 0;
+}
+
 #fb_inocs {
-    display:inline;
+    display: inline;
 }
 /*--- Header --------------------------------------------------------*/
-#header { width:100%; height:85px; /*background-color:#014687;*/    background: linear-gradient(to top, #01306E, #014586);
- overflow:hidden; }
-#header .page { margin:auto; width:300px; position:relative }
-#header .page .back-button { top:0px; left:0px; text-align:left; position:absolute; }
-#header .page .back-button a { color:#FFF; text-decoration:none }
-#header .page .logo { margin:auto; text-align:center; }
-#header .page .menu-button { top:0px; right:0px; text-align:right; position:absolute; }
+#header {
+    width: 100%;
+    height: 85px; /*background-color:#014687;*/
+    background: linear-gradient(to top, #01306E, #014586);
+    overflow: hidden;
+}
+.user {
+margin-left:10px;margin-top:20px;text-align:right;
+}
+#nav_menu {
+    width: 100%;
+    height: 485px; /*background-color:#014687;*/
+    background: #1F3A71;
+    overflow: hidden;
+}
+
+#header .page {
+    margin: auto;
+    width: 300px;
+    position: relative;
+}
+
+    #header .page .back-button {
+        top: 0px;
+        left: 0px;
+        text-align: left;
+        position: absolute;
+    }
+
+        #header .page .back-button a {
+            color: #FFF;
+            text-decoration: none;
+        }
+
+    #header .page .logo {
+        margin: auto;
+        text-align: center;
+    }
+#logo {
+margin-right:10px;margin-top:20px;
+}
+
+    #header .page .menu-button {
+        top: 0px;
+        right: 0px;
+        text-align: right;
+        position: absolute;
+    }
 
 .header {
     display: table;
     width: 100%;
-	height:85px;
-	text-align:center;
+    height: 85px;
+    text-align: center;
     /*background-color:#014687;*/
     background: linear-gradient(to top, #01306E, #014586);
-
 }
 
-.header > div {
-    display: table-cell;
-	vertical-align:middle;
-}
+    .header > div {
+        display: table-cell;
+        vertical-align: middle;
+    }
 
 .col {
-    width:60px;
+    width: 60px;
 }
 
 .custom-width {
-    width:calc( 100% - 120px);
+    width: calc( 100% - 120px);
 }
 
-a.back-button  {
+a.back-button {
     color: #FFF;
     text-decoration: none;
     font-size: 16px;
 }
 
-.location { 
-    margin-right:15px;
-    color:grey;
-    font-size:85%;
+.location {
+    margin-right: 15px;
+    color: grey;
+    font-size: 85%;
 }
 /*--- Footer --------------------------------------------------------*/
-#footer {	width:100%; height:100px; color:#FFF; /*background-color:#014687;*/ background-color:#04498E; text-align:center;}
-hr { width:90%; margin:1em auto; border:none; height:1px; background:#ccc; }
-.container {
-    margin-top:30px;
-    width:300px !important;
- }
-.LabelSelected{
-    border: 1px dotted ;
+#footer {
+    width: 100%;
+    height: 100px;
+    color: #FFF; /*background-color:#014687;*/
+    background-color: #04498E;
+    text-align: center;
 }
-.CheckBoxClass{
-        display: none;
-    }
+
+hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background: #ccc;
+}
+
+.container {
+    margin-top: 30px;
+    width: 300px !important;
+}
+
+.LabelSelected {
+    border: 1px dotted;
+}
+
+.CheckBoxClass {
+    display: none;
+}
+
 .selectbox {
     border-style: solid;
     border-width: 1px;
@@ -132,124 +219,190 @@ hr { width:90%; margin:1em auto; border:none; height:1px; background:#ccc; }
     color: #444;
     font-family: inherit;
     font-size: 1em;
-    margin-top:50px;
+    margin-top: 50px;
     margin-right: 0.25em;
     border-radius: 3px;
     outline: medium none;
     border-collapse: collapse;
 }
+
 .checkbox_row {
-padding: 5px 23px;
-height:50px;
-border:solid 1px;
+    padding: 5px 23px;
+    height: 50px;
+    border: solid 1px;
 }
+
 .btn {
-      color:grey !important;
+    color: grey !important;
 }
-#menu-ham { color: white;font-size:25px;}
+
+#menu-ham {
+    color: white;
+    font-size: 25px;
+}
+
 #wrap {
-    min-height:100%;
-    margin-bottom:-100px;
+    min-height: 100%;
+    margin-bottom: -100px;
 }
+
 .btn-primary {
-background-color: #cdae51;
-border-color: #3F2B22;
-color: #000000;
+    background-color: #cdae51;
+    border-color: #3F2B22;
+    color: #000000;
 }
-     .onoffswitch {
-        position: relative; width: 90px;
-        -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-    }
-    .onoffswitch-checkbox {
-        display: none;
-    }
-    .onoffswitch-label {
-        display: block; overflow: hidden; cursor: pointer;
-        border: 2px solid #999999; border-radius: 20px;
-        margin-bottom: 0 !important;
-    }
-    .onoffswitch-inner {
-        display: block; width: 200%; margin-left: -100%;
-        transition: margin 0.3s ease-in 0s;
-    }
+
+.onoffswitch {
+    position: relative;
+    width: 90px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #999999;
+    border-radius: 20px;
+    margin-bottom: 0 !important;
+}
+
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+
     .onoffswitch-inner:before, .onoffswitch-inner:after {
-        display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-        font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+        display: block;
+        float: left;
+        width: 50%;
+        height: 30px;
+        padding: 0;
+        line-height: 30px;
+        font-size: 14px;
+        color: white;
+        font-family: Trebuchet, Arial, sans-serif;
+        font-weight: bold;
         box-sizing: border-box;
     }
+
     .onoffswitch-inner:before {
         content: "ON";
         padding-left: 10px;
-        background-color: #014687; color: #FFFFFF;
+        background-color: #014687;
+        color: #FFFFFF;
     }
+
     .onoffswitch-inner:after {
         content: "OFF";
         padding-right: 10px;
-        background-color: #EEEEEE; color: #999999;
+        background-color: #EEEEEE;
+        color: #999999;
         text-align: right;
     }
-    .onoffswitch-switch {
-        display: block; width: 18px; margin: 6px;
-        background: #FFFFFF;
-        position: absolute; top: 0; bottom: 0;
-        right: 56px;
-        border: 2px solid #999999; border-radius: 20px;
-        transition: all 0.3s ease-in 0s; 
-    }
-    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-        margin-left: 0;
-    }
-    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-        right: 0px; 
-    }
+
+.onoffswitch-switch {
+    display: block;
+    width: 18px;
+    margin: 6px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 56px;
+    border: 2px solid #999999;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+}
 
 input[type=checkbox].css-checkbox {
-							position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
-						}
-
-input[type=checkbox].css-checkbox + label.css-label, input[type=checkbox].css-checkbox + label.css-label.clr {
-	padding-left:29px;
-	height:28px; 
-	display:inline-block;
-	line-height:28px;
-	background-repeat:no-repeat;
-	background-position: 0 0;
-	font-size:28px;
-	vertical-align:middle;
-	cursor:pointer;
-
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
 }
 
-input[type=checkbox].css-checkbox:checked + label.css-label, input[type=checkbox].css-checkbox + label.css-label.chk {
-	background-position: 0 -28px;
-}
+    input[type=checkbox].css-checkbox + label.css-label, input[type=checkbox].css-checkbox + label.css-label.clr {
+        padding-left: 29px;
+        height: 28px;
+        display: inline-block;
+        line-height: 28px;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        font-size: 28px;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+        input[type=checkbox].css-checkbox:checked + label.css-label, input[type=checkbox].css-checkbox + label.css-label.chk {
+            background-position: 0 -28px;
+        }
+
 label.css-label {
-background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_9ad0a9f32098f8c224653bcfeb22dfb7.png);
--webkit-touch-callout: none;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+    background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_9ad0a9f32098f8c224653bcfeb22dfb7.png);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-#g1 {display:none;}
-#clear {clear:both;}
+#g1 {
+    display: none;
+}
+
+#clear {
+    clear: both;
+}
+.navigation {
+margin-right:10px;
+}
+
 #generatelist {
-       background-color:#014687 !important; color:#ffffff !important; border-radius:10px;width:160px;height:60px;font-family:Andale monospace, monospace;
+    background-color: #014687 !important;
+    color: #ffffff !important;
+    border-radius: 10px;
+    width: 160px;
+    height: 60px;
+    font-family: Andale monospace, monospace;
 }
 
 #sortcontest {
-    font-size:90%;
+    font-size: 90%;
 }
-#btngenerate {
-text-align:center; margin-top:70px; 
 
+#btngenerate {
+    text-align: center;
+    margin-top: 70px;
 }
 
 .checkbox_row.highlight {
-    background-color:#CDFFCC;
+    background-color: #CDFFCC;
 }
+
 .logincontainer {
     border-style: solid;
     border-width: 1px;
@@ -257,38 +410,66 @@ text-align:center; margin-top:70px;
     color: #444;
     font-family: inherit;
     font-size: 1em;
-    padding:10px 23px;
+    padding: 10px 23px;
     margin-right: 0.25em;
     border-radius: 3px;
     outline: medium none;
     border-collapse: collapse;
+}
 
-}
 #guestmargin {
-margin-right:10px;
-margin-top:5px;
+    margin-right: 10px;
+    margin-top: 5px;
 }
+
 #total {
-float:left; display: inline; margin-top:10px;
+    float: left;
+    display: inline;
+    margin-top: 10px;
 }
-#count_num {margin-top:8px;}
+
+#count_num {
+    margin-top: 8px;
+}
+
 #nums {
-float: none; display: inline; margin-top: 10px;
+    float: none;
+    display: inline;
+    margin-top: 10px;
 }
-#checked_nums {float:left; }
+
+#checked_nums {
+    float: left;
+}
+
 #hide_attend {
-float:left; display: inline;
+    float: left;
+    display: inline;
 }
+
 #btn_margin {
-margin-top:20px;
+    margin-top: 20px;
 }
-#user {color:white;font-size:90;
-}
+
+#user {
+    color: white;
+    font-size: 80%;
+    margin-right:10px;
+    text-align:right;
+    }
+
 #station {
-color:white;
+    color: white;
+    margin-right:10px;
+    text-align:right;
 }
+
 #btn_distr {
-background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px; width:95%;
+    background-color: #014687 !important;
+    color: #ffffff !important;
+    font-size: 110%;
+    border-radius: 10px;
+    width: 95%;
 }
 /*#btn_no {
 background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px;
@@ -296,141 +477,135 @@ background-color:#014687 !important; color:#ffffff !important; font-size:110%;bo
 #btn_cancel {
 background-color:#014687 !important; color:#ffffff !important; font-size:110%;border-radius:10px;
 }*/
-    button::-moz-focus-inner,
-
-	input[type="reset"]::-moz-focus-inner,
-
-	input[type="button"]::-moz-focus-inner,
-
-	input[type="submit"]::-moz-focus-inner,
-
-	input[type="submit"]::-moz-focus-inner,
-
-	input[type="file"] > input[type="button"]::-moz-focus-inner {/* */
-
-	border: none;
-	}
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner { /* */
+    border: none;
+}
 
 .sb-slidebar {
-	height: 100%;
-	overflow-y: auto; /* Enable vertical scrolling on Slidebars when needed. */
-	position: fixed;
-	top: 0;
-	z-index: 0; /* Slidebars sit behind sb-site. */
-	display: none; /* Initially hide the Slidebars. Changed from visibility to display to allow -webkit-overflow-scrolling. */
-	background-color: #1F3A71; /* Default Slidebars background colour, overwrite this with your own css. */
+    height: 100%;
+    overflow-y: auto; /* Enable vertical scrolling on Slidebars when needed. */
+    position: fixed;
+    top: 0;
+    z-index: 0; /* Slidebars sit behind sb-site. */
+    display: none; /* Initially hide the Slidebars. Changed from visibility to display to allow -webkit-overflow-scrolling. */
+    background-color: #1F3A71; /* Default Slidebars background colour, overwrite this with your own css. */
 }
 
-.sb-slidebar, .sb-slidebar * {
-	-webkit-transform: translateZ( 0px ); /* Fixes issues with translated and z-indexed elements on iOS 7. */
-}
+    .sb-slidebar, .sb-slidebar * {
+        -webkit-transform: translateZ( 0px ); /* Fixes issues with translated and z-indexed elements on iOS 7. */
+    }
 
 .sb-left {
-	left: 0; /* Set Slidebar to the left. */
+    left: 0; /* Set Slidebar to the left. */
 }
 
 .sb-right {
-	right: 0; /* Set Slidebar to the right. */
+    right: 0; /* Set Slidebar to the right. */
 }
 
 html.sb-static .sb-slidebar,
 .sb-slidebar.sb-static {
-	position: absolute; /* Makes Slidebars scroll naturally with the site, and unfixes them for Android Browser < 3 and iOS < 5. */
+    position: absolute; /* Makes Slidebars scroll naturally with the site, and unfixes them for Android Browser < 3 and iOS < 5. */
 }
 
 .sb-slidebar.sb-active {
-	display: block; /* Makes Slidebars visibile when open. Changed from visibility to display to allow -webkit-overflow-scrolling. */
+    display: block; /* Makes Slidebars visibile when open. Changed from visibility to display to allow -webkit-overflow-scrolling. */
 }
 
 .sb-style-overlay {
-	z-index: 9999; /* Set z-index high to ensure it overlays any other site elements. */
+    z-index: 9999; /* Set z-index high to ensure it overlays any other site elements. */
 }
 
 .sb-momentum-scrolling {
-	-webkit-overflow-scrolling: touch; /* Adds native momentum scrolling for iOS & Android devices. */
+    -webkit-overflow-scrolling: touch; /* Adds native momentum scrolling for iOS & Android devices. */
 }
 
 /* Slidebar widths for browsers/devices that don't support media queries. */
-	.sb-slidebar {
-		width: 30%;
-	}
-	
-	.sb-width-thin {
-		width: 15%;
-	}
-	
-	.sb-width-wide {
-		width: 45%;
-	}
+.sb-slidebar {
+    width: 30%;
+}
+
+.sb-width-thin {
+    width: 15%;
+}
+
+.sb-width-wide {
+    width: 45%;
+}
 
 @media (max-width: 480px) { /* Slidebar widths on extra small screens. */
-	.sb-slidebar {
-		width: 70%;
-	}
-	
-	.sb-width-thin {
-		width: 55%;
-	}
-	
-	.sb-width-wide {
-		width: 85%;
-	}
+    .sb-slidebar {
+        width: 70%;
+    }
+
+    .sb-width-thin {
+        width: 55%;
+    }
+
+    .sb-width-wide {
+        width: 85%;
+    }
 }
 
 @media (min-width: 481px) { /* Slidebar widths on small screens. */
-	.sb-slidebar {
-		width: 55%;
-	}
-	
-	.sb-width-thin {
-		width: 40%;
-	}
-	
-	.sb-width-wide {
-		width: 70%;
-	}
+    .sb-slidebar {
+        width: 55%;
+    }
+
+    .sb-width-thin {
+        width: 40%;
+    }
+
+    .sb-width-wide {
+        width: 70%;
+    }
 }
 
 @media (min-width: 768px) { /* Slidebar widths on medium screens. */
-	.sb-slidebar {
-		width: 40%;
-	}
-	
-	.sb-width-thin {
-		width: 25%;
-	}
-	
-	.sb-width-wide {
-		width: 55%;
-	}
+    .sb-slidebar {
+        width: 40%;
+    }
+
+    .sb-width-thin {
+        width: 25%;
+    }
+
+    .sb-width-wide {
+        width: 55%;
+    }
 }
 
 @media (min-width: 992px) { /* Slidebar widths on large screens. */
-	.sb-slidebar {
-		width: 30%;
-	}
-	
-	.sb-width-thin {
-		width: 15%;
-	}
-	
-	.sb-width-wide {
-		width: 45%;
-	}
+    .sb-slidebar {
+        width: 30%;
+    }
+
+    .sb-width-thin {
+        width: 15%;
+    }
+
+    .sb-width-wide {
+        width: 45%;
+    }
 }
 
 @media (min-width: 1200px) { /* Slidebar widths on extra large screens. */
-	.sb-slidebar {
-		width: 20%;
-	}
-	
-	.sb-width-thin {
-		width: 5%;
-	}
-	
-	.sb-width-wide {
-		width: 35%;
-	}
+    .sb-slidebar {
+        width: 20%;
+    }
+
+    .sb-width-thin {
+        width: 5%;
+    }
+
+    .sb-width-wide {
+        width: 35%;
+    }
 }
 
 /* ---------------
@@ -438,31 +613,30 @@ html.sb-static .sb-slidebar,
  */
 
 .sb-slide, #sb-site, .sb-site-container, .sb-slidebar {
-	-webkit-transform: translate( 0px );
-	   -moz-transform: translate( 0px );
-	     -o-transform: translate( 0px );
-	        transform: translate( 0px );
-	
-	-webkit-transition: -webkit-transform 400ms ease;
-	   -moz-transition:    -moz-transform 400ms ease;
-	     -o-transition:      -o-transform 400ms ease;
-	        transition:         transform 400ms ease;
-	
-	-webkit-transition-property: -webkit-transform, left, right; /* Add left/right for Android < 4.4. */
-	-webkit-backface-visibility: hidden; /* Prevents flickering. This is non essential, and you may remove it if your having problems with fixed background images in Chrome. */
+    -webkit-transform: translate( 0px );
+    -moz-transform: translate( 0px );
+    -o-transform: translate( 0px );
+    transform: translate( 0px );
+    -webkit-transition: -webkit-transform 400ms ease;
+    -moz-transition: -moz-transform 400ms ease;
+    -o-transition: -o-transform 400ms ease;
+    transition: transform 400ms ease;
+    -webkit-transition-property: -webkit-transform, left, right; /* Add left/right for Android < 4.4. */
+    -webkit-backface-visibility: hidden; /* Prevents flickering. This is non essential, and you may remove it if your having problems with fixed background images in Chrome. */
 }
 
 /* --------------------
  * 005 - Helper Classes
  */
- 
-.sb-hide { 
-	display: none; /* Optionally applied to control classes when Slidebars is disabled over a certain width. */
+
+.sb-hide {
+    display: none; /* Optionally applied to control classes when Slidebars is disabled over a certain width. */
 }
 
 .sb-left .sb-menu li a {
     border-left: 3px solid transparent;
 }
+
 .sb-menu li a {
     color: #f2f2f2;
     display: inline-block;

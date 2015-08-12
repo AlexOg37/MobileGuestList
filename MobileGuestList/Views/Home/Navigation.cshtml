@@ -3,15 +3,26 @@
     @Html.Partial("_MenuPartial")
 }*@
 
-<div id="header">
-    <div class="page">
-        <div class="logo pull-left">
-            <img width="125" height="55" alt="" src="~/Images/HeaderLogo.png">
-        </div>
-        <div class="user pull-right">
-            <p id="user">@ViewBag.UserName</p>
-            <p id="station"> @ViewBag.StationCall</p>
-        </div>
-
+<div id="nav_menu">
+    <div class="user pull-right">
+        <p id="user">@ViewBag.UserName</p>
+        <p id="station"> @ViewBag.StationCall</p>
     </div>
+
+        <div class="logo pull-right" id="logo">
+            <img width="125" height="55" alt="" src="~/Images/HeaderLogo.png">
+    
+        </div>
+    
+    <div id="clear"></div>
+    <hr>
+    <div class="navigation pull-right" >
+        <ul>
+            <li><a href="/Contest/Selection">Guest Lists</a></li>
+            <li><a href="http://www.promosuite.com/">Full Site</a></li>
+            <li><a href="/Home/Help">Help</a></li>
+            <li><a href="/Account/LogOff">Logout</a></li>
+        </ul>
+    </div>
+    
 </div>
