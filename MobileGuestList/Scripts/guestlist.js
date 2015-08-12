@@ -34,16 +34,58 @@ $('.checkbox_row').ready(function () {
     }
 })
 
+//$(document).ready(function Hide() {
+//    $('#myonoffswitch').change(function () {        
+//        if ($(this).prop('checked'))
+//            $('.selectbox input:checked').each(function () {
+//                $(this).closest(".checkbox_row").fadeOut('slow');
+//            });
+//        else
+//            $('.selectbox input:checked').each(function () {
+//                $(this).closest(".checkbox_row").fadeIn('slow');
+//            });
+//    });
+//});
 $(document).ready(function () {
     $('#myonoffswitch').change(function () {
-        console.log('hello');
-        if ($(this).prop('checked'))
-            $('.selectbox input:checked').each(function () {
-                $(this).closest(".checkbox_row").fadeOut('slow');
-            });
-        else
-            $('.selectbox input:checked').each(function () {
-                $(this).closest(".checkbox_row").fadeIn('slow');
-            });
+        ShowOrHide();
     });
+    $('.selectbox input').change(function () {
+        ShowOrHide();
+        calculateChekboxesNum();
+    });
+    ShowOrHide();
+    calculateChekboxesNum();
 });
+
+function ShowOrHide() {
+
+    if ($('#myonoffswitch').prop('checked'))
+        $('.selectbox input:checked').each(function () {
+            $(this).closest(".checkbox_row").fadeOut('slow');
+        });
+    else
+        $('.selectbox input:checked').each(function () {
+            $(this).closest(".checkbox_row").fadeIn('slow');
+        });
+
+}
+function calculateChekboxesNum() {
+    var wrapper = document.getElementsByClassName("guests");
+    var inputs = wrapper[0].getElementsByTagName("input");
+    var cbs = [];
+    var checked = [];
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].type == "checkbox") {
+            cbs.push(inputs[i]);
+            if (inputs[i].checked) {
+                checked.push(inputs[i]);
+            }
+        }
+    }
+    var total = cbs.length;
+    var attended = checked.length;
+
+    document.getElementById('nums').innerHTML = total;
+    document.getElementById('checked_nums').innerHTML = attended;
+}
