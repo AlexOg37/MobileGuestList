@@ -233,7 +233,7 @@ user-select: none;
 #g1 {display:none;}
 #clear {clear:both;}
 #generatelist {
-       background-color:#014687 !important; color:#ffffff !important; border-radius:10px;width:160px;height:60px;
+       background-color:#014687 !important; color:#ffffff !important; border-radius:10px;width:160px;height:60px;font-family:Andale monospace, monospace;
 }
 
 #sortcontest {
