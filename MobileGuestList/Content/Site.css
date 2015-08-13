@@ -116,14 +116,52 @@ margin-left:10px;margin-top:20px;text-align:right;
     background: #1F3A71;
     overflow: hidden;
 }
+.nav_menu{
+    width:600px;
+    height:150px;
+    background:#c4fdc7;
+    border: 2px solid #2d8440;
+    position:absolute;
+    top:200px;
+    left:-620px;
+}
+   
 
 #header .page {
     margin: auto;
     width: 300px;
     position: relative;
 }
-
-    #header .page .back-button {
+.wrap {
+    width: 100%;
+    overflow-x: hidden;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.content {
+    width: 100%;
+    margin-left: 100px;
+    background: green;
+}
+.left-border, .right-border {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100px;
+    background: red;
+}
+.left-border {
+    left: 0;
+}
+.right-border {
+    right: 0;
+    margin-right: -200px;
+    background: yellow;
+}
+ #header .page .back-button {
         top: 0px;
         left: 0px;
         text-align: left;
@@ -230,6 +268,7 @@ hr {
     padding: 5px 23px;
     height: 50px;
     border: solid 1px;
+    background-color:#fff;
 }
 
 .btn {
@@ -387,7 +426,7 @@ margin-right:10px;
     border-radius: 10px;
     width: 160px;
     height: 60px;
-    font-family: Andale monospace, monospace;
+   font-family: Lucidatypewriter, monospace;
 }
 
 #sortcontest {
