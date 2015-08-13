@@ -46,5 +46,12 @@ namespace MobileGuestList.Controllers
 
             return RedirectToAction("Selection", "Contest");
         }
+
+        public ActionResult SignOut()
+        {
+            HttpContext.Session[Helper.LoginCodeConst] = null;
+
+            return RedirectToAction("Login", "Account");
+        }
 	}
 }

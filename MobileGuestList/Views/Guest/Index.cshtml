@@ -51,13 +51,13 @@
             @{
                 String strInfo = "";
                 
-                if (guest.HomeCity.Length != 0)
+                if (guest.HomeCity != null && guest.HomeCity.Length != 0)
                 {
                     strInfo = guest.HomeCity;
                 }
                 else
                 {
-                    if (guest.BusinessCity.Length != 0)
+                    if (guest.BusinessCity != null && guest.BusinessCity.Length != 0)
                     {
                         strInfo = guest.BusinessCity;
                     }
