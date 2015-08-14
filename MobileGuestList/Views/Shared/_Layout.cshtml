@@ -45,10 +45,9 @@
 
     
     
-        <div class="wrap">  
-         
-       @Html.Partial("_Navigation")
-        <div>           
+<div id="wrap">  
+         <div class="cont">
+              @Html.Partial("_Navigation")
             <div class="header">
                 <div class="col">
                     <div>
@@ -81,12 +80,13 @@
                     }
                 }
             </div>
-        </div>
+        
        
       <div class="main_content">
         @RenderBody()
       </div>
     </div>
+</div>
   <div id="footer">
     @if (IsSectionDefined("Footer"))
     {
