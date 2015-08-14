@@ -44,7 +44,9 @@ namespace MobileGuestList.Controllers
 
             HttpContext.Session[mobileLoginDetails.GetType().ToString()] = mobileLoginDetails;
 
-            return RedirectToAction("Selection", "Contest");
+            var resultList = this.Repo.GetContestsList(stationId).ToList();
+
+            return Json(resultList);
         }
 
         public ActionResult SignOut()

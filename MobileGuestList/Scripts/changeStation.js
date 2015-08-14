@@ -1,14 +1,15 @@
-﻿function changeStation() {
-    console.log("test");
-    var Id = $('#stationSelect').val();
-    console.log("test1");
+﻿function changeStation(item) {
+    $.post('/Home/ChangeStation?stationId=' + $(item).attr('data-station-id'), function (result) {
+        $("#contestSelect").html("");
+        $("#contestSelect").append("<option selected='selected' value='' data-sort='no'>Pick Your Contest</option>");
+        $(result).each(function (index, item) {
+            var string1 = "<option value='" + item.Id + "' data-sort='yes'>" + item.Name + "</option>";
+            $("#contestSelect").append(string1);
+        });
+        InitSorting();
+    });
+    $('#toggler').toggle("slow");
 
-    $.ajax({
-        url: '/Home/ChangeStation?stationId=' + Id,
-        type: 'POST',
-        async: false,
-    })
-
-    location.reload();
+    $('#station_call').text($(item).text());
 
 }

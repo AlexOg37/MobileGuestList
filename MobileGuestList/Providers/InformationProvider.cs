@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MobileGuestList.Providers
 {
-    public class InformationProvider
+    public class InformationProvider:IDisposable
     {
         DataBaseEntityProvider _provider = null;
         IEnumerable<Guest> _guestList;
@@ -114,6 +114,11 @@ namespace MobileGuestList.Providers
                 FulfillmentDate = el.FulfillmentDate,
                 Attended = el.attended
             }).ToList();
+        }
+
+        public void Dispose()
+        {
+           // this._provider.Context.Dispose();
         }
     }
 }
