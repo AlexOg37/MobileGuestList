@@ -23,10 +23,12 @@ namespace MobileGuestList.Controllers
 
 
         }
-        public ActionResult Selection(string error)
+        public ActionResult Selection(bool bWithError = false)
         {
-            if (!string.IsNullOrEmpty(error))
-                ModelState.AddModelError("CustomError", error);
+            //if (!string.IsNullOrEmpty(error))
+            //    ModelState.AddModelError("CustomError", error);
+            if (bWithError == true)
+                ModelState.AddModelError("keyName", error);
 
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
 

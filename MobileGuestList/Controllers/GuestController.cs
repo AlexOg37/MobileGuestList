@@ -12,13 +12,12 @@ namespace MobileGuestList.Controllers
 {
 	public class GuestController : BaseController
 	{    
-		public ActionResult Index()
+      		public ActionResult Index()
 		{
             Contest currentContest = Helper.GetCurrentContest();
             if (currentContest == null)
             {
-                var message = "*  You must first select a contest.";
-                return RedirectToAction("Selection", "Contest", new { error = message });
+                return RedirectToAction("Selection", "Contest", new { bWithError = true });
             }   
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
