@@ -6,13 +6,20 @@ using System.Web.Mvc;
 using MobileGuestList.App_Data;
 using Models;
 using MobileGuestList.Providers;
+using System.Web.Routing;
 
 namespace MobileGuestList.Controllers
 {
 	public class GuestController : BaseController
-	{
+	{    
 		public ActionResult Index()
 		{
+            Contest currentContest = Helper.GetCurrentContest();
+            if (currentContest == null)
+            {
+                var message = "*  You must first select a contest.";
+                return RedirectToAction("Selection", "Contest", new { error = message });
+            }   
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
 			HttpSessionStateBase session = HttpContext.Session;

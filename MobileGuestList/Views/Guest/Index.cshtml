@@ -34,72 +34,74 @@
         @foreach (var guest in ViewBag.Guests)
         {
             <p id="g1">@guest.ContWinID.ToString()</p>
-    <div class="checkbox_row">      
-        <p class="contWinId" id="g1">@guest.ContWinID.ToString()</p>
-                        @{
+            <div class="checkbox_row">
+                <p class="contWinId" id="g1">@guest.ContWinID.ToString()</p>
+                @{
             if (guest.Attended != null && guest.Attended != false)
             {
-                <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" onchange="Hide()"  class="css-checkbox" checked /><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin" class="css-label radGroup1 pull-left"></label>
+                <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" onchange="Hide()" class="css-checkbox" checked /><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin" class="css-label radGroup1 pull-left"></label>
             }
             else
             {
-                <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" onchange="Hide()"  class="css-checkbox" /><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin" class="css-label radGroup1 pull-left" ></label>
+                <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" onchange="Hide()" class="css-checkbox" /><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin" class="css-label radGroup1 pull-left"></label>
             }
-}
-           
-              <strong>@guest.LastName, @guest.Name</strong>
-            @{
-                String strInfo = "";
-                
-                if (guest.HomeCity != null && guest.HomeCity.Length != 0)
+                }
+
+                <strong>@guest.LastName, @guest.Name</strong>
+                @{
+            String strInfo = "";
+
+            if (guest.HomeCity != null && guest.HomeCity.Length != 0)
+            {
+                strInfo = guest.HomeCity;
+            }
+            else
+            {
+                if (guest.BusinessCity != null && guest.BusinessCity.Length != 0)
                 {
-                    strInfo = guest.HomeCity;
+                    strInfo = guest.BusinessCity;
                 }
                 else
                 {
-                    if (guest.BusinessCity != null && guest.BusinessCity.Length != 0)
+                    if (guest.Birthdate != null)
                     {
-                        strInfo = guest.BusinessCity;
-                    }
-                    else
-                    {
-                        if (guest.Birthdate != null)
-                        {
-                            strInfo = guest.Birthdate.ToShortDateString();
-                        }
+                        strInfo = guest.Birthdate.ToShortDateString();
                     }
                 }
-                String strInfo1 = "";
-                if (guest.MobilePhone != null && guest.MobilePhone.Length != 0)
+            }
+            String strInfo1 = "";
+            if (guest.MobilePhone != null && guest.MobilePhone.Length != 0)
+            {
+                strInfo1 = guest.MobilePhone;
+            }
+            else
+            {
+                if (guest.HomePhone != null && guest.HomePhone.Length != 0)
                 {
-                    strInfo1 = guest.MobilePhone;
+                    strInfo1 = guest.HomePhone;
                 }
                 else
                 {
-                    if (guest.HomePhone != null && guest.HomePhone.Length != 0)
+                    if (guest.BusinessPhone != null && guest.BusinessPhone.Length != 0)
                     {
-                        strInfo1 = guest.HomePhone;
-                    }
-                    else
-                    {
-                        if (guest.BusinessPhone != null && guest.BusinessPhone.Length != 0)
-                        {
-                            strInfo1 = guest.BusinessPhone;
-                        }
+                        strInfo1 = guest.BusinessPhone;
                     }
                 }
-                if (!strInfo.IsEmpty() && !strInfo1.IsEmpty())
-                {
-                    strInfo = strInfo + " | ";
-                }
-                strInfo = strInfo + strInfo1;
-                <p class="guest-info">@strInfo</p>
             }
-        
-    </div>   
+            if (!strInfo.IsEmpty() && !strInfo1.IsEmpty())
+            {
+                strInfo = strInfo + " | ";
+            }
+            strInfo = strInfo + strInfo1;
+            <p class="guest-info">@strInfo</p>
+                }
+
+            </div>
         }
-    
+
     </div>
+
+
 
 </div>
 <script type="text/javascript">

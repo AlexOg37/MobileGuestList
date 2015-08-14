@@ -11,8 +11,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MobileGuestList.Controllers
 {
-	public class ContestController : BaseController
-	{
+    public class ContestController : BaseController
+    {
         public const string error = "*  You must first select a contest.";
         public class SelectionForm
         {
@@ -23,8 +23,11 @@ namespace MobileGuestList.Controllers
 
 
         }
-		public ActionResult Selection()
-		{
+        public ActionResult Selection(string error)
+        {
+            if (!string.IsNullOrEmpty(error))
+                ModelState.AddModelError("CustomError", error);
+
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
             if (Helper.GetCurrentUserDetails() == null)
@@ -38,18 +41,19 @@ namespace MobileGuestList.Controllers
             {
                 ViewBag.SelectedContest = contest;
             }
-            
-            return View();
-		}
 
-		[HttpPost]
-		public ActionResult Selection(Contest contest, SelectionForm model)
-		{
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Selection(Contest contest, SelectionForm model)
+        {
             if (!ModelState.IsValid)
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
                 ViewBag.Contests = this.Repo.GetContestsList(stationId);
                 ModelState.AddModelError("keyName", error);
+
 
                 return View(model);
             }
@@ -58,20 +62,20 @@ namespace MobileGuestList.Controllers
 
             IEnumerable<Guest> guests = this.Repo.GetGuestList(contest.Id);
 
-			bool boDistributed = true;
-			foreach (Guest guest in guests)
-			{
-				if (guest.FulfillmentDate == null)
-				{
-					boDistributed = false;
-					break;
-				}
-			}
+            bool boDistributed = true;
+            foreach (Guest guest in guests)
+            {
+                if (guest.FulfillmentDate == null)
+                {
+                    boDistributed = false;
+                    break;
+                }
+            }
 
-			if (!boDistributed)
-				return RedirectToAction("Distribution");
-			return RedirectToAction("Index", "Guest");
-		}
+            if (!boDistributed)
+                return RedirectToAction("Distribution");
+            return RedirectToAction("Index", "Guest");
+        }
 
         [HttpPost]
         public ActionResult UpdateContestSelection(int contestId)
@@ -79,32 +83,32 @@ namespace MobileGuestList.Controllers
             Contest contest = this.Repo.GetContestById(contestId);
             HttpContext.Session[Helper.ContestConst] = contest;
 
-            return Json(new { }); 
+            return Json(new { });
         }
 
-		public ActionResult Distribution()
-		{
+        public ActionResult Distribution()
+        {
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
-			HttpSessionStateBase session = HttpContext.Session;
-			Contest contest = (Contest)session[Helper.ContestConst];
-			ViewBag.Contest = contest;
+            HttpSessionStateBase session = HttpContext.Session;
+            Contest contest = (Contest)session[Helper.ContestConst];
+            ViewBag.Contest = contest;
 
-			return View();
-		}
+            return View();
+        }
 
-		public ActionResult Distribute(bool Distribute)
-		{
-			if (Distribute)
-			{
-				HttpSessionStateBase session = HttpContext.Session;
-				Contest contest = (Contest)session[Helper.ContestConst];
-				ViewBag.Contest = contest;
+        public ActionResult Distribute(bool Distribute)
+        {
+            if (Distribute)
+            {
+                HttpSessionStateBase session = HttpContext.Session;
+                Contest contest = (Contest)session[Helper.ContestConst];
+                ViewBag.Contest = contest;
 
                 this.Repo.MarkDistributed(contest.Id);
-			}
+            }
 
-			return RedirectToAction("Index", "Guest");
-		}
-	}
+            return RedirectToAction("Index", "Guest");
+        }
+    }
 }

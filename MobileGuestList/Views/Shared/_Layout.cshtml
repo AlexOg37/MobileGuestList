@@ -82,20 +82,21 @@
             </div>
         
        
-      <div class="main_content">
-        @RenderBody()
-      </div>
+                      <div class="main_content">
+                        @RenderBody()
+                      </div>
+             
     </div>
 </div>
-  <div id="footer">
-    @if (IsSectionDefined("Footer"))
-    {
-      @RenderSection("Footer")
-    }
-    else
-    {
-      @Html.Partial("_FooterPartial")
-    }
+    <div id="footer">
+        @if (IsSectionDefined("Footer"))
+        {
+            @RenderSection("Footer")
+        }
+        else
+        {
+            @Html.Partial("_FooterPartial")
+        }
     </div>
  
 </body>

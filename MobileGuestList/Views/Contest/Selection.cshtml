@@ -7,6 +7,7 @@
     <form method="post" class="form-group">
         <div class="form-group">
             @Html.ValidationMessage("keyName")
+            @Html.ValidationMessage("CustomError")
             <select id="contestSelect" name="Id" class="form-control" onchange="OnCurrentContestChanged()">
                 <option selected="selected" value="" data-sort="no">Pick Your Contest</option>
 
