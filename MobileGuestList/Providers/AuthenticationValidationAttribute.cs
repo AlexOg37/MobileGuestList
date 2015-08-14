@@ -12,9 +12,16 @@ namespace MobileGuestList.Providers
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            if (filterContext.ActionDescriptor.ActionName == "Index" && filterContext.ActionDescriptor.ControllerDescriptor.ControllerName == "Home")
+            {
+                return;
+            }
+
             AccountController acController = filterContext.Controller as AccountController;
             if (acController != null)
+            {
                 return;
+            }
 
             if (filterContext.HttpContext.Session[Helper.LoginCodeConst] == null)
             {

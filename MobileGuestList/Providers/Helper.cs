@@ -11,6 +11,7 @@ namespace MobileGuestList.Providers
         public const string LoginCodeConst = "LoginCode";
         public const string ContestConst = "Contest";
         public const string NavigationTextHeaderMessage = "Listener Database > Guest Lists";
+        public const string Local_SQLDBConst = "Local_SQLDB";
         public static string GetUserDB(this HttpSessionStateBase session)
         {
             MobileLoginDetails mobileLoginDetails = GetCurrentUserDetails();

@@ -1,5 +1,6 @@
 ﻿using DataLayer;
 using Models;
+using System;
 
 namespace MobileGuestList.Providers
 {
@@ -19,7 +20,14 @@ namespace MobileGuestList.Providers
 
         public MobileLoginDetails GetProfile(string strQuerystring)
         {
-            return this._provider.GetLoginDetails(strQuerystring);
+            MobileLoginDetails logDetails = null;
+            try 
+            {
+                logDetails = this._provider.GetLoginDetails(strQuerystring);
+            }
+            catch (Exception){}
+
+            return logDetails;
         }
     }
 }
