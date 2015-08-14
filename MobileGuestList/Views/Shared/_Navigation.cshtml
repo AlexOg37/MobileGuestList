@@ -10,7 +10,7 @@
 
             @foreach (var station in @Helper.GetStations())
             {
-                <div  data-station-id="@station.StationId">@station.StationCall</div>
+                <div id="station_item" data-station-id="@station.StationId">@station.StationCall</div>
             }
 
         </div>

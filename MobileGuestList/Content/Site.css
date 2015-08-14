@@ -486,6 +486,11 @@ label.css-label {
     -ms-user-select: none;
     user-select: none;
 }
+#station_item {
+padding-top:8px;
+padding-bottom:8px;
+border: solid 1px;
+}
 
 #g1 {
     display: none;
