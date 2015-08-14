@@ -20,15 +20,6 @@
                 $('#toggler').toggle('slow');
             });
 
-            //$(document).ready(function () {
-            //    var $wrap = $('.wrap').show().scrollLeft(100);
-            //    $("#menu-ham").click(function () {
-                  
-            //        $(".panel").toggle("fast");
-            //        $(this).toggleClass("active");
-            //        return false;
-            //    });
-            //});
             $(document).ready(function () {
                 $("[data-toggle]").click(function () {
                     var toggle_el = $(this).data("toggle");
@@ -82,22 +73,24 @@
             </div>
         
        
-                      <div class="main_content">
-                        @RenderBody()
-                      </div>
+        <div>
+        @RenderBody()
+        </div>
+             <div id="footer">
+                 @if (IsSectionDefined("Footer"))
+                 {
+                     @RenderSection("Footer")
+                 }
+                 else
+                 {
+                     @Html.Partial("_FooterPartial")
+                 }
+             </div>
              
     </div>
+    
 </div>
-    <div id="footer">
-        @if (IsSectionDefined("Footer"))
-        {
-            @RenderSection("Footer")
-        }
-        else
-        {
-            @Html.Partial("_FooterPartial")
-        }
-    </div>
+
  
 </body>
 </html>

@@ -266,8 +266,7 @@ hr {
     border-radius: 3px;
     outline: medium none;
     border-collapse: collapse;
-    overflow-y:scroll;
-    max-height:250px;
+    /*max-height:250px;*/
 }
 
 .checkbox_row {
