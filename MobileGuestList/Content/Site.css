@@ -132,15 +132,7 @@ margin-left:10px;margin-top:20px;text-align:right;
     width: 300px;
     position: relative;
 }
-.wrap {
-    width: 100%;
-    overflow-x: hidden;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-}
+
 .content {
     width: 100%;
     margin-left: 100px;
@@ -269,14 +261,31 @@ hr {
 a:focus { outline: none; }
 
 .panel {
-    position: fixed;
-    right: 0;
-    display: none;
+    /*position: fixed;*/
+    position:absolute;
+    right: -240px;
+    /*display: none;*/
     background: #1F3A71;
-    width: 300px;
+    width: 240px;
     height: 100%;
     color:#fff;
      
+}
+.wrap #sidebar-toggle {
+    background: linear-gradient(to top, #01306E, #014586);
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    padding: 10px 7px;
+    float: right;
+}
+.wrap #sidebar-toggle .bar{
+     display: block;
+    width: 18px;
+    margin-bottom: 3px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 1px;
 }
 
 #menu-ham {
@@ -285,15 +294,22 @@ a:focus { outline: none; }
     
 }
 
-#wrap {
+.wrap {
     min-height: 100%;
     margin-bottom: -100px;
     width: 100%;
-    overflow-x: hidden;
     height: 100%;   
-    top: 0;
-    left: 0;
+    position:relative;
+    right:0;
+    -webkit-transition:  right 0.4s ease-in-out;
+    -moz-transition:  right 0.4s ease-in-out;
+    -ms-transition:  right 0.4s ease-in-out;
+    -o-transition:  right 0.4s ease-in-out;
+    transition:  right 0.4s ease-in-out;
    
+}
+.wrap.open-sidebar {
+    right: 240px;
 }
 #toggler { display: none;     
            color: white;

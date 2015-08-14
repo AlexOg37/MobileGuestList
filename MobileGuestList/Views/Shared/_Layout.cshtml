@@ -20,13 +20,19 @@
                 $('#toggler').toggle('slow');
             });
 
-            $(document).ready(function () {
-                var $wrap = $('.wrap').show().scrollLeft(100);
-                $("#menu-ham").click(function () {
+            //$(document).ready(function () {
+            //    var $wrap = $('.wrap').show().scrollLeft(100);
+            //    $("#menu-ham").click(function () {
                   
-                    $(".panel").toggle("fast");
-                    $(this).toggleClass("active");
-                    return false;
+            //        $(".panel").toggle("fast");
+            //        $(this).toggleClass("active");
+            //        return false;
+            //    });
+            //});
+            $(document).ready(function () {
+                $("[data-toggle]").click(function () {
+                    var toggle_el = $(this).data("toggle");
+                    $(toggle_el).toggleClass("open-sidebar");
                 });
             });
         });
@@ -37,10 +43,11 @@
 
 <body>
 
-    @Html.Partial("_Navigation")
     
-        <div id="wrap">  
-       
+    
+        <div class="wrap">  
+         
+       @Html.Partial("_Navigation")
         <div>           
             <div class="header">
                 <div class="col">
