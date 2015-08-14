@@ -228,7 +228,7 @@ a.back-button {
     color: #FFF; /*background-color:#014687;*/
     background-color: #04498E;
     text-align: center;
-    position:fixed;
+    position:absolute;
     font-size:85%;
     bottom:0;
 }
@@ -343,13 +343,15 @@ left: 0;
     right: 240px;
 }
 #toggler { 
-            display: none;     
-           color: white;
+           display: none;     
+           color: #1F3A71;
            text-align: right;
            margin-right: 10px;
-           background: #1F3A71;
+           background: white;
            cursor:pointer;
+           border-radius:3px;
 }
+
 #station_call {
         cursor:pointer;
 
