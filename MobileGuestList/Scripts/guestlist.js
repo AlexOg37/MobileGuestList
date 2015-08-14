@@ -34,18 +34,6 @@ $('.checkbox_row').ready(function () {
     }
 })
 
-//$(document).ready(function Hide() {
-//    $('#myonoffswitch').change(function () {        
-//        if ($(this).prop('checked'))
-//            $('.selectbox input:checked').each(function () {
-//                $(this).closest(".checkbox_row").fadeOut('slow');
-//            });
-//        else
-//            $('.selectbox input:checked').each(function () {
-//                $(this).closest(".checkbox_row").fadeIn('slow');
-//            });
-//    });
-//});
 $(document).ready(function () {
     $('#myonoffswitch').change(function () {
         ShowOrHide();
