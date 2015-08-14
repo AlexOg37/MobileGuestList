@@ -19,14 +19,9 @@ namespace MobileGuestList
 		{
 			AreaRegistration.RegisterAllAreas();
 
-			WebApiConfig.Register(GlobalConfiguration.Configuration);
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-			HttpApplicationState application = Application;
-			IMobileGuestListServer server = new MobileGuestListServerStub();
-			application["IMobileGuestListServer"] = server;
 		}
 	}
 }
