@@ -478,7 +478,7 @@ input[type=checkbox].css-checkbox {
         }
 
 label.css-label {    
-    background-image:url("/Images/custom_checkbox.png");
+    background-image:url("../Images/custom_checkbox.png");
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;

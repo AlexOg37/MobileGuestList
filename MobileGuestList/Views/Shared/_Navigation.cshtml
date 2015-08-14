@@ -25,10 +25,10 @@
     <hr>
     <div class="navigation pull-right">
         <ul>
-            <li><a href="/Guest/Index">Guest Lists</a></li>
+            <li>@Html.ActionLink("Guest Lists", "Index", "Guest")</li>
             <li><a href="https://next.promosuite.com/MyPromoSuite.aspx">Full Site</a></li>
-            <li><a href="/Home/Help">Help</a></li>
-            <li><a href="/Home/SignOut">Logout</a></li>
+            <li>@Html.ActionLink("Help", "Help", "Home")</li>
+            <li>@Html.ActionLink("Logout", "SignOut", "Home")</li>
         </ul>
     </div>
 </div>
