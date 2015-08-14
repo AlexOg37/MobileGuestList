@@ -1,0 +1,34 @@
+﻿@using MobileGuestList.Providers
+
+<div class="panel">
+    <div class="user pull-right">
+        <p id="user">@Helper.GetUserName()</p>
+        <div id="station_list">
+            <div id="station_call">@Helper.GetUserStationCall()</div>
+        </div>
+        <div id="toggler">
+
+            @foreach (var station in @Helper.GetStations())
+            {
+                <div onclick="changeStation(this)" data-station-id="@station.StationId">@station.StationCall</div>
+            }
+
+        </div>
+    </div>
+
+    <div class="logo pull-right" id="logo">
+        <img width="125" height="55" alt="" src="~/Images/HeaderLogo.png">
+
+    </div>
+
+    <div id="clear"></div>
+    <hr>
+    <div class="navigation pull-right">
+        <ul>
+            <li><a href="/Guest/Index">Guest Lists</a></li>
+            <li><a href="https://next.promosuite.com/MyPromoSuite.aspx">Full Site</a></li>
+            <li><a href="/Home/Help">Help</a></li>
+            <li><a href="/Home/SignOut">Logout</a></li>
+        </ul>
+    </div>
+</div>
