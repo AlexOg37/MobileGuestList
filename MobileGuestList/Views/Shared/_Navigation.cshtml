@@ -6,11 +6,11 @@
         <div id="station_list">
             <div id="station_call">@Helper.GetUserStationCall()</div>
         </div>
-        <div id="toggler">
+        <div id="toggler" data-action="@Url.Action("ChangeStation", "Home")">
 
             @foreach (var station in @Helper.GetStations())
             {
-                <div onclick="changeStation(this)" data-station-id="@station.StationId">@station.StationCall</div>
+                <div  data-station-id="@station.StationId">@station.StationCall</div>
             }
 
         </div>
