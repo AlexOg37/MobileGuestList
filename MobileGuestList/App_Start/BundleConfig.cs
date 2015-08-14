@@ -55,6 +55,9 @@ namespace MobileGuestList
 
             bundles.Add(new ScriptBundle("~/bundles/changeStation").Include("~/Scripts/changeStation.js"));
 
-       }
+#if (!DEBUG)
+            BundleTable.EnableOptimizations = true;
+#endif
+        }
 	}
 }

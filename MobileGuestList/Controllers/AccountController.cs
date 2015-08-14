@@ -63,20 +63,15 @@ namespace MobileGuestList.Controllers
                 return View(model);
             }
 
-            string loginCode = _authenticationProvider.GetLoginCodeByUser(model.Username, model.Password);
+            string code = _authenticationProvider.GetLoginCodeByUser(model.Username, model.Password);
 
-            if (loginCode.IsEmpty() || loginCode == AccessProvider.NoUserInDbState)
+            if (code.IsEmpty() || code == AccessProvider.NoUserInDbState)
             {
                 ModelState.AddModelError("", "The user name or password provided is incorrect.");
                 return View(model);
             }
 
-            HttpContext.Session[Helper.LoginCodeConst] = loginCode;
-
-            MobileLoginDetails mobileLoginDetails = _authenticationProvider.GetProfile(loginCode);
-            HttpContext.Session[mobileLoginDetails.GetType().ToString()] = mobileLoginDetails;
-
-            return RedirectToAction("Selection", "Contest");
+            return RedirectToAction("Index", "Home", new RouteValueDictionary(new { v = code }));
         }
     }
 }

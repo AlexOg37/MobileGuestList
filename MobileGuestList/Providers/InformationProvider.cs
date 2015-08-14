@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MobileGuestList.Providers
 {
-    public class InformationProvider:IDisposable
+    public class InformationProvider : IDisposable, IBaseInformationProvider
     {
         DataBaseEntityProvider _provider = null;
         IEnumerable<Guest> _guestList;

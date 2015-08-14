@@ -10,16 +10,27 @@ namespace MobileGuestList.Controllers
     [AuthenticationValidation]
     public class BaseController : Controller
     {
-        public InformationProvider Repo
+        public IBaseInformationProvider Repo
         {
             get
             {
-                InformationProvider repo = this.Session[typeof(InformationProvider).ToString()] as InformationProvider;
+                IBaseInformationProvider repo = this.Session[typeof(IBaseInformationProvider).ToString()] as IBaseInformationProvider;
                 if (repo == null)
                 {
                     string dbName = this.Session.GetUserDB();
+#if (DEBUG)
+                    if (dbName == Helper.Local_SQLDBConst)
+                    {
+                        repo = new LocalInformationProvider();
+                    }
+                    else
+                    {
+                        repo = new InformationProvider(dbName);
+                    }
+#else
                     repo = new InformationProvider(dbName);
-                    this.Session[typeof(InformationProvider).ToString()] = repo;
+#endif
+                    this.Session[typeof(IBaseInformationProvider).ToString()] = repo;
                 }
                 return repo;
             }

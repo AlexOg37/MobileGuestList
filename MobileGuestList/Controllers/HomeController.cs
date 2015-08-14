@@ -8,13 +8,51 @@ using MobileGuestList.App_Data;
 using MobileGuestList.Providers;
 using Models;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 
 namespace MobileGuestList.Controllers
 {
 	public class HomeController : BaseController
 	{
-		public ActionResult Help()
+        private AuthenticationProvider _authenticationProvider;
+
+        public HomeController()
+        {
+            this._authenticationProvider = new AuthenticationProvider();
+        }
+
+        public ActionResult Index(string v)
+        {
+            HttpContext.Session[Helper.LoginCodeConst] = v;
+
+            MobileLoginDetails mobileLoginDetails = _authenticationProvider.GetProfile(v);
+
+            if (mobileLoginDetails == null)
+            {
+#if (DEBUG)
+                mobileLoginDetails = new MobileLoginDetails()
+                {
+                    UserName = "LocalName",
+                    UserID = 1,
+                    SQLDB = Helper.Local_SQLDBConst,
+                    CultureFormat = DateTimeFormatInfo.CurrentInfo.ToString(),
+                    TimeZone = TimeZone.CurrentTimeZone.ToString(),
+                    StationID = 1,
+                    AccessToGuestList = true
+                };
+#else
+                ModelState.AddModelError("", "The validation key is wrong or there is no connetion with data base!");
+                return View();
+#endif
+            }
+
+            HttpContext.Session[mobileLoginDetails.GetType().ToString()] = mobileLoginDetails;
+
+            return RedirectToAction("Selection", "Contest");
+        }
+
+        public ActionResult Help()
 		{
 			ViewBag.Location = "Help";
 

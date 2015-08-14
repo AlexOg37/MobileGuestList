@@ -174,7 +174,9 @@
     <Compile Include="Providers\AuthenticationValidationAttribute.cs" />
     <Compile Include="Providers\AuthenticationProvider.cs" />
     <Compile Include="Providers\Helper.cs" />
+    <Compile Include="Providers\IBaseInformationProvider.cs" />
     <Compile Include="Providers\InformationProvider.cs" />
+    <Compile Include="Providers\LocalInformationProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -316,6 +318,7 @@
     <Content Include="Views\Shared\_HeaderBackButtonPartial.cshtml" />
     <Content Include="Views\Home\Navigation.cshtml" />
     <Content Include="Views\Shared\_MenuPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
   </ItemGroup>
   <ItemGroup>
