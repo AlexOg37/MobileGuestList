@@ -253,14 +253,6 @@ hr {
     width: 300px !important;
 }
 
-.LabelSelected {
-    border: 1px dotted;
-}
-
-.CheckBoxClass {
-    display: none;
-}
-
 .selectbox {
     border-style: solid;
     border-width: 1px;
@@ -289,17 +281,54 @@ hr {
 .btn {
     color: grey !important;
 }
+a:focus { outline: none; }
+
+.panel {
+    position: fixed;
+    right: 0;
+    display: none;
+    background: #1F3A71;
+    width: 300px;
+    height: 100%;
+    color:#fff;
+     
+}
 
 #menu-ham {
     color: white;
     font-size: 25px;
+    
 }
 
 #wrap {
     min-height: 100%;
     margin-bottom: -64px;
+    margin-bottom: -100px;
+    width: 100%;
+    overflow-x: hidden;
+    height: 100%;   
+    top: 0;
+    left: 0;
+   
+}
+#toggler { display: none;     
+           color: white;
+           text-align: right;
+           margin-right: 10px;
+           background: #1F3A71;
+           cursor:pointer;
+}
+#station_call {
+        cursor:pointer;
+
 }
 
+#station_list {
+           color: white;
+           text-align: right;
+           margin-right: 10px;
+
+}
 .btn-primary {
     background-color: #cdae51;
     border-color: #3F2B22;

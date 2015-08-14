@@ -25,9 +25,37 @@ namespace MobileGuestList.Providers
             {
                 result = HttpContext.Current.Session[typeof(MobileLoginDetails).ToString()] as MobileLoginDetails;
             }
-
-            return result; 
+            return result;
         }
+
+        public static string GetUserName()
+        {
+            return GetCurrentUserDetails() != null ? GetCurrentUserDetails().UserName : string.Empty;
+        }
+        public static string GetUserStationCall()
+        {
+
+            return GetCurrentUserDetails() != null ? GetCurrentUserDetails().StationCall : string.Empty;
+        }
+        public static IEnumerable<Station> GetStations()
+        {
+            IEnumerable<Station> result = new List<Station>();
+            MobileLoginDetails user = GetCurrentUserDetails();
+            if (user != null)
+                result = GetRepository().GetMobileStationList(user.UserID).ToList();
+
+            return result;
+        }
+        public static InformationProvider GetRepository()
+        {
+            string dbName = GetCurrentUserDetails().SQLDB;
+            using (InformationProvider repo = new InformationProvider(dbName))
+            {
+                return repo;
+            }
+        }
+
+
 
         public static Contest GetCurrentContest()
         {

@@ -1,28 +1,19 @@
-﻿@*@section Header
-{
-    @Html.Partial("_MenuPartial")
-}*@
-
-<div id="nav_menu">
+﻿<div class="content">
+<div class="panel">
     <div class="user pull-right">
         <p id="user">@ViewBag.UserName</p>
-               
-        <select id="stationSelect" name="Id" class="form-control" onchange="changeStation()">
-            
-            @{
-                foreach (var station in ViewBag.Stations)
-                {
-                    if (station.StationId == ViewBag.StationID) 
-                            {
-                                <option selected="selected" value=@station.StationId>@station.StationCall</option>
-                            }
-                            else
-                            {
-                               <option value=@station.StationId>@station.StationCall</option>
-                            }                     
-                }
+        <div id="station_list">
+            <div id="station_call">@ViewBag.StationCall</div>
+        </div>
+        <div id="toggler">
+
+            @foreach (var station in ViewBag.Stations)
+            {
+               <div onclick="changeStation(@station.StationId)">@station.StationCall</div>
             }
-        </select>
+
+        </div>
+               
 </div>
 
         <div class="logo pull-right" id="logo">
@@ -42,5 +33,21 @@
     </div>
     
 </div>
-
-@Scripts.Render("~/bundles/changeStation")
+    
+</div>
+<script>
+$(function () {
+    $('#station_list').click(function () {
+        $('#toggler').toggle('slow');
+    });
+    
+$(document).ready(function(){
+    $("").click(function(){
+        $(".panel").toggle("fast");
+        $(this).toggleClass("active");
+        return false;
+    });
+});
+    
+});
+</script>
