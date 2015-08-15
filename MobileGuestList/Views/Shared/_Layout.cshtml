@@ -3,13 +3,13 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<title>@ViewBag.Title</title>
-	<meta name="viewport" content="width=device-width" />
-	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
     @Styles.Render("~/Content/bootstrap")
-	@Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -20,25 +20,35 @@
                 $('#toggler').toggle('slow');
             });
 
+            //$(document).ready(function () {
+            //    $("[data-toggle]").click(function () {
+            //        var toggle_el = $(this).data("toggle");
+            //        $(toggle_el).toggleClass("open-sidebar");
+            //    });
+            //});
             $(document).ready(function () {
-                $("[data-toggle]").click(function () {
-                    var toggle_el = $(this).data("toggle");
-                    $(toggle_el).toggleClass("open-sidebar");
+                var $wrap = $('wrap').show().scrollLeft(100);
+                $("#menu-ham").click(function () {
+
+                    $(".panel").toggle("fast");
+                    $(this).toggleClass("active");
+                    return false;
                 });
             });
+
         });
     </script>
 
-    
+
 </head>
 
 <body>
 
-    
-    
-<div id="wrap">  
-         <div class="cont">
-              @Html.Partial("_Navigation")
+
+
+    <div id="wrap">
+        @Html.Partial("_Navigation")
+        <div>
             <div class="header">
                 <div class="col">
                     <div>
@@ -71,29 +81,31 @@
                     }
                 }
             </div>
-        
-       
-        <div>
-        @RenderBody()
+
+            <div>
+                @RenderBody()
+            </div>
+
+
+            
+
         </div>
-             
-             <div id="footer">
-                 @if (IsSectionDefined("Footer"))
-                 {
-                     @RenderSection("Footer")
-                 }
-                 else
-                 {
-                     @Html.Partial("_FooterPartial")
-                 }
-             </div>
+        <div id="footer">
+            @if (IsSectionDefined("Footer"))
+            {
+                @RenderSection("Footer")
+            }
+            else
+            {
+                @Html.Partial("_FooterPartial")
+            }
+        </div>
+
+
 
     </div>
-    
-</div>
-    
 
- 
+
 </body>
 </html>
 
