@@ -1,51 +1,14 @@
-﻿@using MobileGuestList.Providers
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
-    @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/changeStation")
-    <script>
-        $(function () {
-            $('#station_list').click(function () {
-                $('#toggler').toggle('slow');
-            });
-
-            //$(document).ready(function () {
-            //    $("[data-toggle]").click(function () {
-            //        var toggle_el = $(this).data("toggle");
-            //        $(toggle_el).toggleClass("open-sidebar");
-            //    });
-            //});
-            $(document).ready(function () {
-                var $wrap = $('wrap').show().scrollLeft(100);
-                $("#menu-ham").click(function () {
-
-                    $(".panel").toggle("fast");
-                    $(this).toggleClass("active");
-                    return false;
-                });
-            });
-
-        });
-    </script>
-
-
+    @RenderSection("styles", false)
 </head>
-
 <body>
-
-
-
     <div id="wrap">
         @Html.Partial("_Navigation")
         <div>
@@ -54,7 +17,7 @@
                     <div>
                         @if (IsSectionDefined("BackButton"))
                         {
-                            @RenderSection("BackButton")
+                        @RenderSection("BackButton")
                         }
                     </div>
                 </div>
@@ -67,45 +30,54 @@
                     <div>
                         @if (IsSectionDefined("Menu"))
                         {
-                            @RenderSection("Menu")
+                        @RenderSection("Menu")
                         }
                     </div>
                 </div>
-
             </div>
             <div class="location pull-right">
                 @{
                     if (ViewBag.Location != null)
                     {
-                        <span>@ViewBag.Location</span>
+                <span>@ViewBag.Location</span>
                     }
                 }
             </div>
-
             <div>
                 @RenderBody()
             </div>
 
 
-            
-
         </div>
         <div id="footer">
             @if (IsSectionDefined("Footer"))
             {
-                @RenderSection("Footer")
+            @RenderSection("Footer")
             }
             else
             {
-                @Html.Partial("_FooterPartial")
+            @Html.Partial("_FooterPartial")
             }
         </div>
-
-
-
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/changeStation")
+    <script>
+        $(function () {
+            $('#station_list').click(function () {
+                $('#toggler').toggle('slow');
+            });
+            $(document).ready(function () {
+                $('wrap').show().scrollLeft(100);
+                $("#menu-ham").click(function () {
 
-
+                    $(".panel").toggle("fast");
+                    $(this).toggleClass("active");
+                    return false;
+                });
+            });
+        });
+    </script>
+    @RenderSection("scripts", false)
 </body>
 </html>
-

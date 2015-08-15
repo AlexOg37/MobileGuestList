@@ -11,7 +11,6 @@
 });
 
 function ChangeGuestState(id, doMark) {
-    debugger;
     $.ajax({
         url: '/Guest/UpdateGuestState',
         type: 'POST',
