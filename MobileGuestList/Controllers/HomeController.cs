@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Profile;
-using MobileGuestList.App_Data;
 using MobileGuestList.Providers;
 using Models;
 using System.ComponentModel.DataAnnotations;
@@ -58,18 +57,6 @@ namespace MobileGuestList.Controllers
 
 			return View();
 		}
-        public ActionResult Navigation()
-        {
-            ViewBag.Username = Helper.GetCurrentUserDetails().UserName;
-            ViewBag.StationCall = Helper.GetCurrentUserDetails().StationCall;
-            ViewBag.StationID = Helper.GetCurrentUserDetails().StationID;    
-        
-            int userId = Helper.GetCurrentUserDetails().UserID;
-            
-            ViewBag.Stations = this.Repo.GetMobileStationList(userId);
-
-            return View();
-        }
         [HttpPost]
         public ActionResult ChangeStation(int stationId)
         {
