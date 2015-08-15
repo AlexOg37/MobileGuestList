@@ -8,7 +8,6 @@ using System.Web.Security;
 using System.Web.Profile;
 using System.Web.WebPages;
 using System.Globalization;
-using MobileGuestList.App_Data;
 using MobileGuestList.Providers;
 using Models;
 using DataLayer;

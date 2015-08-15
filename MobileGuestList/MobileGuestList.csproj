@@ -155,8 +155,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Data\MobileGuestListServerStub.cs" />
-    <Compile Include="App_Data\IMobileGuestListServer.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -317,8 +315,6 @@
     <Content Include="Views\Guest\Index.cshtml" />
     <Content Include="Views\Shared\_HeaderMenuPartial.cshtml" />
     <Content Include="Views\Shared\_HeaderBackButtonPartial.cshtml" />
-    <Content Include="Views\Home\Navigation.cshtml" />
-    <Content Include="Views\Shared\_MenuPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
   </ItemGroup>
