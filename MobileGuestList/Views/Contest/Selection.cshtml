@@ -40,7 +40,9 @@
 
 </div>
 
-   @Scripts.Render("~/bundles/contestlist")
+@section scripts {
+    @Scripts.Render("~/bundles/contestlist")
     <script type="text/javascript">
         var contestList = new ContestList({});
     </script>
+}
