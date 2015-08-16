@@ -13,6 +13,11 @@ function OnCurrentContestChanged() {
         contentType: 'application/json'
     });
 }
+$(function () {
+    $('#station_list').click(function () {
+        $('#toggler').toggle('slow');
+    });
+});
 
 function InitSorting() {
     defaultList = $("#contestSelect").html();

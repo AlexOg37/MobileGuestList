@@ -585,7 +585,11 @@ float:left;
     height:40px;
     margin-left:3px;
 }
-
+.main_content {
+    width: 270px;
+     padding:30px;
+     margin:auto;
+}
 button::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
 input[type="button"]::-moz-focus-inner,
