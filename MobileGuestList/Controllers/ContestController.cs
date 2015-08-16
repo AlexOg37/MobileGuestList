@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Profile;
-using MobileGuestList.App_Data;
 using MobileGuestList.Providers;
 using Models;
 using System.ComponentModel.DataAnnotations;
