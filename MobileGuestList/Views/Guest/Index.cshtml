@@ -7,7 +7,6 @@
 {
     @Html.Partial("_HeaderMenuPartial")
 }
-@Scripts.Render("~/bundles/calculateChekboxesNum")
 
 <div class="container">
 
@@ -39,11 +38,11 @@
                 @{
                     if (guest.Attended != null && guest.Attended != false)
                     {
-                        <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" onchange="Hide()" class="css-checkbox" checked /><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin" class="css-label radGroup1 pull-left"></label>
+                        <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" onchange="" class="css-checkbox" checked /><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin" class="css-label radGroup1 pull-left"></label>
                     }
                     else
                     {
-                        <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" onchange="Hide()" class="css-checkbox" /><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin" class="css-label radGroup1 pull-left"></label>
+                        <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" onchange="" class="css-checkbox" /><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin" class="css-label radGroup1 pull-left"></label>
                     }
                 }
 
@@ -108,6 +107,5 @@
     <script type="text/javascript">
         calculateChekboxesNum()
     </script>
-    @Scripts.Render("~/bundles/guestlist")
 }
 

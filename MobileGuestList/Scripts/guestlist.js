@@ -59,20 +59,27 @@ function ShowOrHide() {
 }
 function calculateChekboxesNum() {
     var wrapper = document.getElementsByClassName("guests");
-    var inputs = wrapper[0].getElementsByTagName("input");
-    var cbs = [];
-    var checked = [];
-    for (var i = 0; i < inputs.length; i++) {
-        if (inputs[i].type == "checkbox") {
-            cbs.push(inputs[i]);
-            if (inputs[i].checked) {
-                checked.push(inputs[i]);
+    var total = 0;
+    var attended = 0;
+    if (wrapper && wrapper.length > 0) {
+        var inputs = wrapper[0].getElementsByTagName("input");
+        var cbs = [];
+        var checked = [];
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type == "checkbox") {
+                cbs.push(inputs[i]);
+                if (inputs[i].checked) {
+                    checked.push(inputs[i]);
+                }
             }
         }
+        total = cbs.length;
+        attended = checked.length;
     }
-    var total = cbs.length;
-    var attended = checked.length;
 
-    document.getElementById('nums').innerHTML = total;
-    document.getElementById('checked_nums').innerHTML = attended;
+    var nums = document.getElementById('nums');
+    if (nums) nums.innerHTML = total;
+
+    var checked_nums = document.getElementById('checked_nums');
+    if (checked_nums) checked_nums.innerHTML = attended;
 }

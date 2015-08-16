@@ -7,26 +7,17 @@ namespace MobileGuestList
 		// For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
 		public static void RegisterBundles(BundleCollection bundles)
 		{
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/css").Include(
                 "~/Content/Site.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+            bundles.Add(new ScriptBundle("~/js/jquery").Include(
                 "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/slidebars").Include(
-                "~/Scripts/slidebars.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/contestlist").Include(
-                "~/Scripts/contestlist.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/guestlist").Include(
+            bundles.Add(new ScriptBundle("~/js").Include(
+                "~/Scripts/slidebars.js",
+                "~/Scripts/changeStation.js",
+                "~/Scripts/contestlist.js",
                 "~/Scripts/guestlist.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/calculateChekboxesNum").Include(
-                "~/Scripts/calculateChekboxesNum.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/changeStation").Include(
-                "~/Scripts/changeStation.js"));
 
 #if (!DEBUG)
             BundleTable.EnableOptimizations = true;
