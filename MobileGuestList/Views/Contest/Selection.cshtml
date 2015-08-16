@@ -4,39 +4,40 @@
 }
 
 <div class="container">
-    <form method="post" class="form-group">
-        <div class="form-group">
-            @Html.ValidationMessage("keyName")
-            <select id="contestSelect" name="Id" class="form-control" onchange="OnCurrentContestChanged()">
-                <option selected="selected" value="" data-sort="no">Pick Your Contest</option>
+    <div class="block">
+        <form method="post">
+            <div class="contest">
+                @Html.ValidationMessage("keyName")
+                <select id="contestSelect" name="Id" onchange="OnCurrentContestChanged()">
+                    <option selected="selected" value="" data-sort="no">Pick Your Contest</option>
 
-                @{
-                    foreach (var contest in ViewBag.Contests)
-                    {
-                        <option value=@contest.Id data-sort="yes">@contest.Name</option>
+                    @{
+                        foreach (var contest in ViewBag.Contests)
+                        {
+                            <option value=@contest.Id data-sort="yes">@contest.Name</option>
 
+                        }
                     }
-                }
-            </select>
-        </div>
-        <div class="form-group">
-            <label id="sortcontest" for="SortByContestName">Sort By Contest Name</label>
-            <div class="onoffswitch pull-right">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
-                <label class="onoffswitch-label" for="myonoffswitch">
-                    <span class="onoffswitch-inner"></span>
-                    <span class="onoffswitch-switch"></span>
-                </label>
+                </select>
+            </div>
+            <div class="sort_block">
+                <label id="sortcontest"><strong>Sort By Contest Name</strong></label>
+                <div class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+
+
+            </div>
+            <div id="btngenerate">
+                <button type="submit" id="generatelist">Generate<br> Guest List!</button>
             </div>
 
-
-        </div>
-        <div class="form-group" id="btngenerate">
-
-            <button type="submit" class="btn btn-default" id="generatelist">Generate<br> Guest List!</button>
-        </div>
-
-    </form>
+        </form>
+    </div>
 
 </div>
 

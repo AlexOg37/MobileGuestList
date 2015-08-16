@@ -9,26 +9,29 @@
 }
 
 <div class="container">
-
+<div class="block">
     <div>
         <p><strong>@ViewBag.Contest.Name</strong></p>        
-        <p id="total" class="pull-left">Total Attended</p>
+        <p id="total">Total Attended</p>
    
-        <div class="pull-right" id="count_num">
-            <p id="checked_nums"></p>/<p id="nums"></p>
+        <div id="count_num">
+            <p id="checked_nums"></p>  <p>/</p> <p id="nums"></p>
         </div>
     </div>
     <div id="clear"></div>
+    <div class="atts">
+        
+        <div id="hide_attend">Hide Attendees</div>
 
-    <p id="hide_attend">Hide Attendees</p>
-
-    <div class="onoffswitch pull-right">
-        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
-        <label class="onoffswitch-label" for="myonoffswitch">
-            <span class="onoffswitch-inner"></span>
-            <span class="onoffswitch-switch"></span>
-        </label>
+            <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                <label class="onoffswitch-label" for="myonoffswitch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                </label>
+            </div>
     </div>
+    
     <div class="selectbox guests">
         @foreach (var guest in ViewBag.Guests)
         {
@@ -45,7 +48,7 @@
                         <input type="checkbox" name="checkboxG1" id="checkboxG@(guest.ContWinID.ToString())" onchange="" class="css-checkbox" /><label for="checkboxG@(guest.ContWinID.ToString())" id="guestmargin" class="css-label radGroup1 pull-left"></label>
                     }
                 }
-
+            <div class="info">
                 <strong>@guest.LastName, @guest.Name</strong>
                 @{
                     String strInfo = "";
@@ -95,13 +98,14 @@
                     <p class="guest-info">@strInfo</p>
                 }
 
+                </div>
             </div>
         }
 
     </div>
 
 
-
+    </div>
 </div>
 @section scripts {
     <script type="text/javascript">

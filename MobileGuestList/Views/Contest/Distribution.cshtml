@@ -1,5 +1,4 @@
-﻿
-@section BackButton
+﻿@section BackButton
 {
     @Html.Partial("_HeaderBackButtonPartial")
 }
@@ -9,45 +8,24 @@
 }
 
 <div class="container">
-      <div>
-        <table id="winners" width="300" align="center" border="0" cellspacing="0" cellpadding="0">
-          <tbody>
-            <tr>
-              <td height="5">
-                &nbsp;
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4>@ViewBag.Contest.Name</h4>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Some winners have not yet had their prize marked as distributed.</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Do you want to distribute to these winners?</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <div class="btn-group btn-group-justified" role="group" id="btn_margin">
-                      <div class="btn-group">
-                          <button class="btn btn-default" id="btn_distr" onclick="location.href='@Url.Action("Distribute", new { Distribute = true })'">Yes</button>
-                      </div>
-                      <div class="btn-group">
-                          <button class=" btn btn-default" id="btn_distr" onclick="location.href='@Url.Action("Distribute", new { Distribute = false })'">No</button>
-                          </div>
-                      <div class="btn-group">
-                          <button class="btn btn-default" id="btn_distr" onclick="location.href='@Url.Action("Selection")'">Cancel</button>
-                      </div>
+    <div class="block">
+        <div>
+            <h4>@ViewBag.Contest.Name</h4>
+        </div>
+        <p>Some winners have not yet had their prize marked as distributed.</p>
+        <p>Do you want to distribute to these winners?</p>
+
+        <div id="btn_margin">
+            <div>
+                <button id="btn_distr" onclick="location.href='@Url.Action("Distribute", new { Distribute = true })'">Yes</button>
             </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+            <div>
+                <button id="btn_distr" onclick="location.href='@Url.Action("Distribute", new { Distribute = false })'">No</button>
+            </div>
+            <div>
+                <button id="btn_distr" onclick="location.href='@Url.Action("Selection")'">Cancel</button>
+            </div>
+        </div>
+
     </div>
+</div>
