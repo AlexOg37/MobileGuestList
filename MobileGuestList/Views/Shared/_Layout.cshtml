@@ -5,7 +5,7 @@
     <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/css")
     @RenderSection("styles", false)
 </head>
 <body>
@@ -60,8 +60,8 @@
             }
         </div>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/changeStation")
+    @Scripts.Render("~/js/jquery")
+    @Scripts.Render("~/js")
     <script>
         $(function () {
             $('#station_list').click(function () {

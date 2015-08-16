@@ -167,9 +167,9 @@
     <Content Include="Scripts\contestlist.js" />
     <Content Include="Scripts\guestlist.js" />
     <Content Include="Scripts\highlightbox.js" />
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\slidebars.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -196,7 +196,7 @@
     <Content Include="Views\Shared\_HeaderBackButtonPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
