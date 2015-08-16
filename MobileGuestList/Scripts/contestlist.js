@@ -14,8 +14,15 @@ function OnCurrentContestChanged() {
     });
 }
 $(function () {
-    $('#station_list').click(function () {
-        $('#toggler').toggle('slow');
+    $(document).click(function (event) {
+        if ($(event.target).closest("#toggler").length)
+            return;
+        $("#toggler").slideUp("slow");
+        event.stopPropagation();
+    });
+    $('#toggle-link').click(function () {
+        $(this).siblings("#toggler").slideToggle("slow");
+        return false;
     });
 });
 

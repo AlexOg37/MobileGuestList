@@ -274,10 +274,16 @@ padding-right:15px;
 }
 
 .checkbox_row {
-    padding: 5px 15px;
+    padding: 0px 15px;
     height: 40px;
     border: solid 1px;
     background-color:#fff;
+}
+.name {
+margin-top:3px;
+}
+.adress {
+margin-top:-10px;
 }
 
 .checkbox_row .guest-info {
@@ -340,7 +346,7 @@ a:focus { outline: none; }
 
 }
 
-#station_list {
+.station_list {
            color: white;
            text-align: right;
            margin-right: 10px;
@@ -476,6 +482,8 @@ label.css-label {
 padding-top:8px;
 padding-bottom:8px;
 border: solid 1px;
+font-size:80%;
+text-align:center;
 }
 
 #g1 {
@@ -501,8 +509,9 @@ margin-right:10px;
 }
 
 #sortcontest {
-    font-size: 85%;
+    font-size: 90%;
     float:left;
+    margin-top:8px;
 }
 
 #btngenerate {
@@ -534,6 +543,7 @@ margin-right:10px;
 }
 
 #total {
+  
     float: left;
     display: inline;
 }
@@ -556,6 +566,8 @@ float:left;
 #hide_attend {
     float: left;
     display: inline;
+    margin-top:6px;
+    
 }
 
 #btn_margin {
@@ -573,6 +585,10 @@ float:left;
     color: white;
     margin-right:10px;
     text-align:right;
+}
+#station_group {
+    width:85px;
+    float:right;
 }
 
 #btn_distr {

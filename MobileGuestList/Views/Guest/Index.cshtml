@@ -47,8 +47,9 @@
                     }
                 }
             <div class="info">
-                <strong>@guest.LastName, @guest.Name</strong>
-                @{
+                <div class="name"><strong>@guest.LastName, @guest.Name</strong></div>
+               <div class="adress">
+                 @{
                     String strInfo = "";
 
                     if (guest.HomeCity != null && guest.HomeCity.Length != 0)
@@ -95,7 +96,7 @@
                     strInfo = strInfo + strInfo1;
                     <p class="guest-info">@strInfo</p>
                 }
-
+            </div>
                 </div>
             </div>
         }
