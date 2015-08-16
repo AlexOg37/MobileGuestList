@@ -1,35 +1,29 @@
 ﻿@using MobileGuestList.Providers
 
-<div class="panel">
-    
-    <div class="user pull-right">
-        <p id="user">@Helper.GetUserName()</p>
-        <div id="station_list">
-            <div id="station_call">@Helper.GetUserStationCall()</div>
-        </div>
-        <div id="toggler" data-action="@Url.Action("ChangeStation", "Home")">
+<div class="logo"></div>
 
-            @foreach (var station in @Helper.GetStations())
-            {
-                <div id="station_item" data-station-id="@station.StationId">@station.StationCall</div>
-            }
-
-        </div>
+<div class="user pull-right">
+    <p id="user">@Helper.GetUserName()</p>
+    <div id="station_list">
+        <div id="station_call">@Helper.GetUserStationCall()</div>
     </div>
+    <div id="toggler" data-action="@Url.Action("ChangeStation", "Home")">
 
-    <div class="logo pull-right" id="logo">
-        <img width="125" height="55" alt="" src="~/Images/HeaderLogo.png">
+        @foreach (var station in @Helper.GetStations())
+        {
+            <div id="station_item" data-station-id="@station.StationId">@station.StationCall</div>
+        }
 
     </div>
+</div>
 
-    <div id="clear"></div>
-    <hr>
-    <div class="navigation pull-right">
-        <ul>
-            <li>@Html.ActionLink("Guest Lists", "Index", "Guest")</li>
-            <li><a href="https://next.promosuite.com/MyPromoSuite.aspx">Full Site</a></li>
-            <li>@Html.ActionLink("Help", "Help", "Home")</li>
-            <li>@Html.ActionLink("Logout", "SignOut", "Home")</li>
-        </ul>
-    </div>
+<div id="clear"></div>
+<hr>
+<div class="navigation pull-right">
+    <ul>
+        <li>@Html.ActionLink("Guest Lists", "Index", "Guest")</li>
+        <li><a href="https://next.promosuite.com/MyPromoSuite.aspx">Full Site</a></li>
+        <li>@Html.ActionLink("Help", "Help", "Home")</li>
+        <li>@Html.ActionLink("Logout", "SignOut", "Home")</li>
+    </ul>
 </div>

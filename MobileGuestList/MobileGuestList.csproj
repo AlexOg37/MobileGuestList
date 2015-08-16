@@ -170,7 +170,7 @@
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
-    <Content Include="Scripts\slidebars.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -188,11 +188,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Views\Contest\Selection.cshtml" />
     <Content Include="Views\Contest\Distribution.cshtml" />
     <Content Include="Views\Guest\Index.cshtml" />
-    <Content Include="Views\Shared\_HeaderMenuPartial.cshtml" />
     <Content Include="Views\Shared\_HeaderBackButtonPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />

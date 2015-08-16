@@ -14,7 +14,7 @@ namespace MobileGuestList
                 "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/js").Include(
-                "~/Scripts/slidebars.js",
+                "~/Scripts/main.js",
                 "~/Scripts/changeStation.js",
                 "~/Scripts/contestlist.js",
                 "~/Scripts/guestlist.js"));

@@ -9,75 +9,34 @@
     @RenderSection("styles", false)
 </head>
 <body>
-    <div id="wrap">
-        @Html.Partial("_Navigation")
-        <div>
-            <div class="header">
-                <div class="col">
-                    <div>
-                        @if (IsSectionDefined("BackButton"))
-                        {
-                        @RenderSection("BackButton")
-                        }
-                    </div>
-                </div>
-                <div class="col custom-width">
-                    <div>
-                        <img width="125" height="55" alt="" src="~/Images/HeaderLogo.png">
-                    </div>
-                </div>
-                <div class="col sb-open-right">
-                    <div>
-                        @if (IsSectionDefined("Menu"))
-                        {
-                        @RenderSection("Menu")
-                        }
-                    </div>
-                </div>
+    <div id="main">
+        <header>
+            <div class="back-button">
+                @RenderSection("BackButton", false)
             </div>
-            <div class="location pull-right">
-                @{
-                    if (ViewBag.Location != null)
-                    {
-                <span>@ViewBag.Location</span>
-                    }
-                }
-            </div>
-            <div>
-                @RenderBody()
-            </div>
-
-
+            <div class="logo"></div>
+            <div class="menu-button"></div>
+        </header>
+        <div class="path">
+            Listener Database > Guest Lists
         </div>
-        <div id="footer">
-            @if (IsSectionDefined("Footer"))
-            {
-            @RenderSection("Footer")
-            }
-            else
-            {
-            @Html.Partial("_FooterPartial")
-            }
+        <div class="content">
+            @RenderBody()
         </div>
+        <footer>
+            <div class="trademarks-text">
+                PromoSuite and the PromoSuite logo<br />
+                are trademarks of Broadcast Manager, Inc.<br />
+                Copyright 2015 Broadcast Manager, Inc. All Rights Reserved
+            </div>
+        </footer>
     </div>
+    <nav id="navigation">
+        @Html.Partial("_Navigation")
+    </nav>
+
     @Scripts.Render("~/js/jquery")
     @Scripts.Render("~/js")
-    <script>
-        $(function () {
-            $('#station_list').click(function () {
-                $('#toggler').toggle('slow');
-            });
-            $(document).ready(function () {
-                $('wrap').show().scrollLeft(100);
-                $("#menu-ham").click(function () {
-
-                    $(".panel").toggle("fast");
-                    $(this).toggleClass("active");
-                    return false;
-                });
-            });
-        });
-    </script>
     @RenderSection("scripts", false)
 </body>
 </html>
