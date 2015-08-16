@@ -252,7 +252,7 @@ hr {
 }
 
 .container {
-    width: 300px;
+    width: 270px;
     padding:30px;
     margin:auto;
 }
@@ -511,8 +511,7 @@ margin-right:10px;
 }
 
 #sortcontest {
-    font-size: 90%;
-
+    font-size: 85%;
     float:left;
 }
 
@@ -553,12 +552,15 @@ margin-right:10px;
     float:right;
     display:inline-flex;
 }
-
+#strick {
+    float:left;
+}
 #nums {
+    float:left;
 }
 
 #checked_nums {
-    
+float:left;    
 }
 
 #hide_attend {
