@@ -220,6 +220,7 @@ a.back-button {
     margin-right: 15px;
     color: grey;
     font-size: 85%;
+    float:right;
 }
 /*--- Footer --------------------------------------------------------*/
 #footer {
@@ -251,8 +252,20 @@ hr {
 }
 
 .container {
-    margin-top: 20px;
-    width: 300px !important;
+    width: 300px;
+    padding:30px;
+    margin:auto;
+}
+#contestSelect {
+width:100%;
+}
+.block {
+padding-left:15px;
+padding-right:15px;
+}
+.sort_block {
+    margin-top:20px;
+
 }
 
 .selectbox {
@@ -271,7 +284,7 @@ hr {
 }
 
 .checkbox_row {
-    padding: 1px 23px;
+    padding: 5px 15px;
     height: 40px;
     border: solid 1px;
     background-color:#fff;
@@ -351,6 +364,7 @@ a:focus { outline: none; }
 
 .onoffswitch {
     position: relative;
+    float:right;
     width: 90px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -451,7 +465,9 @@ input[type=checkbox].css-checkbox {
         font-size: 28px;
         vertical-align: middle;
         cursor: pointer;
-    }
+        float:left;
+        }
+        
 
         input[type=checkbox].css-checkbox:checked + label.css-label, input[type=checkbox].css-checkbox + label.css-label.chk {
             background-position: 0 -28px;
@@ -484,6 +500,7 @@ margin-right:10px;
 }
 
 #generatelist {
+    margin-top:30px;
     background-color: #014687 !important;
     color: #ffffff !important;
     border-radius: 10px;
@@ -495,6 +512,8 @@ margin-right:10px;
 
 #sortcontest {
     font-size: 90%;
+
+    float:left;
 }
 
 #btngenerate {
@@ -531,16 +550,15 @@ margin-right:10px;
 }
 
 #count_num {
+    float:right;
+    display:inline-flex;
 }
 
 #nums {
-    float: none;
-    display: inline;
-    margin-top: 10px;
 }
 
 #checked_nums {
-    float: left;
+    
 }
 
 #hide_attend {
@@ -570,7 +588,10 @@ margin-right:10px;
     color: #ffffff !important;
     font-size: 110%;
     border-radius: 10px;
-    width: 95%;
+    float:left;
+    width:30%;
+    height:40px;
+    margin-left:3px;
 }
 
 button::-moz-focus-inner,
