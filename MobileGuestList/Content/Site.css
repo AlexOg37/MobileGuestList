@@ -501,8 +501,7 @@ margin-right:10px;
 }
 
 #sortcontest {
-    font-size: 90%;
-
+    font-size: 85%;
     float:left;
 }
 
@@ -543,12 +542,15 @@ margin-right:10px;
     float:right;
     display:inline-flex;
 }
-
+#strick {
+    float:left;
+}
 #nums {
+    float:left;
 }
 
 #checked_nums {
-    
+float:left;    
 }
 
 #hide_attend {
@@ -576,7 +578,7 @@ margin-right:10px;
 #btn_distr {
     background-color: #014687 !important;
     color: #ffffff !important;
-    font-size: 110%;
+    font-size: 95%;
     border-radius: 10px;
     float:left;
     width:30%;
