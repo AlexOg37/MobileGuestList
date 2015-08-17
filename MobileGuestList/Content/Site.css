@@ -290,14 +290,9 @@ margin-top:-10px;
     font-size: 11px;
 }
 
-.btn {
-    color: grey !important;
-}
 a:focus { outline: none; }
 
 .panel {
-    /*position:absolute;*/
-    /*right: -240px;*/
     position: fixed;
     right: 0;
     display: none;
@@ -377,7 +372,7 @@ a:focus { outline: none; }
     cursor: pointer;
     border: 2px solid #999999;
     border-radius: 20px;
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
 }
 
 .onoffswitch-inner {
@@ -499,8 +494,8 @@ margin-right:10px;
 
 #generatelist {
     margin-top:30px;
-    background-color: #014687 !important;
-    color: #ffffff !important;
+    background-color: #014687;
+    color: #ffffff;
     border-radius: 10px;
     width: 160px;
     height: 60px;
@@ -592,8 +587,8 @@ float:left;
 }
 
 #btn_distr {
-    background-color: #014687 !important;
-    color: #ffffff !important;
+    background-color: #014687;
+    color: #ffffff;
     font-size: 95%;
     border-radius: 10px;
     float:left;
