@@ -24,8 +24,6 @@ namespace MobileGuestList.Controllers
 
         public ActionResult Index(string v)
         {
-            HttpContext.Session[Helper.LoginCodeConst] = v;
-
             MobileLoginDetails mobileLoginDetails = _authenticationProvider.GetProfile(v);
 
             if (mobileLoginDetails == null)
@@ -47,6 +45,7 @@ namespace MobileGuestList.Controllers
 #endif
             }
 
+            HttpContext.Session[Helper.LoginCodeConst] = v;
             HttpContext.Session[mobileLoginDetails.GetType().ToString()] = mobileLoginDetails;
 
             return RedirectToAction("Selection", "Contest");
