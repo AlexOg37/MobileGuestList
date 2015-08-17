@@ -32,7 +32,7 @@ namespace MobileGuestList.Controllers
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
             if (Helper.GetCurrentUserDetails() == null)
-                RedirectToAction("Login", "Account");
+                RedirectToLogin();
 
             int stationId = Helper.GetCurrentUserDetails().StationID;
             ViewBag.Contests = this.Repo.GetContestsList(stationId);

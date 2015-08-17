@@ -14,6 +14,7 @@ namespace MobileGuestList.Controllers
 {
 	public class HomeController : BaseController
 	{
+        private const string ValidationKeyError = "The validation key is wrong or there is no connetion with database!";
         private AuthenticationProvider _authenticationProvider;
 
         public HomeController()
@@ -29,7 +30,7 @@ namespace MobileGuestList.Controllers
 
             if (mobileLoginDetails == null)
             {
-#if (DEBUG)
+#if (LOCALDB)
                 mobileLoginDetails = new MobileLoginDetails()
                 {
                     UserName = "LocalName",
@@ -41,7 +42,7 @@ namespace MobileGuestList.Controllers
                     AccessToGuestList = true
                 };
 #else
-                ModelState.AddModelError("", "The validation key is wrong or there is no connetion with data base!");
+                ModelState.AddModelError("", ValidationKeyError);
                 return View();
 #endif
             }
@@ -74,11 +75,11 @@ namespace MobileGuestList.Controllers
             return Json(resultList);
         }
 
-        public ActionResult SignOut()
+        public ActionResult LogOut()
         {
             HttpContext.Session[Helper.LoginCodeConst] = null;
 
-            return RedirectToAction("Login", "Account");
+            return RedirectToLogin();
         }
 	}
 }

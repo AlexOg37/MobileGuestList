@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace MobileGuestList.Controllers
@@ -18,7 +19,7 @@ namespace MobileGuestList.Controllers
                 if (repo == null)
                 {
                     string dbName = this.Session.GetUserDB();
-#if (DEBUG)
+#if (LOCALDB)
                     if (dbName == Helper.Local_SQLDBConst)
                     {
                         repo = new LocalInformationProvider();
@@ -36,9 +37,9 @@ namespace MobileGuestList.Controllers
             }
         }
 
-        public RedirectToRouteResult RedirectToLogin()
+        public RedirectResult RedirectToLogin()
         {
-            return RedirectToAction("Login", "Account");
+            return Redirect(WebConfigurationManager.AppSettings["loginUrl"]);
         }
 
     }
