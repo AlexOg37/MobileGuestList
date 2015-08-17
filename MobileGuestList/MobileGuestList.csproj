@@ -157,6 +157,7 @@
     <Content Include="Images\check.png" />
     <Content Include="Images\custom_checkbox.png" />
     <Content Include="Images\HeaderLogo.png" />
+    <Content Include="Images\inputBg.gif" />
     <Content Include="Images\LinkFaceBook.png" />
     <Content Include="Images\LinkGooglePlus.png" />
     <Content Include="Images\LinkTwitter.png" />
