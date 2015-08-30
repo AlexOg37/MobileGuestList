@@ -5,7 +5,7 @@ ContestList = function (settings) {
 function OnCurrentContestChanged() {
     var id = $('#contestSelect').val();
     $.ajax({
-        url: '/Contest/UpdateContestSelection',
+        url: UpdateContestSelectionAction,
         type: 'POST',
         data: JSON.stringify({
             contestId: id

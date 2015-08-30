@@ -12,7 +12,7 @@
 
 function ChangeGuestState(id, doMark) {
     $.ajax({
-        url: '/Guest/UpdateGuestState',
+        url: UpdateGuestStateAction,
         type: 'POST',
         data: JSON.stringify({
             contWinId: id,
