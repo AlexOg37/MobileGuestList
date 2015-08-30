@@ -745,7 +745,7 @@ div.logo {
 	position: absolute;
 	top: 80px;
 	right: 0;
-	bottom: 60px;
+	bottom: 0px;
 	left: 0;
     overflow-x: hidden;
     overflow-y: auto;
@@ -757,7 +757,6 @@ div.logo {
     box-sizing: border-box;
     overflow: hidden;
 	height: 60px;
-	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
