@@ -12,7 +12,8 @@ namespace MobileGuestList.Providers
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (filterContext.ActionDescriptor.ActionName == "Index" && filterContext.ActionDescriptor.ControllerDescriptor.ControllerName == "Home")
+            if (filterContext.ActionDescriptor.ActionName.ToLower() == "index" 
+                && filterContext.ActionDescriptor.ControllerDescriptor.ControllerName.ToLower() == "home")
             {
                 return;
             }
