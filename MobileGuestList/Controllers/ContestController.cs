@@ -7,6 +7,8 @@ using System.Web.Profile;
 using MobileGuestList.Providers;
 using Models;
 using System.ComponentModel.DataAnnotations;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace MobileGuestList.Controllers
 {
@@ -51,9 +53,9 @@ namespace MobileGuestList.Controllers
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
                 ViewBag.Contests = this.Repo.GetContestsList(stationId);
-                ModelState.AddModelError("keyName", error);
-
-
+                
+                ViewBag.Alert = "<script type='text/javascript'>Alert();</script>";
+                
                 return View(model);
             }
             contest = this.Repo.GetContestById(contest.Id);

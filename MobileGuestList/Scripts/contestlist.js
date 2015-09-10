@@ -1,7 +1,9 @@
 ﻿/*constructor for ContestList*/
 ContestList = function (settings) {
 }
-
+function Alert() {
+    alert('You must first select a contest');
+}
 function OnCurrentContestChanged() {
     var id = $('#contestSelect').val();
     $.ajax({

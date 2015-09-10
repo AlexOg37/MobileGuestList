@@ -1,8 +1,11 @@
-﻿<div class="main_content">
+﻿<script src="../Scripts/contestlist.js" type="text/javascript"></script>
+
+<div class="main_content">
     <div class="block">
         <form method="post">
             <div class="contest">
                 @Html.ValidationMessage("keyName")
+                @Html.Raw(ViewBag.Alert)               
                 <select id="contestSelect" name="Id" onchange="OnCurrentContestChanged()">
                     <option selected="selected" value="" data-sort="no">Pick Your Contest</option>
 
@@ -33,10 +36,10 @@
 
         </form>
     </div>
-
 </div>
 
 @section scripts {
+        
     <script type="text/javascript">
         var contestList = new ContestList({});
         var UpdateContestSelectionAction = '@Url.Action("UpdateContestSelection", "Contest")';
