@@ -22,21 +22,26 @@
             Listener Database > Guest Lists
         </div>
         <div class="content">
-            @RenderBody()
-            <footer>
-                <div class="trademarks-text">
-                    Copyright <script type="text/javascript">
-    document.write(new Date().getFullYear());</script> Broadcast Manager, Inc. All Rights Reserved
-                    </div>
-                </footer>
-            </div>
+            @RenderBody()                         
         </div>
-        <nav id="navigation">
-            @Html.Partial("_Navigation")
-        </nav>
+        <footer>
+            <div class="trademarks-text">
+                Copyright
+                <script type="text/javascript">
+                    document.write(new Date().getFullYear());</script> Broadcast Manager, Inc. All Rights Reserved
+            </div>
+        </footer>
+        
+        
+        
+          
+    </div>
+    <nav id="navigation">
+        @Html.Partial("_Navigation")
+    </nav>
 
-        @Scripts.Render("~/js/jquery")
-        @Scripts.Render("~/js")
-        @RenderSection("scripts", false)
-    </body>
-    </html>
+    @Scripts.Render("~/js/jquery")
+    @Scripts.Render("~/js")
+    @RenderSection("scripts", false)
+</body>
+</html>
