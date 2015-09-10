@@ -42,7 +42,7 @@ namespace MobileGuestList.Controllers
             {
                 ViewBag.SelectedContest = contest;
             }
-
+            
             return View();
         }
 
@@ -62,6 +62,15 @@ namespace MobileGuestList.Controllers
             HttpContext.Session[Helper.ContestConst] = contest;
 
             IEnumerable<Guest> guests = this.Repo.GetGuestList(contest.Id);
+
+            if (guests.Count() == 0)
+            {
+                int stationId = Helper.GetCurrentUserDetails().StationID;
+                ViewBag.Contests = this.Repo.GetContestsList(stationId);
+                ViewBag.AlertSorry = "<script type='text/javascript'>AlertSorry();</script>";
+               
+                return View(model);
+                }
 
             bool boDistributed = true;
             foreach (Guest guest in guests)

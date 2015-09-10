@@ -1,7 +1,9 @@
 ﻿/*constructor for ContestList*/
 ContestList = function (settings) {
 }
-
+function AlertSorry() {
+    alert('Sorry, there are no listeners on this guest list');
+}
 function Alert() {
     alert('You must first select a contest');
 }
