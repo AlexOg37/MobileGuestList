@@ -1,6 +1,7 @@
 ﻿/*constructor for ContestList*/
 ContestList = function (settings) {
 }
+
 function Alert() {
     alert('You must first select a contest');
 }
@@ -56,7 +57,19 @@ function InitSorting() {
         }
     });
 }
+function Resize() {
+    var headerHeight = $('header').height();
+    var footerHeight = $('footer').height();
+    var pathHeight = $('.path').height();
+    var contHeight = $(window).height() - headerHeight - footerHeight - pathHeight;
+    $('.content').css('min-height', contHeight);
+}
 $(document).ready(function () {
+    Resize();
+    $(window).resize(function () {
+        Resize();
+    });
+
     var defaultList = null;
     defaultList = $("#contestSelect").html();
     $('#myonoffswitch').change(function () {
