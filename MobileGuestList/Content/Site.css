@@ -771,11 +771,11 @@ div.logo {
 }
 			
 #navigation {
-	width: 50%;
+	width: 70%;
 	height: 100%;
 	position: absolute;
 	top: 0;
-	right: -50%;				
+	right: -70%;				
 	background-color: #1F3A71;
     min-width:210px;
 }
