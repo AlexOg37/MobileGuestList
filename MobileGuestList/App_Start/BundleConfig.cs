@@ -19,7 +19,11 @@ namespace MobileGuestList
                 "~/Scripts/contestlist.js",
                 "~/Scripts/guestlist.js"));
 
+#if DEBUG
+            BundleTable.EnableOptimizations = false;
+#else
             BundleTable.EnableOptimizations = true;
+#endif
         }
 	}
 }

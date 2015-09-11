@@ -51,6 +51,7 @@
 html {
     height: 100%;
     min-width: 300px;
+   
 }
 
 li {
@@ -65,6 +66,8 @@ body {
     margin: 0px;
     padding: 0px;
     position: relative;
+    overflow-x:hidden;
+    
 }
 a {
     color:#FFF;
@@ -358,7 +361,7 @@ a:focus { outline: none; }
     border-style: solid;
     border-width: 1px;
     border-color: #7c7c7c #c3c3c3 #ddd;
-    background: #fff url('Images/inputBg.gif') repeat-x bottom;
+    background: #fff url('../Images/inputBg.gif') repeat-x bottom;
     color: #444;
     font-family: inherit;
     font-size: 1em;
@@ -503,7 +506,7 @@ input[type=checkbox].css-checkbox {
         }
 
 label.css-label {    
-    background-image:url("Images/custom_checkbox.png");
+    background-image:url("../Images/custom_checkbox.png");
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -528,6 +531,7 @@ text-align:center;
 }
 .navigation {
 margin-right:10px;
+
 }
 
 #generatelist {
@@ -673,12 +677,13 @@ html, body {
     min-height: 300px;
 	margin: 0;
 	padding: 0;
-	overflow-x: hidden;
+	
 }
 			
 #main {
 	width: 100%;
-	height: 100%;
+    height:100%;
+	overflow-y:auto;
 	position: relative;
 	background: #eaeaea;
 }
@@ -703,7 +708,7 @@ html, body {
 div.logo {
     width: 110px;
 	height: 50px;
-	background-image: url("Images/HeaderLogo.png");
+	background-image: url("../Images/HeaderLogo.png");
     -ms-background-size: contain;
     background-size: contain;
     background-repeat: no-repeat;
@@ -725,7 +730,7 @@ div.logo {
     position: absolute;
     top: 15px;
     right: 15px;
-	background-image: url("Images/MenuButton.png");
+	background-image: url("../Images/MenuButton.png");
     cursor: pointer;
 }
 
@@ -741,16 +746,7 @@ div.logo {
     color: gray;
 }
 
-#main div.content {
-   /* -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-	position: absolute;
-	top: 80px;
-	right: 0;
-	bottom: 0px;
-	left: 0;*/
-    
+#main div.content {  
    overflow-x: hidden;
    overflow-y: auto;
 }
@@ -775,12 +771,13 @@ div.logo {
 }
 			
 #navigation {
-	width: 60%;
+	width: 50%;
 	height: 100%;
 	position: absolute;
 	top: 0;
-	right: -60%;				
-	background: #1F3A71;
+	right: -50%;				
+	background-color: #1F3A71;
+    min-width:210px;
 }
 
 #navigation .logo {
@@ -788,18 +785,3 @@ div.logo {
     left: 15px;
     top: 10px;
 }
-/*@media only screen and (max-width: 767px) {
-    footer {
-  position:static;
- }
-}*/
-/*@media only screen and (min-width: 900px) {
-
-    .content footer {
-        position:absolute;
-    }
-
-    #main div.content {
-        position:relative;
-    }
-}*/

@@ -59,14 +59,38 @@ function InitSorting() {
         }
     });
 }
+
+var navRight, mainRight;
+
 function Resize() {
+    var $nav = $('#navigation');
+    var $main = $('#main');
+
+    $main.css("right", "");
+    $nav.css("right", "");
+    //$main.removeAttr('style');
+    //$nav.removeAttr('style');
+
+    var navOpenedClass = 'opened',
+     slideValue = !$nav.hasClass(navOpenedClass) ? '-=' + $nav.outerWidth() : '+=' + $nav.outerWidth();
+
+    if ($nav.hasClass(navOpenedClass)) {        
+        $main.css('right', slideValue);
+        $nav.css('right', slideValue);
+    }
+
     var headerHeight = $('header').height();
     var footerHeight = $('footer').height();
     var pathHeight = $('.path').height();
     var contHeight = $(window).height() - headerHeight - footerHeight - pathHeight;
     $('.content').css('min-height', contHeight);
+
 }
 $(document).ready(function () {
+    var $nav = $('#navigation'),
+           $main = $('#main');
+    navRight = $nav.css('right');
+    mainRight = $main.css('right');
     Resize();
     $(window).resize(function () {
         Resize();
@@ -80,7 +104,7 @@ $(document).ready(function () {
         if ($(this).prop("checked")) {
             var my_options = $("#contestSelect option");
             var sortData = my_options.filter('[data-sort="yes"]');
-         
+
             sortData.sort(function (a, b) {
 
                 if (a.text > b.text) return 1;

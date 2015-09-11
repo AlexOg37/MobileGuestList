@@ -11,7 +11,9 @@
         $nav.finish().animate({
             right: slideValue
         }, function () {
-            $nav.toggleClass(navOpenedClass);
+            $nav.toggleClass(navOpenedClass);            
         });
     });
+
+
 });

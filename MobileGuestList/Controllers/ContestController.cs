@@ -70,7 +70,7 @@ namespace MobileGuestList.Controllers
                 ViewBag.AlertSorry = "<script type='text/javascript'>AlertSorry();</script>";
                
                 return View(model);
-                }
+            }
 
             bool boDistributed = true;
             foreach (Guest guest in guests)

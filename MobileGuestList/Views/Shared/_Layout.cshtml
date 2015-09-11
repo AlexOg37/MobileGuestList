@@ -8,6 +8,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     @Styles.Render("~/css")
     @RenderSection("styles", false)
+    
 </head>
 <body>
     <div id="main">
@@ -22,7 +23,7 @@
             Listener Database > Guest Lists
         </div>
         <div class="content">
-            @RenderBody()                         
+            @RenderBody()
         </div>
         <footer>
             <div class="trademarks-text">
@@ -30,15 +31,10 @@
                 Broadcast Manager, Inc. All Rights Reserved
             </div>
         </footer>
-        
-        
-        
-          
     </div>
     <nav id="navigation">
         @Html.Partial("_Navigation")
     </nav>
-
     @Scripts.Render("~/js/jquery")
     @Scripts.Render("~/js")
     @RenderSection("scripts", false)
