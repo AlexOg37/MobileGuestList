@@ -4,6 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+using System.Web.Profile;
+using MobileGuestList.Providers;
+using System.Globalization;
 
 namespace MobileGuestList.Providers
 {
@@ -37,8 +42,13 @@ namespace MobileGuestList.Providers
         }
 
         public void MarkDistributed(int contestId)
-        {
-            this._provider.Context.MobileGuestListMarkDistributed(contestId, DateTime.Now);
+        {            
+            MobileLoginDetails mobileLoginDetails = HttpContext.Current.Session[typeof(MobileLoginDetails).ToString()] as MobileLoginDetails;
+            string timeZone = mobileLoginDetails.TimeZone.ToString();
+            TimeZoneInfo pstZone = TimeZoneInfo.FindSystemTimeZoneById(timeZone);
+            var datetime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, pstZone);
+
+            this._provider.Context.MobileGuestListMarkDistributed(contestId, datetime);
         }
 
         public void UpdateGuestState(int contWinId, bool bMark)
