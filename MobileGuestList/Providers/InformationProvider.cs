@@ -55,7 +55,12 @@ namespace MobileGuestList.Providers
         {
             if (bMark)
             {
-                this._provider.Context.MobileGuestAttended(contWinId, DateTime.Now);
+                MobileLoginDetails mobileLoginDetails = HttpContext.Current.Session[typeof(MobileLoginDetails).ToString()] as MobileLoginDetails;
+                string timeZone = mobileLoginDetails.TimeZone.ToString();
+                TimeZoneInfo pstZone = TimeZoneInfo.FindSystemTimeZoneById(timeZone);
+                var datetime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, pstZone);
+
+                this._provider.Context.MobileGuestAttended(contWinId, datetime);
             }
             else
             {
