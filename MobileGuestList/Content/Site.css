@@ -75,6 +75,8 @@ a {
 a:link {
     color: #FFF;
     text-decoration: none;
+    font-size: 12px;
+    font-family: Arial;
 }
 
 a:hover {
@@ -212,6 +214,7 @@ a.back-button {
     color: #FFF;
     text-decoration: none;
     font-size: 16px;
+    font-family: Arial;
 }
 
 .location {
@@ -251,6 +254,9 @@ hr {
 
 #contestSelect {
 width:100%;
+font-size: 12px;
+font-family: Arial;
+color: #000000;
 }
 .block {
 padding-left:15px;
@@ -266,7 +272,7 @@ padding-right:15px;
     border-width: 1px;
     border-color: #7C7C7C #C3C3C3 #DDD;
     color: #444;
-    font-family: inherit;
+    font-family: Arial;
     font-size: 1em;
     margin-top: 45px;
     margin-right: 0.25em;
@@ -518,8 +524,11 @@ label.css-label {
 padding-top:8px;
 padding-bottom:8px;
 border: solid 1px;
-font-size:80%;
+font-size: 10px;
 text-align:center;
+font-family: Arial;
+border-bottom: none;
+border-top: none;
 }
 
 #g1 {
@@ -536,19 +545,24 @@ margin-right:10px;
 
 #generatelist {
     margin-top:30px;
-    background-color: #014687;
-    color: #ffffff;
+    background-color:  #1c4794;
+    color: #fff;
     border-radius: 10px;
     width: 160px;
     height: 60px;
-   font-family: 'MS Reference Sans Serif', monospace;
+    font-family: Arial;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
    
 }
 
 #sortcontest {
-    font-size: 90%;
+    font-size: 12px;
     float:left;
     margin-top:8px;
+    font-family: Arial;
+    color: #333;
 }
 
 #btngenerate {
@@ -624,9 +638,10 @@ float:left;
 
 #user {
     color: white;
-    font-size: 80%;
+    font-size: 10px;
     margin-right:10px;
     text-align:right;
+    font-family: Arial; 
     }
 
 #station {
@@ -743,7 +758,10 @@ div.logo {
     line-height: 20px;							
 	text-align: right;
     padding-right: 10px;
-    color: gray;
+    color: #999;
+    font-family: Verdana;
+    font-size: 9px;
+
 }
 
 #main div.content {  
@@ -760,14 +778,16 @@ div.logo {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: #03498D;
+	background: #014687;
 }
 
 #main footer .trademarks-text {
     margin-top: 10px;
     text-align: center;
     color: white;
-    font-size: 0.7em;
+    font-size: 12px;
+    color: #ffffff;
+    font-family: Arial;
 }
 			
 #navigation {
@@ -784,4 +804,17 @@ div.logo {
     position: absolute;
     left: 15px;
     top: 10px;
+}
+
+.help_page {
+    width: 270px;
+    font-family: Arial;
+    font-size: 14px;
+    margin:auto;
+    padding: 15px;
+}
+
+.help_page a {
+    color: #014687;
+    font-size: 14px;
 }
