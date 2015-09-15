@@ -8,8 +8,11 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="format-detection" content="telephone=no">
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    @Scripts.Render("~/js/jquery")
+    
     @Styles.Render("~/css")
     @RenderSection("styles", false)
+    
 
 </head>
 <body>
@@ -34,10 +37,10 @@
             </div>
         </footer>
     </div>
-    <nav id="navigation">
+    <div id="navigation">
         @Html.Partial("_Navigation")
-    </nav>
-    @Scripts.Render("~/js/jquery")
+    </div>
+   
     @Scripts.Render("~/js")
     @RenderSection("scripts", false)
 </body>

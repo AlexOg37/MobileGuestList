@@ -18,7 +18,7 @@ function OnCurrentContestChanged() {
         contentType: 'application/json'
     });
 }
-$(function () {
+
     $(document).click(function (event) {
         if ($(event.target).closest("#toggler").length)
             return;
@@ -29,7 +29,6 @@ $(function () {
         $(this).siblings("#toggler").slideToggle("slow");
         return false;
     });
-});
 
 function InitSorting() {
     defaultList = $("#contestSelect").html();
@@ -49,7 +48,6 @@ function InitSorting() {
             var noSortData = my_options.filter('[data-sort="no"]');
             $("#contestSelect").empty().append(noSortData).append(sortData);
 
-            //$("#contestSelect [value='" + test + "']").attr("selected", "selected");
             $("#contestSelect").val(test);
         }
         else {
@@ -66,19 +64,19 @@ function Resize() {
     var $nav = $('#navigation');
     var $main = $('#main');
 
-    $main.css("right", "");
+    $main.css("right", "0px");
     $nav.css("right", "");
     //$main.removeAttr('style');
     //$nav.removeAttr('style');
 
     var navOpenedClass = 'opened',
-     slideValue = !$nav.hasClass(navOpenedClass) ? '-=' + $nav.outerWidth() : '+=' + $nav.outerWidth();
-
-    if ($nav.hasClass(navOpenedClass)) {        
-        $main.css('right', slideValue);
+      slideValue = !$nav.hasClass(navOpenedClass) ? '-=' + $nav.outerWidth() : '+=' + $nav.outerWidth();     
+    if ($nav.hasClass(navOpenedClass)) {
         $nav.css('right', slideValue);
+        $main.css({
+            right: slideValue
+        });
     }
-
     var headerHeight = $('header').height();
     var footerHeight = $('footer').height();
     var pathHeight = $('.path').height();
