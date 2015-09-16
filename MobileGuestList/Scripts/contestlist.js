@@ -1,12 +1,12 @@
-﻿/*constructor for ContestList*/
+﻿    /*constructor for ContestList*/
 ContestList = function (settings) {
 }
 function AlertSorry() {
     alert('Sorry, there are no listeners on this guest list');
 }
-function Alert() {
-    alert('You must first select a contest');
-}
+    function Alert() {
+        alert('You must first select a contest');
+    }
 function OnCurrentContestChanged() {
     var id = $('#contestSelect').val();
     $.ajax({
@@ -19,16 +19,16 @@ function OnCurrentContestChanged() {
     });
 }
 
-    $(document).click(function (event) {
-        if ($(event.target).closest("#toggler").length)
-            return;
-        $("#toggler").slideUp("slow");
-        event.stopPropagation();
-    });
-    $('#toggle-link').click(function () {
-        $(this).siblings("#toggler").slideToggle("slow");
-        return false;
-    });
+$(document).click(function (event) {
+    if ($(event.target).closest("#toggler").length)
+        return;
+    $("#toggler").slideUp("slow");
+    event.stopPropagation();
+});
+$('#toggle-link').click(function () {
+    $(this).siblings("#toggler").slideToggle("slow");
+    return false;
+});
 
 function InitSorting() {
     defaultList = $("#contestSelect").html();
@@ -60,38 +60,34 @@ function InitSorting() {
 
 var navRight, mainRight;
 
-function Resize() {
-    var $nav = $('#navigation');
-    var $main = $('#main');
-
-    $main.css("right", "0px");
-    $nav.css("right", "");
-    //$main.removeAttr('style');
-    //$nav.removeAttr('style');
-
-    var navOpenedClass = 'opened',
-      slideValue = !$nav.hasClass(navOpenedClass) ? '-=' + $nav.outerWidth() : '+=' + $nav.outerWidth();     
-    if ($nav.hasClass(navOpenedClass)) {
-        $nav.css('right', slideValue);
-        $main.css({
-            right: slideValue
-        });
-    }
+function PosFooter() {
     var headerHeight = $('header').height();
     var footerHeight = $('footer').height();
     var pathHeight = $('.path').height();
     var contHeight = $(window).height() - headerHeight - footerHeight - pathHeight;
     $('.content').css('min-height', contHeight);
-
 }
+
+//function Resize() {
+//    var $nav = $('#navigation');
+//    var $main = $('#main');
+
+//    $main.css("right", "0px");
+//    $nav.css("right", "");
+   
+//    var navOpenedClass = 'opened',
+//      slideValue = !$nav.hasClass(navOpenedClass) ? '-=' + $nav.outerWidth() : '+=' + $nav.outerWidth();     
+//    if ($nav.hasClass(navOpenedClass)) {
+//        $nav.css('right', '0px');
+//        $main.css({
+//            right: slideValue
+//        });
+//    }
+//}
 $(document).ready(function () {
-    var $nav = $('#navigation'),
-           $main = $('#main');
-    navRight = $nav.css('right');
-    mainRight = $main.css('right');
-    Resize();
+    PosFooter();
     $(window).resize(function () {
-        Resize();
+        PosFooter();
     });
 
     var defaultList = null;
