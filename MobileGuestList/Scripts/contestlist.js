@@ -60,34 +60,18 @@ function InitSorting() {
 
 var navRight, mainRight;
 
-function PosFooter() {
+function PositionFooter() {
     var headerHeight = $('header').height();
     var footerHeight = $('footer').height();
     var pathHeight = $('.path').height();
     var contHeight = $(window).height() - headerHeight - footerHeight - pathHeight;
     $('.content').css('min-height', contHeight);
+    $('footer').css('opacity', 1);
 }
-
-//function Resize() {
-//    var $nav = $('#navigation');
-//    var $main = $('#main');
-
-//    $main.css("right", "0px");
-//    $nav.css("right", "");
-   
-//    var navOpenedClass = 'opened',
-//      slideValue = !$nav.hasClass(navOpenedClass) ? '-=' + $nav.outerWidth() : '+=' + $nav.outerWidth();     
-//    if ($nav.hasClass(navOpenedClass)) {
-//        $nav.css('right', '0px');
-//        $main.css({
-//            right: slideValue
-//        });
-//    }
-//}
 $(document).ready(function () {
-    PosFooter();
+    PositionFooter();
     $(window).resize(function () {
-        PosFooter();
+        PositionFooter();
     });
 
     var defaultList = null;
