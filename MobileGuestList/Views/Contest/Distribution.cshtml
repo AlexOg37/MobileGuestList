@@ -5,12 +5,13 @@
 
 <div class="main_content">
     <div class="block">
-        <div>
+        <div class="dis_title">
             <h4>@ViewBag.Contest.Name</h4>
         </div>
-        <p>Some winners have not yet had their prize marked as distributed.</p>
-        <p>Do you want to distribute to these winners?</p>
-
+        <div class="dis">
+            <p>Some winners have not yet had their prize marked as distributed.</p>
+            <p>Do you want to distribute to these winners?</p>
+        </div>
         <div id="btn_margin">
             <div>
                 <button id="btn_distr" onclick="location.href='@Url.Action("Distribute", new { Distribute = true })'">Yes</button>
