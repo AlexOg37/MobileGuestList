@@ -501,7 +501,7 @@ label.css-label {
     -ms-user-select: none;
     user-select: none;
 }
-#station_item {
+.station_item {
 padding-top:8px;
 padding-bottom:8px;
 border: solid 1px;
@@ -510,6 +510,9 @@ text-align:center;
 font-family: Arial;
 border-bottom: none;
 border-top: none;
+}
+#hidden_item {
+display:none;
 }
 
 #g1 {
