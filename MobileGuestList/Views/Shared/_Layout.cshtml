@@ -9,7 +9,7 @@
     <meta name="format-detection" content="telephone=no">
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     
-    
+    @Scripts.Render("~/js/jquery")
     @Styles.Render("~/css")
     @RenderSection("styles", false)
     
@@ -41,7 +41,6 @@
         @Html.Partial("_Navigation")
     </div>
 
-    @Scripts.Render("~/js/jquery")
     @Scripts.Render("~/js")
     @RenderSection("scripts", false)
 </body>
