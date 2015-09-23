@@ -328,7 +328,13 @@ a:focus { outline: none; }
 
 #station_call {
         cursor:pointer;
-
+        font-family:Arial;
+        font-size:12px;
+}
+.contest_name {
+font-family:Arial;
+color:#333;
+font-size:12px;
 }
 
 .station_list {
@@ -597,7 +603,9 @@ margin-right:10px;
     font-size:12px;
     float:right;
     display:inline-flex;
+    color:#333;
 }
+
 #strick {
     float:left;
 }
@@ -615,6 +623,7 @@ float:left;
     margin-top:6px;
     font-family:Arial;
     font-size:12px;
+    color:#333;
 }
 
 #btn_margin {
