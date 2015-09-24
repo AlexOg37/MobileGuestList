@@ -19,16 +19,17 @@ function OnCurrentContestChanged() {
     });
 }
 
-$(document).click(function (event) {
-    if ($(event.target).closest("#toggler").length)
-        return;
-    $("#toggler").slideUp("slow");
-    event.stopPropagation();
-});
-$('#toggle-link').click(function () {
-    $(this).siblings("#toggler").slideToggle("slow");
-    return false;
-});
+    $(document).click(function (event) {
+        if ($(event.target).closest("#toggler").length)
+            return;
+        $("#toggler").slideUp("slow");
+        event.stopPropagation();
+    });
+    $('#toggle-link').click(function () {
+        $(this).siblings("#toggler").slideToggle("slow");
+        return false;
+    });
+
 
 function InitSorting() {
     defaultList = $("#contestSelect").html();
@@ -59,6 +60,12 @@ function InitSorting() {
 }
 
 var navRight, mainRight;
+
+function HideMenu(link)
+{
+    $('body').toggleClass('navOpened');
+    window.location.href = link;
+}
 
 function PositionFooter() {
     var headerHeight = $('header').height();

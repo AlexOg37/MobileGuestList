@@ -18,7 +18,7 @@
                 }
                 else
                 {
-                    <div class="station_item" data-station-id="@station.StationId">@station.StationCall</div>
+                  <div class="station_item" data-station-id="@station.StationId">@station.StationCall</div>
                 }
             }
 
@@ -30,9 +30,16 @@
 <hr>
 <div class="navigation">
     <ul>
-        <li>@Html.ActionLink("Guest Lists", "Selection", "Contest")</li>
-        <li><a href="https://next.promosuite.com/MyPromoSuite.aspx">Full Site</a></li>
-        <li>@Html.ActionLink("Help", "Help", "Home")</li>
-        <li>@Html.ActionLink("Logout", "LogOut", "Home")</li>
+        <li onclick="HideMenu('/Contest/Selection')"><a href="#">Guest Lists</a></li>
+        <li onclick="HideMenu('https://next.promosuite.com/MyPromoSuite.aspx')"><a href="#">Full Site</a></li>
+        <li onclick="HideMenu('/Home/Help')"><a href="#">Help</a></li>
+        <li onclick="HideMenu('/Home/LogOut')"><a href="#">Logout</a></li>
     </ul>
 </div>
+
+@section scripts {
+    <script type="text/javascript">
+        var HelpAction = '@Url.Action("Help", "Home")';
+    </script>
+}
+
