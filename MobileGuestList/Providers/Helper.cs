@@ -49,10 +49,8 @@ namespace MobileGuestList.Providers
         public static InformationProvider GetRepository()
         {
             string dbName = GetCurrentUserDetails().SQLDB;
-            using (InformationProvider repo = new InformationProvider(dbName))
-            {
-                return repo;
-            }
+            InformationProvider repo = new InformationProvider(dbName);
+            return repo;
         }
 
 

@@ -9,13 +9,13 @@ namespace MobileGuestList.Providers
 
         Contest GetContestById(int contestId);
 
-        IEnumerable<Guest> GetGuestList(int contestId, bool bForceUpdate = false);
+        IEnumerable<Guest> GetGuestList(int contestId, bool forceUpdate = false);
 
         void MarkDistributed(int contestId);
 
-        void UpdateGuestState(int contWinId, bool bMark);
+        void UpdateGuestState(int contWinId, bool mark);
 
-        IEnumerable<Station> GetMobileStationList(int useerId);
+        IEnumerable<Station> GetMobileStationList(int userId);
 
         MobileLoginDetails ChangeStation(int userId, int stationId);
     }

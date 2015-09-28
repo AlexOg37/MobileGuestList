@@ -12,13 +12,14 @@ using System.Globalization;
 
 namespace MobileGuestList.Providers
 {
-    public class InformationProvider : IDisposable, IBaseInformationProvider
+    public class InformationProvider : IBaseInformationProvider
     {
         DataBaseEntityProvider _provider = null;
         IEnumerable<Guest> _guestList;
         IEnumerable<Contest> _contestList;
         int _currentStationId = 0;
         int _currentContestId = 0;
+
         public InformationProvider(string db)
         {
             this._provider = new DataBaseEntityProvider(db);
@@ -32,12 +33,17 @@ namespace MobileGuestList.Providers
 
         public Contest GetContestById(int contestId)
         {
+            if (this._contestList == null)
+            {
+                return null;
+            }
+
             return this._contestList.FirstOrDefault(el => el.Id == contestId) as Contest;
         }
 
-        public IEnumerable<Guest> GetGuestList(int contestId, bool bForceUpdate = false)
+        public IEnumerable<Guest> GetGuestList(int contestId, bool forceUpdate = false)
         {
-            UpdateGuestList(contestId, bForceUpdate);
+            UpdateGuestList(contestId, forceUpdate);
             return this._guestList;
         }
 
@@ -51,9 +57,9 @@ namespace MobileGuestList.Providers
             this._provider.Context.MobileGuestListMarkDistributed(contestId, datetime);
         }
 
-        public void UpdateGuestState(int contWinId, bool bMark)
+        public void UpdateGuestState(int contWinId, bool mark)
         {
-            if (bMark)
+            if (mark)
             {
                 MobileLoginDetails mobileLoginDetails = HttpContext.Current.Session[typeof(MobileLoginDetails).ToString()] as MobileLoginDetails;
                 string timeZone = mobileLoginDetails.TimeZone.ToString();
@@ -68,9 +74,9 @@ namespace MobileGuestList.Providers
             }
         }
 
-        public IEnumerable<Station> GetMobileStationList(int useerId)
+        public IEnumerable<Station> GetMobileStationList(int userId)
         {
-            return this._provider.Context.MobileStationList(useerId).Select(el => new Station()
+            return this._provider.Context.MobileStationList(userId).Select(el => new Station()
             {
                 StationCall = el.stationcall,
                 StationId = el.stationid
@@ -91,9 +97,9 @@ namespace MobileGuestList.Providers
             }).FirstOrDefault();
         }
 
-        void UpdateContestList(int newStationId, bool bForceUpdate = false)
+        void UpdateContestList(int newStationId, bool forceUpdate = false)
         {
-            if (this._currentStationId == newStationId && bForceUpdate != true)
+            if (this._currentStationId == newStationId && forceUpdate != true)
             {
                 return;
             }
@@ -107,9 +113,9 @@ namespace MobileGuestList.Providers
             }).ToList();
         }
 
-        void UpdateGuestList(int newContestId, bool bForceUpdate = false)
+        void UpdateGuestList(int newContestId, bool forceUpdate = false)
         {
-            if (this._currentContestId == newContestId && bForceUpdate != true && this._guestList != null)
+            if (this._currentContestId == newContestId && forceUpdate != true && this._guestList != null)
             {
                 return;
             }
@@ -129,11 +135,6 @@ namespace MobileGuestList.Providers
                 FulfillmentDate = el.FulfillmentDate,
                 Attended = el.attended
             }).ToList();
-        }
-
-        public void Dispose()
-        {
-           // this._provider.Context.Dispose();
         }
     }
 }

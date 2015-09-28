@@ -19,20 +19,10 @@ namespace MobileGuestList.Controllers
                 if (repo == null)
                 {
                     string dbName = this.Session.GetUserDB();
-#if (LOCALDB)
-                    if (dbName == Helper.Local_SQLDBConst)
-                    {
-                        repo = new LocalInformationProvider();
-                    }
-                    else
-                    {
-                        repo = new InformationProvider(dbName);
-                    }
-#else
                     repo = new InformationProvider(dbName);
-#endif
                     this.Session[typeof(IBaseInformationProvider).ToString()] = repo;
                 }
+
                 return repo;
             }
         }

@@ -12,9 +12,9 @@ using System.Globalization;
 
 namespace MobileGuestList.Controllers
 {
-	public class HomeController : BaseController
-	{
-        private const string ValidationKeyError = "The validation key is wrong or there is no connetion with database!";
+    public class HomeController : BaseController
+    {
+        private const string ValidationKeyError = "There is no connetion with database!";
         private AuthenticationProvider _authenticationProvider;
 
         public HomeController()
@@ -22,27 +22,19 @@ namespace MobileGuestList.Controllers
             this._authenticationProvider = new AuthenticationProvider();
         }
 
+        /// <summary>
+        /// Method indifictes user and save informetion about user to session
+        /// </summary>
+        /// <param name="v">Validation key from query</param>
+        /// <returns>Contests selection view</returns>
         public ActionResult Index(string v)
         {
             MobileLoginDetails mobileLoginDetails = _authenticationProvider.GetProfile(v);
 
             if (mobileLoginDetails == null)
             {
-#if (LOCALDB)
-                mobileLoginDetails = new MobileLoginDetails()
-                {
-                    UserName = "LocalName",
-                    UserID = 1,
-                    SQLDB = Helper.Local_SQLDBConst,
-                    CultureFormat = DateTimeFormatInfo.CurrentInfo.ToString(),
-                    TimeZone = TimeZone.CurrentTimeZone.ToString(),
-                    StationID = 1,
-                    AccessToGuestList = true
-                };
-#else
                 ModelState.AddModelError("", ValidationKeyError);
                 return View();
-#endif
             }
 
             HttpContext.Session[Helper.LoginCodeConst] = v;
@@ -52,21 +44,20 @@ namespace MobileGuestList.Controllers
         }
 
         public ActionResult Help()
-		{
-			ViewBag.Location = "Help";
+        {
+            ViewBag.Location = "Help";
 
-			return View();
-		}
+            return View();
+        }
+
         [HttpPost]
         public ActionResult ChangeStation(int stationId)
         {
             int userId = Helper.GetCurrentUserDetails().UserID;
-        
             this.Repo.ChangeStation(userId, stationId);
+
             MobileLoginDetails mobileLoginDetails = HttpContext.Session[typeof(MobileLoginDetails).ToString()] as MobileLoginDetails;
-
             mobileLoginDetails.StationID = stationId;
-
             HttpContext.Session[mobileLoginDetails.GetType().ToString()] = mobileLoginDetails;
 
             var resultList = this.Repo.GetContestsList(stationId).ToList();
@@ -80,5 +71,5 @@ namespace MobileGuestList.Controllers
 
             return RedirectToLogin();
         }
-	}
+    }
 }
