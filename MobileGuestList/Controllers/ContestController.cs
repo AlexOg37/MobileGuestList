@@ -9,22 +9,25 @@ using Models;
 using System.ComponentModel.DataAnnotations;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MobileGuestList.Resources;
 
 namespace MobileGuestList.Controllers
 {
     public class ContestController : BaseController
-    {            
+    {
         public ActionResult Selection()
         {
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
             if (Helper.GetCurrentUserDetails() == null)
+            {
                 RedirectToLogin();
+            }
 
             int stationId = Helper.GetCurrentUserDetails().StationID;
             ViewBag.Contests = this.Repo.GetContestsList(stationId);
             Contest contest = Helper.GetCurrentContest();
-            
+
             if (contest != null)
             {
                 ViewBag.SelectedContest = contest;
@@ -39,13 +42,13 @@ namespace MobileGuestList.Controllers
             if (!ModelState.IsValid)
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
-                ViewBag.Contests = this.Repo.GetContestsList(stationId);
 
-                ViewBag.Alert = "<script type='text/javascript'>Alert();</script>";
+                ViewBag.Contests = this.Repo.GetContestsList(stationId);
+                ViewBag.Alert = "<script>Alert();</script>";
 
                 return View(model);
             }
-            
+
             contest = this.Repo.GetContestById(contest.Id);
             HttpContext.Session[Helper.ContestConst] = contest;
 
@@ -54,14 +57,15 @@ namespace MobileGuestList.Controllers
             if (guests.Count() == 0)
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
+
                 ViewBag.Contests = this.Repo.GetContestsList(stationId);
-                ViewBag.AlertSorry = "<script type='text/javascript'>AlertSorry();</script>";
+                ViewBag.AlertSorry = "<script>AlertSorry();</script>";
 
                 return View(model);
             }
 
             bool distributed = true;
-            
+
             foreach (Guest guest in guests)
             {
                 if (guest.FulfillmentDate == null)
@@ -72,7 +76,10 @@ namespace MobileGuestList.Controllers
             }
 
             if (!distributed)
+            {
                 return RedirectToAction("Distribution");
+            }
+
             return RedirectToAction("Index", "Guest");
         }
 

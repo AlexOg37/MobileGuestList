@@ -44,7 +44,9 @@ namespace MobileGuestList.Providers
             IEnumerable<Station> result = new List<Station>();
             MobileLoginDetails user = GetCurrentUserDetails();
             if (user != null)
+            {
                 result = GetRepository().GetMobileStationList(user.UserID).ToList();
+            }
 
             return result;
         }

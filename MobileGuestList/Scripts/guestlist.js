@@ -16,7 +16,7 @@ function ChangeGuestState(id, doMark) {
         type: 'POST',
         data: JSON.stringify({
             contWinId: id,
-            bMark: doMark
+            mark: doMark
         }),
         contentType: 'application/json'
     });

@@ -118,7 +118,7 @@ namespace MobileGuestList.Providers
             return this._contestList.FirstOrDefault(el => el.Id == contestId) as Contest;
         }
 
-        public IEnumerable<Guest> GetGuestList(int contestId, bool bForceUpdate = false)
+        public IEnumerable<Guest> GetGuestList(int contestId, bool forceUpdate = false)
         {
             return this._guestList;
         }
@@ -127,11 +127,11 @@ namespace MobileGuestList.Providers
         {
         }
 
-        public void UpdateGuestState(int contWinId, bool bMark)
+        public void UpdateGuestState(int contWinId, bool mark)
         {
         }
 
-        public IEnumerable<Station> GetMobileStationList(int useerId)
+        public IEnumerable<Station> GetMobileStationList(int userId)
         {
             return this._stationList;
         }

@@ -5,7 +5,7 @@
         <form method="post">
             <div class="contest">
                 @Html.Raw(ViewBag.Alert)
-                @Html.Raw(ViewBag.AlertSorry)               
+                @Html.Raw(ViewBag.AlertSorry)
                 <select id="contestSelect" name="Id" onchange="OnCurrentContestChanged()">
                     <option selected="selected" value="" data-sort="no">Pick Your Contest</option>
 
@@ -39,7 +39,7 @@
 </div>
 
 @section scripts {
-        
+
     <script type="text/javascript">
         var contestList = new ContestList({});
         var UpdateContestSelectionAction = '@Url.Action("UpdateContestSelection", "Contest")';
