@@ -12,7 +12,7 @@ namespace MobileGuestList.Providers
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (filterContext.ActionDescriptor.ActionName.ToLower() == "index" 
+            if (filterContext.ActionDescriptor.ActionName.ToLower() == "index"
                 && filterContext.ActionDescriptor.ControllerDescriptor.ControllerName.ToLower() == "home")
             {
                 return;
@@ -31,7 +31,6 @@ namespace MobileGuestList.Providers
                 {
                     filterContext.Result = controller.RedirectToLogin();
                 }
-                    
             }
         }
     }

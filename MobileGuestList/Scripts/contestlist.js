@@ -1,12 +1,11 @@
-﻿    /*constructor for ContestList*/
-ContestList = function (settings) {
+﻿ContestList = function (settings) {
 }
 function AlertSorry() {
     alert('Sorry, there are no listeners on this guest list');
 }
-    function Alert() {
-        alert('You must first select a contest');
-    }
+function Alert() {
+    alert('You must first select a contest');
+}
 function OnCurrentContestChanged() {
     var id = $('#contestSelect').val();
     $.ajax({
@@ -19,16 +18,16 @@ function OnCurrentContestChanged() {
     });
 }
 
-    $(document).click(function (event) {
-        if ($(event.target).closest("#toggler").length)
-            return;
-        $("#toggler").slideUp("slow");
-        event.stopPropagation();
-    });
-    $('#toggle-link').click(function () {
-        $(this).siblings("#toggler").slideToggle("slow");
-        return false;
-    });
+$(document).click(function (event) {
+    if ($(event.target).closest("#toggler").length)
+        return;
+    $("#toggler").slideUp("slow");
+    event.stopPropagation();
+});
+$('#toggle-link').click(function () {
+    $(this).siblings("#toggler").slideToggle("slow");
+    return false;
+});
 
 
 function InitSorting() {
@@ -59,10 +58,7 @@ function InitSorting() {
     });
 }
 
-var navRight, mainRight;
-
-function HideMenu(link)
-{
+function HideMenu(link) {
     $('body').toggleClass('navOpened');
     window.location.href = link;
 }
@@ -98,8 +94,6 @@ $(document).ready(function () {
             });
             var noSortData = my_options.filter('[data-sort="no"]');
             $("#contestSelect").empty().append(noSortData).append(sortData);
-
-            //$("#contestSelect [value='" + test + "']").attr("selected", "selected");
             $("#contestSelect").val(test);
         }
         else {

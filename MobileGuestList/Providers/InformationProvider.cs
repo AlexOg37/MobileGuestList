@@ -46,9 +46,8 @@ namespace MobileGuestList.Providers
             UpdateGuestList(contestId, forceUpdate);
             return this._guestList;
         }
-
         public void MarkDistributed(int contestId)
-        {            
+        {
             MobileLoginDetails mobileLoginDetails = HttpContext.Current.Session[typeof(MobileLoginDetails).ToString()] as MobileLoginDetails;
             string timeZone = mobileLoginDetails.TimeZone.ToString();
             TimeZoneInfo pstZone = TimeZoneInfo.FindSystemTimeZoneById(timeZone);

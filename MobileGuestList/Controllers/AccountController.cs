@@ -15,7 +15,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MobileGuestList.Controllers
 {
-
     [Authorize]
     public class AccountController : BaseController
     {
@@ -49,6 +48,7 @@ namespace MobileGuestList.Controllers
         public ActionResult Login()
         {
             var model = new LoginModel();
+
             return View(model);
         }
 

@@ -1,5 +1,4 @@
-﻿/// <reference path="contestlist.js" />
-function changeStation() {
+﻿function changeStation() {
     var item = this;
     var actionUrl = $("#toggler").attr("data-action");
     $.post(actionUrl + '?stationId=' + $(item).attr('data-station-id'), function (result) {
@@ -16,7 +15,6 @@ function changeStation() {
     $(item).hide();
 
     $('#station_call').text($(item).text());
-
 }
 
 $(document).ready(function () {

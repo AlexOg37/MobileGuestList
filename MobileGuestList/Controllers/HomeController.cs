@@ -42,7 +42,6 @@ namespace MobileGuestList.Controllers
 
             return RedirectToAction("Selection", "Contest");
         }
-
         public ActionResult Help()
         {
             ViewBag.Location = "Help";
@@ -64,7 +63,6 @@ namespace MobileGuestList.Controllers
 
             return Json(resultList);
         }
-
         public ActionResult LogOut()
         {
             HttpContext.Session[Helper.LoginCodeConst] = null;

@@ -46,7 +46,6 @@ $(document).ready(function () {
 });
 
 function ShowOrHide() {
-
     if ($('#myonoffswitch').prop('checked'))
         $('.selectbox input:checked').each(function () {
             $(this).closest(".checkbox_row").fadeOut('slow');
@@ -55,7 +54,6 @@ function ShowOrHide() {
         $('.selectbox input:checked').each(function () {
             $(this).closest(".checkbox_row").fadeIn('slow');
         });
-
 }
 function calculateChekboxesNum() {
     var wrapper = document.getElementsByClassName("guests");

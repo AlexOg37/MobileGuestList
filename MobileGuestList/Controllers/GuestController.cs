@@ -9,31 +9,34 @@ using System.Web.Routing;
 
 namespace MobileGuestList.Controllers
 {
-	public class GuestController : BaseController
-	{    
-      		public ActionResult Index()
-		{
+    public class GuestController : BaseController
+    {
+        public ActionResult Index()
+        {
             Contest currentContest = Helper.GetCurrentContest();
+
             if (currentContest == null)
             {
-                return RedirectToAction("Selection", "Contest", new { bWithError = true });
-            }   
+                return RedirectToAction("Selection", "Contest", new { withError = true });
+            }
+
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
-			HttpSessionStateBase session = HttpContext.Session;
-			Contest contest = (Contest)session[Helper.ContestConst];
-			ViewBag.Contest = contest;
-
+            HttpSessionStateBase session = HttpContext.Session;
+            Contest contest = (Contest)session[Helper.ContestConst];
+            
+            ViewBag.Contest = contest;
             ViewBag.Guests = this.Repo.GetGuestList(contest.Id, true);
 
-			return View();
-		}
+            return View();
+        }
 
         [HttpPost]
-        public ActionResult UpdateGuestState(int contWinId, bool bMark)
+        public ActionResult UpdateGuestState(int contWinId, bool mark)
         {
-            this.Repo.UpdateGuestState(contWinId, bMark);
-            return Json(new {});
+            this.Repo.UpdateGuestState(contWinId, mark);
+
+            return Json(new { });
         }
-	}
+    }
 }

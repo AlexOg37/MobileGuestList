@@ -12,6 +12,7 @@ namespace MobileGuestList.Providers
         public const string ContestConst = "Contest";
         public const string NavigationTextHeaderMessage = "Listener Database > Guest Lists";
         public const string Local_SQLDBConst = "Local_SQLDB";
+
         public static string GetUserDB(this HttpSessionStateBase session)
         {
             MobileLoginDetails mobileLoginDetails = GetCurrentUserDetails();
@@ -32,11 +33,12 @@ namespace MobileGuestList.Providers
         {
             return GetCurrentUserDetails() != null ? GetCurrentUserDetails().UserName : string.Empty;
         }
+
         public static string GetUserStationCall()
         {
-
             return GetCurrentUserDetails() != null ? GetCurrentUserDetails().StationCall : string.Empty;
         }
+
         public static IEnumerable<Station> GetStations()
         {
             IEnumerable<Station> result = new List<Station>();
@@ -46,14 +48,13 @@ namespace MobileGuestList.Providers
 
             return result;
         }
+
         public static InformationProvider GetRepository()
         {
             string dbName = GetCurrentUserDetails().SQLDB;
             InformationProvider repo = new InformationProvider(dbName);
             return repo;
         }
-
-
 
         public static Contest GetCurrentContest()
         {

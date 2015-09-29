@@ -21,11 +21,11 @@ namespace MobileGuestList.Providers
         public MobileLoginDetails GetProfile(string strQuerystring)
         {
             MobileLoginDetails logDetails = null;
-            try 
+            try
             {
                 logDetails = this._provider.GetLoginDetails(strQuerystring);
             }
-            catch (Exception){}
+            catch (Exception) { }
 
             return logDetails;
         }

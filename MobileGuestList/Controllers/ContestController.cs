@@ -19,14 +19,11 @@ namespace MobileGuestList.Controllers
         {
             [Display(Name = "Id")]
             public int Id { get; set; }
-
             public string SortByName { get; set; }
-
-
         }
-        public ActionResult Selection(bool bWithError = false)
+        public ActionResult Selection(bool withError = false)
         {
-            if (bWithError == true)
+            if (withError == true)
                 ModelState.AddModelError("keyName", error);
 
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
@@ -36,13 +33,13 @@ namespace MobileGuestList.Controllers
 
             int stationId = Helper.GetCurrentUserDetails().StationID;
             ViewBag.Contests = this.Repo.GetContestsList(stationId);
-
             Contest contest = Helper.GetCurrentContest();
+            
             if (contest != null)
             {
                 ViewBag.SelectedContest = contest;
             }
-            
+
             return View();
         }
 
@@ -53,11 +50,12 @@ namespace MobileGuestList.Controllers
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
                 ViewBag.Contests = this.Repo.GetContestsList(stationId);
-                
+
                 ViewBag.Alert = "<script type='text/javascript'>Alert();</script>";
-                
+
                 return View(model);
             }
+            
             contest = this.Repo.GetContestById(contest.Id);
             HttpContext.Session[Helper.ContestConst] = contest;
 
@@ -68,21 +66,22 @@ namespace MobileGuestList.Controllers
                 int stationId = Helper.GetCurrentUserDetails().StationID;
                 ViewBag.Contests = this.Repo.GetContestsList(stationId);
                 ViewBag.AlertSorry = "<script type='text/javascript'>AlertSorry();</script>";
-               
+
                 return View(model);
             }
 
-            bool boDistributed = true;
+            bool distributed = true;
+            
             foreach (Guest guest in guests)
             {
                 if (guest.FulfillmentDate == null)
                 {
-                    boDistributed = false;
+                    distributed = false;
                     break;
                 }
             }
 
-            if (!boDistributed)
+            if (!distributed)
                 return RedirectToAction("Distribution");
             return RedirectToAction("Index", "Guest");
         }
