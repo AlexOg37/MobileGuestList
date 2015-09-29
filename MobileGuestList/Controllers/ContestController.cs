@@ -9,7 +9,7 @@ using Models;
 using System.ComponentModel.DataAnnotations;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MobileGuestList.Resources; 
+using MobileGuestList.Resources;
 
 namespace MobileGuestList.Controllers
 {
@@ -20,7 +20,9 @@ namespace MobileGuestList.Controllers
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
             if (Helper.GetCurrentUserDetails() == null)
+            {
                 RedirectToLogin();
+            }
 
             int stationId = Helper.GetCurrentUserDetails().StationID;
             ViewBag.Contests = this.Repo.GetContestsList(stationId);
@@ -40,10 +42,10 @@ namespace MobileGuestList.Controllers
             if (!ModelState.IsValid)
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
-                
-                ViewBag.Contests = this.Repo.GetContestsList(stationId);             
+
+                ViewBag.Contests = this.Repo.GetContestsList(stationId);
                 ViewBag.Alert = "<script>Alert();</script>";
-             
+
                 return View(model);
             }
 
@@ -58,7 +60,7 @@ namespace MobileGuestList.Controllers
 
                 ViewBag.Contests = this.Repo.GetContestsList(stationId);
                 ViewBag.AlertSorry = "<script>AlertSorry();</script>";
-                
+
                 return View(model);
             }
 
@@ -74,7 +76,10 @@ namespace MobileGuestList.Controllers
             }
 
             if (!distributed)
+            {
                 return RedirectToAction("Distribution");
+            }
+
             return RedirectToAction("Index", "Guest");
         }
 
