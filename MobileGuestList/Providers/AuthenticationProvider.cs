@@ -15,14 +15,7 @@ namespace MobileGuestList.Providers
 
         public MobileLoginDetails GetProfile(string verificationCode)
         {
-            MobileLoginDetails logDetails = null;
-            try
-            {
-                logDetails = this._provider.GetLoginDetails(verificationCode);
-            }
-            catch (Exception) { }
-
-            return logDetails;
+            return this._provider.GetLoginDetails(verificationCode);
         }
     }
 }
