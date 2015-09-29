@@ -8,12 +8,12 @@ using MobileGuestList.Providers;
 using Models;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
- 
+using MobileGuestList.Resources; 
+
 namespace MobileGuestList.Controllers
 {
     public class HomeController : BaseController
     {
-        private const string ValidationKeyError = "There is no connetion with database!";
         private AuthenticationProvider _authenticationProvider;
 
         public HomeController()
@@ -32,7 +32,7 @@ namespace MobileGuestList.Controllers
 
             if (mobileLoginDetails == null)
             {
-                ModelState.AddModelError("", ValidationKeyError);
+                ModelState.AddModelError("", Resources.Resource.ValidationKeyError);
                 return View();
             }
 

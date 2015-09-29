@@ -9,6 +9,7 @@ using Models;
 using System.ComponentModel.DataAnnotations;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MobileGuestList.Resources; 
 
 namespace MobileGuestList.Controllers
 {
@@ -39,10 +40,10 @@ namespace MobileGuestList.Controllers
             if (!ModelState.IsValid)
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
-                ViewBag.Contests = this.Repo.GetContestsList(stationId);
-
+                
+                ViewBag.Contests = this.Repo.GetContestsList(stationId);             
                 ViewBag.Alert = "<script>Alert();</script>";
-
+             
                 return View(model);
             }
 
@@ -54,8 +55,8 @@ namespace MobileGuestList.Controllers
             if (guests.Count() == 0)
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
+
                 ViewBag.Contests = this.Repo.GetContestsList(stationId);
-                
                 ViewBag.AlertSorry = "<script>AlertSorry();</script>";
                 
                 return View(model);
