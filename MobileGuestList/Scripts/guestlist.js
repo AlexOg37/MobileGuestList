@@ -55,6 +55,7 @@ function ShowOrHide() {
             $(this).closest(".checkbox_row").fadeIn('slow');
         });
 }
+
 function calculateChekboxesNum() {
     var wrapper = document.getElementsByClassName("guests");
     var total = 0;

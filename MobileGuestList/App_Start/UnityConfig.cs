@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//using Unity.Mvc4;
 
 namespace MobileGuestList.App_Start
 {
@@ -17,7 +16,6 @@ namespace MobileGuestList.App_Start
 
             //DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
-
         private static void RegisterTypes(IUnityContainer container)
         {
 

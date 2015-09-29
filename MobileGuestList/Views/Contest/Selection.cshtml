@@ -4,7 +4,6 @@
     <div class="block">
         <form method="post">
             <div class="contest">
-                @Html.ValidationMessage("keyName")
                 @Html.Raw(ViewBag.Alert)
                 @Html.Raw(ViewBag.AlertSorry)               
                 <select id="contestSelect" name="Id" onchange="OnCurrentContestChanged()">

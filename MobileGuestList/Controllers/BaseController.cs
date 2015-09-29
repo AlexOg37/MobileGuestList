@@ -26,6 +26,7 @@ namespace MobileGuestList.Controllers
                 return repo;
             }
         }
+
         public RedirectResult RedirectToLogin()
         {
             return Redirect(WebConfigurationManager.AppSettings["loginUrl"]);

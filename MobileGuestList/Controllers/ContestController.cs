@@ -13,19 +13,9 @@ using System.Web.UI.WebControls;
 namespace MobileGuestList.Controllers
 {
     public class ContestController : BaseController
-    {
-        public const string error = "*  You must first select a contest.";
-        public class SelectionForm
+    {            
+        public ActionResult Selection()
         {
-            [Display(Name = "Id")]
-            public int Id { get; set; }
-            public string SortByName { get; set; }
-        }
-        public ActionResult Selection(bool withError = false)
-        {
-            if (withError == true)
-                ModelState.AddModelError("keyName", error);
-
             ViewBag.Location = Helper.NavigationTextHeaderMessage;
 
             if (Helper.GetCurrentUserDetails() == null)

@@ -1,11 +1,14 @@
 ﻿ContestList = function (settings) {
 }
+
 function AlertSorry() {
     alert('Sorry, there are no listeners on this guest list');
 }
+
 function Alert() {
     alert('You must first select a contest');
 }
+
 function OnCurrentContestChanged() {
     var id = $('#contestSelect').val();
     $.ajax({
@@ -28,7 +31,6 @@ $('#toggle-link').click(function () {
     $(this).siblings("#toggler").slideToggle("slow");
     return false;
 });
-
 
 function InitSorting() {
     defaultList = $("#contestSelect").html();
@@ -71,6 +73,7 @@ function PositionFooter() {
     $('.content').css('min-height', contHeight);
     $('footer').css('opacity', 1);
 }
+
 $(document).ready(function () {
     PositionFooter();
     $(window).resize(function () {
@@ -99,7 +102,6 @@ $(document).ready(function () {
         else {
             $("#contestSelect").html(defaultList);
             $("#contestSelect").val(test);
-
         }
     });
 });

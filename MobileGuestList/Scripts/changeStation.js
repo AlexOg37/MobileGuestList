@@ -13,7 +13,6 @@
     $('#toggler').toggle("slow");
     $('#toggler div').show();
     $(item).hide();
-
     $('#station_call').text($(item).text());
 }
 
