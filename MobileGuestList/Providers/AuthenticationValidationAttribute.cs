@@ -18,12 +18,6 @@ namespace MobileGuestList.Providers
                 return;
             }
 
-            AccountController acController = filterContext.Controller as AccountController;
-            if (acController != null)
-            {
-                return;
-            }
-
             if (filterContext.HttpContext.Session[Helper.LoginCodeConst] == null)
             {
                 BaseController controller = filterContext.Controller as BaseController;

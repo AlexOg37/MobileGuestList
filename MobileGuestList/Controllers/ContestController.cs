@@ -84,12 +84,10 @@ namespace MobileGuestList.Controllers
         }
 
         [HttpPost]
-        public ActionResult UpdateContestSelection(int contestId)
+        public void UpdateContestSelection(int contestId)
         {
             Contest contest = this.Repo.GetContestById(contestId);
             HttpContext.Session[Helper.ContestConst] = contest;
-
-            return Json(new { });
         }
 
         public ActionResult Distribution()

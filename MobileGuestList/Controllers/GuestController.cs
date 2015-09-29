@@ -32,11 +32,9 @@ namespace MobileGuestList.Controllers
         }
 
         [HttpPost]
-        public ActionResult UpdateGuestState(int contWinId, bool mark)
+        public void UpdateGuestState(int contWinId, bool mark)
         {
             this.Repo.UpdateGuestState(contWinId, mark);
-
-            return Json(new { });
         }
     }
 }
