@@ -67,6 +67,7 @@ namespace MobileGuestList.Controllers
             if (code.IsEmpty() || code == AccessProvider.NoUserInDbState)
             {
                 ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                
                 return View(model);
             }
 

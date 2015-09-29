@@ -96,9 +96,9 @@ namespace MobileGuestList.Controllers
             return View();
         }
 
-        public ActionResult Distribute(bool Distribute)
+        public ActionResult Distribute(bool distribute)
         {
-            if (Distribute)
+            if (distribute)
             {
                 HttpSessionStateBase session = HttpContext.Session;
                 Contest contest = (Contest)session[Helper.ContestConst];
