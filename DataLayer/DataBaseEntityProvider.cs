@@ -14,7 +14,6 @@ namespace DataLayer
         private const string InitialCatalogName = "initial catalog=";
         private const string DbNameByDefault = "ps2021";
         
-        //ToDo: move this messages to resources
         private const string ConnectionIsNotExistMessage = "Connection template is not exist";
         private const string NoInitialCatalogInCSMessage = "There is no initial catalog in connection string";
 
@@ -33,7 +32,6 @@ namespace DataLayer
 
                     string connString = ConfigurationManager.ConnectionStrings[DataEntitiesConnectionName].ConnectionString;
                     string[] sections = connString.Split(';');
-                    //initial catalog=ps2021;
                     string catalogItem = sections.SingleOrDefault(el => el.Contains(InitialCatalogName));
 
                    if (string.IsNullOrWhiteSpace(catalogItem))
@@ -57,9 +55,7 @@ namespace DataLayer
 
         public DataBaseEntityProvider(string repoName)
         {
-            // TODO: Complete member initialization
             this.RepositoryName = repoName;
-
         }
     }
 }

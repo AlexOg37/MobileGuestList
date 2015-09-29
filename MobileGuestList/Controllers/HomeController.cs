@@ -8,8 +8,7 @@ using MobileGuestList.Providers;
 using Models;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-
-
+ 
 namespace MobileGuestList.Controllers
 {
     public class HomeController : BaseController
