@@ -14,15 +14,15 @@ namespace MobileGuestList.Providers
 {
     public class InformationProvider : IBaseInformationProvider
     {
-        DataBaseEntityProvider _provider = null;
         IEnumerable<Guest> _guestList;
         IEnumerable<Contest> _contestList;
         int _currentStationId = 0;
         int _currentContestId = 0;
+        string _dbName;
 
         public InformationProvider(string db)
         {
-            this._provider = new DataBaseEntityProvider(db);
+            _dbName = db;
         }
 
         public IEnumerable<Contest> GetContestsList(int stationId)
@@ -54,7 +54,10 @@ namespace MobileGuestList.Providers
             TimeZoneInfo pstZone = TimeZoneInfo.FindSystemTimeZoneById(timeZone);
             var datetime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, pstZone);
 
-            this._provider.Context.MobileGuestListMarkDistributed(contestId, datetime);
+            using (var provider = new DataBaseEntityProvider(this._dbName))
+            {
+                provider.Context.MobileGuestListMarkDistributed(contestId, datetime);
+            }
         }
 
         public void UpdateGuestState(int contWinId, bool mark)
@@ -65,36 +68,47 @@ namespace MobileGuestList.Providers
                 string timeZone = mobileLoginDetails.TimeZone.ToString();
                 TimeZoneInfo pstZone = TimeZoneInfo.FindSystemTimeZoneById(timeZone);
                 var datetime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, pstZone);
-
-                this._provider.Context.MobileGuestAttended(contWinId, datetime);
+                using (var provider = new DataBaseEntityProvider(this._dbName))
+                {
+                    provider.Context.MobileGuestAttended(contWinId, datetime);
+                }
             }
             else
             {
-                this._provider.Context.MobileGuestRemoveAttended(contWinId);
+                using (var provider = new DataBaseEntityProvider(this._dbName))
+                {
+                    provider.Context.MobileGuestRemoveAttended(contWinId);
+                }
             }
         }
 
         public IEnumerable<Station> GetMobileStationList(int userId)
         {
-            return this._provider.Context.MobileStationList(userId).Select(el => new Station()
+            using (var provider = new DataBaseEntityProvider(this._dbName))
             {
-                StationCall = el.stationcall,
-                StationId = el.stationid
-            }).ToList();
+                return provider.Context.MobileStationList(userId).Select(el => new Station()
+                {
+                    StationCall = el.stationcall,
+                    StationId = el.stationid
+                }).ToList();
+            }
         }
 
         public MobileLoginDetails ChangeStation(int userId, int stationId)
         {
-            return this._provider.Context.MobileChangeStation(userId, stationId).Select(el => new MobileLoginDetails
+            using (var provider = new DataBaseEntityProvider(this._dbName))
             {
-                UserName = el.UserName,
-                UserID = el.UserID,
-                SQLDB = el.SQLDB,
-                CultureFormat = el.CultureFormat,
-                TimeZone = el.TimeZone,
-                StationID = el.StationID,
-                AccessToGuestList = el.AccessToGuestList,
-            }).FirstOrDefault();
+                return provider.Context.MobileChangeStation(userId, stationId).Select(el => new MobileLoginDetails
+                {
+                    UserName = el.UserName,
+                    UserID = el.UserID,
+                    SQLDB = el.SQLDB,
+                    CultureFormat = el.CultureFormat,
+                    TimeZone = el.TimeZone,
+                    StationID = el.StationID,
+                    AccessToGuestList = el.AccessToGuestList,
+                }).FirstOrDefault();
+            }
         }
 
         void UpdateContestList(int newStationId, bool forceUpdate = false)
@@ -105,12 +119,15 @@ namespace MobileGuestList.Providers
             }
 
             this._currentStationId = newStationId;
-            this._contestList = this._provider.Context.MobileGuestListContests(this._currentStationId).Select(el => new Contest()
+            using (var provider = new DataBaseEntityProvider(this._dbName))
             {
-                Id = el.ContestID,
-                Name = el.ContestName,
-                StartDate = el.StartDate
-            }).ToList();
+                this._contestList = provider.Context.MobileGuestListContests(this._currentStationId).Select(el => new Contest()
+                {
+                    Id = el.ContestID,
+                    Name = el.ContestName,
+                    StartDate = el.StartDate
+                }).ToList();
+            }
         }
 
         void UpdateGuestList(int newContestId, bool forceUpdate = false)
@@ -121,20 +138,23 @@ namespace MobileGuestList.Providers
             }
 
             this._currentContestId = newContestId;
-            this._guestList = this._provider.Context.MobileGuestListPeople(this._currentContestId).Select(el => new Guest()
+            using (var provider = new DataBaseEntityProvider(this._dbName))
             {
-                ContWinID = el.ContWinID,
-                Name = el.fname,
-                LastName = el.lname,
-                HomeCity = el.HCity,
-                BusinessCity = el.BCity,
-                Birthdate = el.DOB,
-                HomePhone = el.HomePhone,
-                BusinessPhone = el.WorkPhone,
-                MobilePhone = el.MobilePhone,
-                FulfillmentDate = el.FulfillmentDate,
-                Attended = el.attended
-            }).ToList();
+                this._guestList = provider.Context.MobileGuestListPeople(this._currentContestId).Select(el => new Guest()
+                {
+                    ContWinID = el.ContWinID,
+                    Name = el.fname,
+                    LastName = el.lname,
+                    HomeCity = el.HCity,
+                    BusinessCity = el.BCity,
+                    Birthdate = el.DOB,
+                    HomePhone = el.HomePhone,
+                    BusinessPhone = el.WorkPhone,
+                    MobilePhone = el.MobilePhone,
+                    FulfillmentDate = el.FulfillmentDate,
+                    Attended = el.attended
+                }).ToList();
+            }
         }
     }
 }

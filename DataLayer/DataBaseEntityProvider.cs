@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public class DataBaseEntityProvider
+    public class DataBaseEntityProvider : IDisposable
     {
         private const string DataEntitiesConnectionName = "DataEntitiesConnection";
         private const string InitialCatalogName = "initial catalog=";
@@ -60,6 +60,12 @@ namespace DataLayer
             // TODO: Complete member initialization
             this.RepositoryName = repoName;
 
+        }
+
+        public void Dispose()
+        {
+            if(this.Context!=null)
+                this.Context.Dispose();
         }
     }
 }
