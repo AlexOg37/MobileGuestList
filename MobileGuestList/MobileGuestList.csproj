@@ -156,16 +156,9 @@
     <Content Include="Content\slidebars.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Images\check.png" />
     <Content Include="Images\custom_checkbox.png" />
     <Content Include="Images\HeaderLogo.png" />
-    <Content Include="Images\inputBg.gif" />
-    <Content Include="Images\LinkFaceBook.png" />
-    <Content Include="Images\LinkGooglePlus.png" />
-    <Content Include="Images\LinkTwitter.png" />
     <Content Include="Images\MenuButton.png" />
-    <Content Include="Images\tick.png" />
-    <Content Include="Images\tick1.png" />
     <Content Include="Scripts\changeStation.js" />
     <Content Include="Scripts\contestlist.js" />
     <Content Include="Scripts\guestlist.js" />

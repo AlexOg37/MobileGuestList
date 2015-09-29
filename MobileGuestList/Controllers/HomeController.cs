@@ -44,7 +44,7 @@ namespace MobileGuestList.Controllers
 
         public ActionResult Help()
         {
-            ViewBag.Location = "Help";
+            ViewBag.Location = Resources.Resource.Help;
 
             return View();
         }

@@ -17,7 +17,7 @@ namespace MobileGuestList.Controllers
     {
         public ActionResult Selection()
         {
-            ViewBag.Location = Helper.NavigationTextHeaderMessage;
+            ViewBag.Location = Resources.Resource.NavigationTextHeaderMessage;
 
             if (Helper.GetCurrentUserDetails() == null)
             {
@@ -92,7 +92,7 @@ namespace MobileGuestList.Controllers
 
         public ActionResult Distribution()
         {
-            ViewBag.Location = Helper.NavigationTextHeaderMessage;
+            ViewBag.Location = Resources.Resource.NavigationTextHeaderMessage;
 
             HttpSessionStateBase session = HttpContext.Session;
             Contest contest = (Contest)session[Helper.ContestConst];

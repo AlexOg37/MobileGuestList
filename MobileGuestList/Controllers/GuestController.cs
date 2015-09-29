@@ -20,7 +20,7 @@ namespace MobileGuestList.Controllers
                 return RedirectToAction("Selection", "Contest", new { withError = true });
             }
 
-            ViewBag.Location = Helper.NavigationTextHeaderMessage;
+            ViewBag.Location = Resources.Resource.NavigationTextHeaderMessage;
 
             HttpSessionStateBase session = HttpContext.Session;
             Contest contest = (Contest)session[Helper.ContestConst];

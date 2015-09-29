@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="String1" xml:space="preserve">
-    <value />
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="NavigationTextHeaderMessage" xml:space="preserve">
+    <value>Listener Database &gt; Guest Lists</value>
   </data>
   <data name="ValidationKeyError" xml:space="preserve">
     <value>There is no connetion with database!</value>
