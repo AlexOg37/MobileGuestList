@@ -42,7 +42,7 @@ namespace MobileGuestList.Controllers
             if (!ModelState.IsValid)
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
-
+                
                 ViewBag.Contests = this.Repo.GetContestsList(stationId);
                 ViewBag.Alert = "<script>Alert();</script>";
 
@@ -57,7 +57,7 @@ namespace MobileGuestList.Controllers
             if (guests.Count() == 0)
             {
                 int stationId = Helper.GetCurrentUserDetails().StationID;
-
+                
                 ViewBag.Contests = this.Repo.GetContestsList(stationId);
                 ViewBag.AlertSorry = "<script>AlertSorry();</script>";
 

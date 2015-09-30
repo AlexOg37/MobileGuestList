@@ -50,13 +50,16 @@ namespace MobileGuestList.Controllers
         }
 
         [HttpPost]
-        public ActionResult ChangeStation(int stationId)
+        public ActionResult ChangeStation(int stationId, string stationCall)
         {
             int userId = Helper.GetCurrentUserDetails().UserID;
             this.Repo.ChangeStation(userId, stationId);
 
             MobileLoginDetails mobileLoginDetails = HttpContext.Session[typeof(MobileLoginDetails).ToString()] as MobileLoginDetails;
+
             mobileLoginDetails.StationID = stationId;
+            mobileLoginDetails.StationCall = stationCall;
+
             HttpContext.Session[mobileLoginDetails.GetType().ToString()] = mobileLoginDetails;
 
             var resultList = this.Repo.GetContestsList(stationId).ToList();

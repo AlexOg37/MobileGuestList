@@ -1,7 +1,7 @@
 ﻿function changeStation() {
     var item = this;
     var actionUrl = $("#toggler").attr("data-action");
-    $.post(actionUrl + '?stationId=' + $(item).attr('data-station-id'), function (result) {
+    $.post(actionUrl, $.param({ stationId: $(item).attr('data-station-id'), stationCall: $(item).text() }), function (result) {
         $("#contestSelect").html("");
         $("#contestSelect").append("<option selected='selected' value='' data-sort='no'>Pick Your Contest</option>");
         $(result).each(function (index, item) {
