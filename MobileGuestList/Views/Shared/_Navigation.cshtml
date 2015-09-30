@@ -29,11 +29,17 @@
 <div id="clear"></div>
 <hr>
 <div class="navigation">
+    <input type="hidden" id="contest-select" value="@Url.Action("Selection", "Contest")" />
+    <input type="hidden" id="full-select" value="https://next.promosuite.com/MyPromoSuite.aspx" />
+    <input type="hidden" id="help-select" value="@Url.Action("Help", "Home")" />
+    <input type="hidden" id="logout-select" value="@Url.Action("LogOut", "Home")" />
+    
     <ul>
-        <li onclick="HideMenu('/Contest/Selection')"><a href="#">Guest Lists</a></li>
-        <li onclick="HideMenu('https://next.promosuite.com/MyPromoSuite.aspx')"><a href="#">Full Site</a></li>
-        <li onclick="HideMenu('/Home/Help')"><a href="#">Help</a></li>
-        <li onclick="HideMenu('/Home/LogOut')"><a href="#">Logout</a></li>
+        <li onclick="HideMenu($('#contest-select').attr('value'))"><a href="#">Guest Lists</a></li>
+
+        <li onclick="HideMenu($('#full-select').attr('value'))"><a href="#">Full Site</a></li>
+        <li onclick="HideMenu($('#help-select').attr('value'))"><a href="#">Help</a></li>
+        <li onclick="HideMenu($('#logout-select').attr('value'))"><a href="#">Logout</a></li>
     </ul>
 </div>
 
