@@ -1,7 +1,4 @@
-﻿ContestList = function (settings) {
-}
-
-function AlertSorry() {
+﻿function AlertSorry() {
     alert('Sorry, there are no listeners on this guest list');
 }
 
